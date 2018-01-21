@@ -5,6 +5,7 @@ const validationMiddleware = require('./middleware/validation')
 const loggerMiddleware = require('./middleware/logger')
 
 const initRoutes = require('./init/initRoutes')
+const initRateLimiter = require('./init/initRateLimiter')
 
 const app = require('./init/initApp')
 const handle = app.getRequestHandler()
@@ -14,6 +15,9 @@ module.exports = app.prepare()
     const server = express()
 
     server.use(loggerMiddleware.request)
+
+    initRateLimiter(server)
+
     server.use(validationMiddleware)
     server.use(bodyParser.json())
     server.use(bodyParser.urlencoded({ extended: false }))
