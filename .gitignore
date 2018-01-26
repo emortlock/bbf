@@ -55,5 +55,6 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-# next.js build dir
+# next.js build dirs
 .next
+.static
