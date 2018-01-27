@@ -20,7 +20,11 @@ const outDir = path.join(rootDir, '.next')
 module.exports = app.prepare()
   .then(() => {
     const server = express()
-    server.use(compressionMiddleware())
+
+    if (!config.isDev) {
+      server.use(compressionMiddleware())
+    }
+
     server.use(loggerMiddleware.request)
 
     initRateLimiter(server)
@@ -30,10 +34,8 @@ module.exports = app.prepare()
     server.use(bodyParser.urlencoded({ extended: false }))
     server.use(loggerMiddleware.body)
 
-    if (config.isDev) {
-      server.use('/static', express.static(path.join(rootDir, '.static')))
-    } else {
-      server.use('/_next/', express.static(path.join(outDir), {
+    if (!config.isDev) {
+      server.use('/_next/', express.static(outDir, {
         maxAge: "365d",
         immutable: true
       }))
