@@ -1,7 +1,7 @@
 import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 
-import '../assets/styles/main.css'
+import stylesheet from '../assets/styles/main.css'
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -17,11 +17,7 @@ export default class MyDocument extends Document {
         <Head>
           {
             process.env.NODE_ENV === 'development' ? (
-              <link
-                rel="stylesheet"
-                type="text/css"
-                href="/static/assets/bundle.css"
-              />
+              <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
             ) : (
               <link
                 rel="stylesheet"
