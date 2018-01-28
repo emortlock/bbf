@@ -34,7 +34,9 @@ module.exports = app.prepare()
     server.use(bodyParser.urlencoded({ extended: false }))
     server.use(loggerMiddleware.body)
 
-    if (!config.isDev) {
+    if (config.isDev) {
+      server.use('/static/', express.static(path.join(rootDir, '.static')))
+    } else {
       server.use('/_next/', express.static(outDir, {
         maxAge: "365d",
         immutable: true
