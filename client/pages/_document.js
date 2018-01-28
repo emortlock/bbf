@@ -15,10 +15,13 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
+          <meta key="charset" charSet="utf-8" />
+          <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
           {
-            process.env.NODE_ENV === 'development' ? (
-              <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-            ) : (
+            process.env.NODE_ENV === 'development'
+            // eslint-disable-next-line react/no-danger
+            ? <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+            : (
               <link
                 rel="stylesheet"
                 type="text/css"
