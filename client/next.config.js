@@ -21,80 +21,82 @@ module.exports = {
   webpack: (config, { buildId, dev }) => {
     const newConfig = Object.assign({}, config)
 
-    newConfig.module.rules.push({
-      test: /\.((sa|sc|c)ss|jpg|png)$/,
-      use: [
+    const cssLoader = ['babel-loader']
+
+    if (dev) {
+      cssLoader.push('raw-loader')
+    } else {
+      cssLoader.push(
         {
-          loader: 'emit-file-loader',
+          loader: 'css-loader',
           options: {
-            name: 'dist/[path][name].[ext]',
+            url: true,
+            sourceMap: dev,
+            importLoaders: 1,
           },
         },
-      ],
+      )
+    }
+
+    cssLoader.push({
+      loader: 'postcss-loader',
+      options: {
+        plugins: [
+          postcssImport(),
+          tailwind(path.join(__dirname, 'tailwind.config.js')),
+          autoprefixer(),
+          cssnano(),
+        ],
+      },
     })
 
-    newConfig.module.rules.push({
-      test: /\.(jpg|png|svg)$/,
-      use: [
-        {
-          loader: 'url-loader',
-          options: {
-            limit: 10000,
-            name: '.static/assets/[hash].[ext]',
-            outputPath: dev ? path.join(__dirname, '/') : undefined,
-            publicPath(url) {
-              return url.replace(/^.*.static/, '/static')
+    newConfig.module.rules.push(
+      {
+        test: /\.((sa|sc|c)ss|jpg|png)$/,
+        use: [
+          {
+            loader: 'emit-file-loader',
+            options: {
+              name: 'dist/[path][name].[ext]',
             },
           },
-        },
-      ],
-    })
-
-    newConfig.module.rules.push({
-      test: /\.(sa|sc|c)ss$/,
-      use: ['extracted-loader'].concat(
-        ExtractTextPlugin.extract({
-          use: [
-            'babel-loader',
-            {
-              loader: 'css-loader',
-              options: {
-                url: true,
-                minimize: !dev,
-                sourceMap: dev,
-                importLoaders: 1,
+        ],
+      },
+      {
+        test: /\.(jpg|png|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: '.static/assets/[hash].[ext]',
+              outputPath: dev ? path.join(__dirname, '/') : undefined,
+              publicPath(url) {
+                return url.replace(/^.*.static/, '/static')
               },
             },
-            {
-              loader: 'postcss-loader',
-              options: {
-                plugins: [
-                  postcssImport(),
-                  tailwind(path.join(__dirname, 'tailwind.config.js')),
-                  autoprefixer(),
-                  cssnano(),
-                ],
-              },
-            },
-          ],
-        }),
-      ),
-    })
-
-    newConfig.plugins.push(
-      new ExtractTextPlugin({
-        filename: dev
-          ? path.join(__dirname, '.static/assets/bundle.css')
-          : `.static/assets/${buildId}.css`,
-        allChunks: true,
-      }),
+          },
+        ],
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: dev
+          ? cssLoader
+          : ['extracted-loader'].concat(ExtractTextPlugin.extract({ use: cssLoader })),
+      },
     )
 
     if (!dev) {
       newConfig.plugins.push(
+        new ExtractTextPlugin({
+          filename: dev
+            ? path.join(__dirname, '.static/assets/bundle.css')
+            : `.static/assets/${buildId}.css`,
+          allChunks: true,
+        }),
         new PurgecssPlugin({
           paths: glob.sync([
-            path.join(__dirname, '/**/*.jsx'),
+            path.join(__dirname, '/**/*.js'),
           ]),
           extractors: [
             {
