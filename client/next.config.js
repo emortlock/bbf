@@ -27,7 +27,6 @@ module.exports = {
       cssLoader.push('raw-loader')
     } else {
       cssLoader.push(
-        'style-loader',
         {
           loader: 'css-loader',
           options: {
@@ -42,7 +41,6 @@ module.exports = {
     cssLoader.push({
       loader: 'postcss-loader',
       options: {
-        ident: 'postcss',
         plugins: [
           postcssImport(),
           tailwind(path.join(__dirname, 'tailwind.config.js')),
@@ -98,7 +96,7 @@ module.exports = {
         }),
         new PurgecssPlugin({
           paths: glob.sync([
-            path.join(__dirname, '/**/*.jsx'),
+            path.join(__dirname, '/**/*.js'),
           ]),
           extractors: [
             {
