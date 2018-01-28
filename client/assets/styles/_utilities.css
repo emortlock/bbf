@@ -1,0 +1,5 @@
+@tailwind utilities;
+
+.min-h-screen-1\/2 {
+  min-height: 50vh;
+}

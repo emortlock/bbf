@@ -1,2 +1,2 @@
-@import "./vendor/_tailwind-preflight.css";
-@import "./vendor/_tailwind-utilities.css";
+@import "./_base";
+@import "./_utilities";
