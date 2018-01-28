@@ -7,6 +7,8 @@ const PurgecssPlugin = require('purgecss-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
 const postcssImport = require('postcss-import')
+const postcssNested = require('postcss-nested')
+const syntax = require('postcss-scss')
 const tailwind = require('tailwindcss')
 
 // Custom PurgeCSS extractor for Tailwind that allows special characters in
@@ -41,8 +43,10 @@ module.exports = {
     cssLoader.push({
       loader: 'postcss-loader',
       options: {
+        syntax,
         plugins: [
           postcssImport(),
+          postcssNested(),
           tailwind(path.join(__dirname, 'tailwind.config.js')),
           autoprefixer(),
           cssnano(),
