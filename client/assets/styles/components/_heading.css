@@ -1,0 +1,15 @@
+.c-heading {
+  @apply .relative .pb-2;
+
+  &::after {
+    @apply .w-16 .absolute .pin-b .pin-x .border-green .mx-auto;
+
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    content: "";
+  }
+}
+
+.c-heading--divider-white::after {
+  @apply .border-white
+}

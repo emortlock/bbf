@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
+import { H1 } from '../Heading'
+
 import defaultImage from '../../assets/images/hero.jpg'
 
 const Hero = ({ title, image, children, fullHeight }) => (
@@ -15,7 +17,7 @@ const Hero = ({ title, image, children, fullHeight }) => (
     {
       (!!title || !!children) && (
         <div className="mx-auto text-white text-center max-w-lg p-4">
-          { title && <h1 className="mb-4 uppercase text-5xl">{ title }</h1> }
+          { title && <H1 className="uppercase text-5xl">{ title }</H1> }
           { children && <div className="opacity-75 text-lg">{ children }</div> }
         </div>
       )

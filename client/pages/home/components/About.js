@@ -1,11 +1,12 @@
 import React from 'react'
-import Link from 'next/link'
 
+import { H2 } from '../../../components/Heading'
 import Section from '../../../components/Section'
+import { ButtonLink } from '../../../components/Button'
 
 const About = () => (
   <Section bgColour="green">
-    <h2>About</h2>
+    <H2 dividerColour="white">About Us</H2>
 
     <p>
       Berkeley Business Forms Ltd was established in 1990 and has become one of the leading print
@@ -13,9 +14,9 @@ const About = () => (
       and trusted competitive pricing structure and service.
     </p>
 
-    <Link href="/about">
-      <a>Find out more</a>
-    </Link>
+    <ButtonLink to="/about">
+      Find out more
+    </ButtonLink>
   </Section>
 )
 
