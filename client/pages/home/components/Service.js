@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { GridWrapper, GridItem } from '../../../components/Grid'
 import { H2, H3 } from '../../../components/Heading'
 import Section from '../../../components/Section'
 
@@ -7,8 +8,8 @@ const Service = () => (
   <Section>
     <H2>Our Service</H2>
 
-    <div className="flex flex-wrap -mx-4">
-      <div className="w-full md:w-1/2 px-4">
+    <GridWrapper>
+      <GridItem className="w-full md:w-1/2">
         <H3 className="md:w-64 mx-auto">Saving Your More on Your Stationery Printing</H3>
 
         <div className="text-left">
@@ -37,9 +38,9 @@ const Service = () => (
             <li>No middle men</li>
           </ul>
         </div>
-      </div>
+      </GridItem>
 
-      <div className="w-full md:w-1/2 px-4">
+      <GridItem className="w-full md:w-1/2">
         <H3 className="md:w-64 mx-auto">Better Stationery for a Better Business</H3>
 
         <div className="text-left">
@@ -62,8 +63,8 @@ const Service = () => (
             exceed all corporate expectations with our extensive range of products.
           </p>
         </div>
-      </div>
-    </div>
+      </GridItem>
+    </GridWrapper>
   </Section>
 )
 
