@@ -1,5 +1,5 @@
 .c-heading {
-  @apply .relative .pb-2;
+  @apply .relative .pb-4;
 
   &::after {
     @apply .w-16 .absolute .pin-b .pin-x .border-green .mx-auto;

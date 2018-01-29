@@ -7,6 +7,7 @@ const Section = ({ children, bgColour }) => (
     className={classnames(
       'text-center p-8',
       bgColour === 'green' && 'bg-green-light text-white',
+      bgColour === 'grey' && 'bg-grey-dark text-white',
     )}
   >
     <div className="max-w-lg mx-auto">
@@ -17,7 +18,7 @@ const Section = ({ children, bgColour }) => (
 
 Section.propTypes = {
   children: PropTypes.node.isRequired,
-  bgColour: PropTypes.oneOf(['white', 'green']),
+  bgColour: PropTypes.oneOf(['white', 'green', 'grey']),
 }
 
 Section.defaultProps = {

@@ -4,6 +4,8 @@ import Hero from '../../components/Hero'
 import Layout from '../../components/Layout'
 
 import About from './components/About'
+import Service from './components/Service'
+import Guarantee from './components/Guarantee'
 
 const Home = () => (
   <Layout stickyHeader>
@@ -16,6 +18,8 @@ const Home = () => (
     </Hero>
 
     <About />
+    <Service />
+    <Guarantee />
   </Layout>
 )
 
