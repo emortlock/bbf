@@ -6,6 +6,7 @@ const PurgecssPlugin = require('purgecss-webpack-plugin')
 
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
+const postcssColorFunction = require('postcss-color-function')
 const postcssImport = require('postcss-import')
 const postcssNested = require('postcss-nested')
 const syntax = require('postcss-scss')
@@ -48,6 +49,7 @@ module.exports = {
           postcssImport(),
           postcssNested(),
           tailwind(path.join(__dirname, 'tailwind.config.js')),
+          postcssColorFunction(),
           autoprefixer(),
           cssnano(),
         ],

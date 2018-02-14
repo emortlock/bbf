@@ -363,7 +363,7 @@ module.exports = {
 
   backgroundColors: {
     ...colors,
-    body: colors.white,
+    body: colors['grey-lightest'],
   },
 
 

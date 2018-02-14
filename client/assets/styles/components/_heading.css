@@ -1,5 +1,5 @@
 .c-heading {
-  @apply .relative .pb-4;
+  @apply .relative .inline-block .pb-4;
 
   &::after {
     @apply .w-16 .absolute .pin-b .pin-x .border-green .mx-auto;
@@ -8,8 +8,20 @@
     border-bottom-width: 3px;
     content: "";
   }
-}
 
-.c-heading--divider-white::after {
-  @apply .border-white
+  &.c-heading--center {
+    @apply .block .text-center;
+  }
+
+  &.c-heading--no-divider {
+    @apply .pb-0;
+
+    &::after {
+      @apply .hidden;
+    }
+  }
+
+  &.c-heading--divider-white::after {
+    @apply .border-white
+  }
 }

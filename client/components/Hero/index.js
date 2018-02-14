@@ -9,16 +9,17 @@ import defaultImage from '../../assets/images/hero.jpg'
 const Hero = ({ title, image, children, fullHeight }) => (
   <div
     className={classnames(
-      'bg-cover bg-center flex flex-col justify-center w-screen',
-      fullHeight ? 'min-h-screen' : 'min-h-screen-1/2',
+      'c-hero',
+      fullHeight && 'c-hero--full-height',
     )}
     style={{ backgroundImage: `url(${image})` }}
   >
+    <div className="c-hero__overlay" />
     {
       (!!title || !!children) && (
-        <div className="mx-auto text-white text-center max-w-lg p-4">
-          { title && <H1 className="uppercase text-5xl">{ title }</H1> }
-          { children && <div className="opacity-75 text-lg">{ children }</div> }
+        <div className="c-hero__body">
+          { title && <H1 className="c-hero__title">{ title }</H1> }
+          { children && <div className="c-hero__tagline">{ children }</div> }
         </div>
       )
     }
@@ -27,7 +28,7 @@ const Hero = ({ title, image, children, fullHeight }) => (
 
 Hero.propTypes = {
   title: PropTypes.string,
-  image: PropTypes.node,
+  image: PropTypes.string,
   children: PropTypes.node,
   fullHeight: PropTypes.bool,
 }

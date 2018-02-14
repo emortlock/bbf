@@ -1,0 +1,40 @@
+.c-product {
+  cursor: pointer;
+}
+
+.c-product__body {
+  @apply .absolute .pin .flex .flex-col .justify-center;
+
+  .c-product:hover &,
+  .c-product:active &,
+  .c-product:focus & {
+    background-color: color(config('colors.green') a(60%));
+  }
+}
+
+.c-product_title {
+  @apply .mb-0 .text-white .text-shadow;
+
+  .c-product:hover &,
+  .c-product:active &,
+  .c-product:focus & {
+    text-shadow: none;
+  }
+}
+
+.c-product__description {
+  @apply .visually-hidden .uppercase .font-bold .mx-auto .px-4;
+  color: color(config('colors.white') a(75%));
+
+  .c-product:hover &,
+  .c-product:active &,
+  .c-product:focus & {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    clip-path: none;
+  }
+}

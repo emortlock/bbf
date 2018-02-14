@@ -1,13 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import Link from 'next/link'
 
-const Header = ({ sticky }) => (
+const Header = () => (
   <header
     className={classnames(
-      'flex items-center justify-between flex-wrap bg-grey p-4',
-      sticky && 'fixed pin-x z-50',
+      'flex items-center justify-between flex-wrap bg-transparent p-4 absolute bg-transparent pin-x z-10',
     )}
   >
     <div className="flex items-center flex-no-shrink mr-6">
@@ -21,13 +19,5 @@ const Header = ({ sticky }) => (
     </div>
   </header>
 )
-
-Header.propTypes = {
-  sticky: PropTypes.bool,
-}
-
-Header.defaultProps = {
-  sticky: false,
-}
 
 export default Header

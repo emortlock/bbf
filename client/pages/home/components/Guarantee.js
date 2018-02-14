@@ -4,8 +4,8 @@ import { H2 } from '../../../components/Heading'
 import Section from '../../../components/Section'
 import { ButtonLink } from '../../../components/Button'
 
-const About = () => (
-  <Section bgColour="grey">
+const Guarantee = () => (
+  <Section bgColour="green">
     <H2 dividerColour="white">Our Guarantee</H2>
 
     <p>
@@ -13,10 +13,10 @@ const About = () => (
       right than us.
     </p>
 
-    <ButtonLink to="/about">
+    <ButtonLink to="/guarantee">
       Find out more
     </ButtonLink>
   </Section>
 )
 
-export default About
+export default Guarantee
