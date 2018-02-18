@@ -16,6 +16,8 @@ const Layout = ({ children }) => (
       <meta key="geo.region" name="geo.region" content="GB-FLN" />
       <meta key="geo.placename" name="geo.placename" content="Shotton" />
       <meta key="geo.position" name="geo.position" content="53.211568;-3.0323" />
+
+      <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" />
     </Head>
     <Header />
     { children }
