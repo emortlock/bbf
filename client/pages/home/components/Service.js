@@ -10,7 +10,7 @@ const Service = () => (
 
     <GridWrapper>
       <GridItem className="w-full md:w-1/2">
-        <H3 className="md:w-64 mx-auto">Saving Your More on Your Stationery Printing</H3>
+        <H3 noDivider className="md:w-64 mx-auto">Saving Your More on Your Stationery Printing</H3>
 
         <div className="text-left">
           <p>
@@ -41,7 +41,7 @@ const Service = () => (
       </GridItem>
 
       <GridItem className="w-full md:w-1/2">
-        <H3 className="md:w-64 mx-auto">Better Stationery for a Better Business</H3>
+        <H3 noDivider className="md:w-64 mx-auto">Better Stationery for a Better Business</H3>
 
         <div className="text-left">
           <p>
