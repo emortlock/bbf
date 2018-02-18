@@ -1,4 +1,5 @@
 const withCSS = require('@zeit/next-css')
+const withBundleAnalyzer = require('@zeit/next-bundle-analyzer')
 
 const path = require('path')
 const glob = require('glob-all')
@@ -12,7 +13,9 @@ class TailwindExtractor {
   }
 }
 
-module.exports = withCSS({
+module.exports = withBundleAnalyzer(withCSS({
+  analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
+  analyzeClient: ['client', 'both'].includes(process.env.BUNDLE_ANALYZE),
   webpack: (config, { dev, isServer }) => {
     const newConfig = Object.assign({}, config)
 
@@ -21,8 +24,10 @@ module.exports = withCSS({
     if (!dev && !isServer) {
       newConfig.plugins.push(
         new PurgecssPlugin({
+          whitelist: ['html', 'body', 'c-heading--divider-white'],
           paths: glob.sync([
             path.join(__dirname, '/src/client/**/*.js'),
+            path.join(__dirname, '/src/client/**/*.jsx'),
           ]),
           extractors: [
             {
@@ -36,4 +41,4 @@ module.exports = withCSS({
 
     return newConfig
   },
-})
+}))
