@@ -9,6 +9,7 @@ const Heading = ({ HeadingLevel, children, className, dividerColour, noDivider, 
       center && 'c-heading--center',
       noDivider && 'c-heading--no-divider',
       dividerColour && `c-heading--divider-${dividerColour}`,
+      HeadingLevel.match(/\d/)[0] < 3 && 'uppercase',
       className,
     )}
   >
