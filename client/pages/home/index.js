@@ -8,14 +8,18 @@ import About from './components/About'
 import Service from './components/Service'
 import Guarantee from './components/Guarantee'
 import Products from './components/Products'
+import Contact from './components/Contact'
 
 const Home = () => (
   <Layout>
-    <Hero title="Your Guarantee of Print Satisfaction" fullHeight>
+    <Hero
+      title={<span>Your Guarantee of <br className="hidden sm:c-hero__break" />Print Satisfaction</span>}
+      fullHeight
+    >
       <p>
         Here you will find a bespoke printing service that can be tailored to suit your needs.
         Whether you need cost-effective compliment slips or lower priced payslips; you can find
-        great value products and services here at Berkeley Business Forms
+        great value products and services here at Berkeley Business Forms.
       </p>
     </Hero>
     <PageWrap padded={false}>
@@ -23,6 +27,7 @@ const Home = () => (
       <Service />
       <Guarantee />
       <Products />
+      <Contact />
     </PageWrap>
   </Layout>
 )
