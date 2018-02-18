@@ -16,7 +16,8 @@ const Product = ({ id }) => {
   const product = getById(id)
   const productIndex = product.order - 1
   const prev = productIndex - 1 >= 0 ? products[productIndex - 1] : products[products.length - 1]
-  const next = productIndex + 1 <= products.length ? products[productIndex + 1] : products[0]
+  const next = productIndex + 1 < products.length ? products[productIndex + 1] : products[0]
+  const { Content } = product
 
   return (
     <Layout>
@@ -33,24 +34,10 @@ const Product = ({ id }) => {
       <Hero title={product.name} />
       <PageWrap>
         <GridWrapper>
-          <GridItem>
-            <p>
-              Produced to the highest standards on lithographic printing presses on a wide variety
-              of papers and cards.
-            </p>
-            <p>
-              We can also produce on digital presses for smaller quantities. The quality of print by
-              this method is excellent.
-            </p>
-            <H2 noDivider>Other Processes Suitable for Business Stationery</H2>
-            <ul>
-              <li>Thermography</li>
-              <li>Foil Blocking</li>
-              <li>Embossing</li>
-              <li>Die Stamping</li>
-            </ul>
+          <GridItem className="md:w-3/4">
+            <Content />
           </GridItem>
-          <GridItem>
+          <GridItem className="md:w-1/4">
             <H2 noDivider>Uses</H2>
             <ul>
               {
@@ -64,10 +51,10 @@ const Product = ({ id }) => {
 
         <div className="clearfix">
           <ButtonLink to={`/products${prev.path}`} className="float-left">
-            { prev.name }
+            &lt; { prev.name }
           </ButtonLink>
           <ButtonLink to={`/products${next.path}`} className="float-right">
-            { next.name }
+            { next.name } &gt;
           </ButtonLink>
         </div>
       </PageWrap>

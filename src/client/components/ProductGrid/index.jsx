@@ -12,7 +12,7 @@ const ProductGrid = ({ className, products }) => (
   <GridWrapper className={className} gutterSize="zero" horizontallyCenter>
     {
       products.sort((a, b) => a.order < b.order ? -1 : 1).map(product => (
-        <GridItem key={product.key} className="w-1/2 lg:w-1/3" gutterSize="zero">
+        <GridItem key={product.key} className="sm:w-1/2 lg:w-1/3" gutterSize="zero">
           {
             product.path.startsWith('/')
               ? (

@@ -1,4 +1,5 @@
 const withCSS = require('@zeit/next-css')
+const withMdxc = require('@zeit/next-mdxc')
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer')
 
 const path = require('path')
@@ -13,7 +14,7 @@ class TailwindExtractor {
   }
 }
 
-module.exports = withBundleAnalyzer(withCSS({
+module.exports = withBundleAnalyzer(withCSS(withMdxc({
   analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
   analyzeClient: ['client', 'both'].includes(process.env.BUNDLE_ANALYZE),
   webpack: (config, { dev, isServer }) => {
@@ -29,16 +30,14 @@ module.exports = withBundleAnalyzer(withCSS({
             path.join(__dirname, '/src/client/**/*.js'),
             path.join(__dirname, '/src/client/**/*.jsx'),
           ]),
-          extractors: [
-            {
-              extractor: TailwindExtractor,
-              extensions: ['html', 'js', 'jsx'],
-            },
-          ],
+          extractors: [{
+            extractor: TailwindExtractor,
+            extensions: ['html', 'js', 'jsx'],
+          }],
         }),
       )
     }
 
     return newConfig
   },
-}))
+})))
