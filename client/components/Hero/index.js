@@ -27,7 +27,7 @@ const Hero = ({ title, image, children, fullHeight }) => (
 )
 
 Hero.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   image: PropTypes.string,
   children: PropTypes.node,
   fullHeight: PropTypes.bool,
