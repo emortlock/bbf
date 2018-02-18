@@ -11,7 +11,7 @@
       {
         "svgo": {
           "plugins": [
-            { "removeXMLNS": true },
+            { "removeXMLNS": true }
           ]
         }
       }
