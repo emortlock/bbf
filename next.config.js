@@ -13,10 +13,10 @@ class TailwindExtractor {
 }
 
 module.exports = withCSS({
-  webpack: (config, { dev }) => {
+  webpack: (config, { dev, isServer }) => {
     const newConfig = Object.assign({}, config)
 
-    if (!dev) {
+    if (!dev && !isServer) {
       newConfig.plugins.push(
         new PurgecssPlugin({
           paths: glob.sync([
