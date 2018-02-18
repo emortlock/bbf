@@ -16,6 +16,8 @@ module.exports = withCSS({
   webpack: (config, { dev, isServer }) => {
     const newConfig = Object.assign({}, config)
 
+    newConfig.resolve.extensions = ['.js', '.jsx']
+
     if (!dev && !isServer) {
       newConfig.plugins.push(
         new PurgecssPlugin({

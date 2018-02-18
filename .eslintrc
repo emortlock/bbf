@@ -8,7 +8,6 @@
     "airbnb"
   ],
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
     "semi": ["error", "never"],
     "no-confusing-arrow": "off",
     "import/named": "error",

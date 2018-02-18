@@ -8,7 +8,7 @@
     "serve": "cross-env NODE_ENV=production node ./index.js",
     "start": "npm run build && npm run serve",
     "dev": "cross-env NODE_ENV=development LOGGER_LEVEL=debug nodemon --watch ./src/server ./index.js",
-    "lint": "eslint \"src/**/*.js\"",
+    "lint": "eslint ./src --ext .js,.jsx",
     "test": "cross-env LOGGER_ENABLED=false BABEL_ENV=test jest",
     "precommit": "npm run lint",
     "prepush": "npm run test"
@@ -79,7 +79,8 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "**/*.{js}",
+      "**/*.js",
+      "**/*.jsx",
       "!**/node_modules/**"
     ],
     "moduleDirectories": [
