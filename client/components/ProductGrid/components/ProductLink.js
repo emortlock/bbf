@@ -21,7 +21,7 @@ const ProductLink = ({ href, rel, target, image, name, tags }) => {
   )
 }
 ProductLink.propTypes = {
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
   rel: PropTypes.string,
   target: PropTypes.string,
   image: PropTypes.shape({}).isRequired,
@@ -30,6 +30,7 @@ ProductLink.propTypes = {
 }
 
 ProductLink.defaultProps = {
+  href: undefined,
   rel: undefined,
   target: undefined,
 }
