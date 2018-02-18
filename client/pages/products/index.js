@@ -5,6 +5,8 @@ import Layout from '../../components/Layout'
 import PageWrap from '../../components/PageWrap'
 import ProductGrid from '../../components/ProductGrid'
 
+import products from '../../config/products'
+
 const Products = () => (
   <Layout>
     <Hero title="Our Products" />
@@ -20,8 +22,9 @@ const Products = () => (
         selection of superior commercial forms; we can help you find an affordable solution to
         suit your exact requirements; without compromising on quality.
       </p>
+
+      <ProductGrid products={products} className="-mx-4" />
     </PageWrap>
-    <ProductGrid />
   </Layout>
 )
 
