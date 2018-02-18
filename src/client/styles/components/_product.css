@@ -1,5 +1,8 @@
 .c-product {
+  @apply .w-full;
+
   cursor: pointer;
+  min-height: 10rem;
 }
 
 .c-product__body {

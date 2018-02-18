@@ -5,6 +5,8 @@ import Head from 'next/head'
 import Header from '../Header'
 import Footer from '../Footer'
 
+import '../../styles/main.css'
+
 import { description, title } from '../../../config/meta'
 
 const Layout = ({ children }) => (
@@ -18,6 +20,7 @@ const Layout = ({ children }) => (
       <meta key="geo.position" name="geo.position" content="53.211568;-3.0323" />
 
       <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" />
+      <link rel="stylesheet" href="/_next/static/style.css" />
     </Head>
     <Header />
     { children }

@@ -4,8 +4,6 @@ import classnames from 'classnames'
 
 import { H1 } from '../Heading'
 
-import defaultImage from '../../assets/images/hero.jpg'
-
 const Hero = ({ title, image, children, fullHeight }) => (
   <div
     className={classnames(
@@ -35,7 +33,7 @@ Hero.propTypes = {
 
 Hero.defaultProps = {
   title: undefined,
-  image: defaultImage,
+  image: '/static/images/hero.jpg',
   children: undefined,
   fullHeight: false,
 }
