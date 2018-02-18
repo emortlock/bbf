@@ -18,9 +18,7 @@
 }
 
 .c-hero__body {
-  @apply .mx-auto .text-white .text-center .p-4;
-
-  width: config('maxWidth.lg');
+  @apply .mx-auto .text-white .text-center .max-w-lg .p-4;
 }
 
 .c-hero__title {
@@ -36,9 +34,16 @@
       transparent 1px,
       transparent 10px
     );
+    bottom: -0.5rem;
   }
 }
 
 .c-hero__tagline {
   @apply .opacity-75 .text-lg;
+}
+
+@responsive {
+  .c-hero__break {
+    display: block;
+  }
 }
