@@ -9,9 +9,9 @@
     "start": "npm run build && npm run serve",
     "dev": "cross-env NODE_ENV=development LOGGER_LEVEL=debug nodemon ./index.js",
     "lint": "eslint \"client/**/*.js\"",
-    "test": "cross-env LOGGER_ENABLED=false jest --coverage",
-    "precommit": "yarn lint",
-    "prepush": "yarn test"
+    "test": "cross-env LOGGER_ENABLED=false BABEL_ENV=test jest",
+    "precommit": "npm run lint",
+    "prepush": "npm run test"
   },
   "dependencies": {
     "@sendgrid/mail": "^6.2.0",
@@ -57,6 +57,9 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.2",
     "eslint-plugin-import": "^2.6.1",
@@ -65,7 +68,7 @@
     "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-react": "^7.1.0",
     "husky": "^0.13.3",
-    "jest": "^20.0.4",
+    "jest": "^22.3.0",
     "nodemon": "^1.11.0",
     "stylelint": "^8.4.0",
     "stylelint-config-recommended": "^2.0.1"
@@ -80,15 +83,30 @@
     ],
     "moduleDirectories": [
       "node_modules",
-      "app"
+      "client",
+      "server"
     ],
     "roots": [
-      "./app"
+      "./client",
+      "./server"
     ],
     "resetModules": true,
+    "setupFiles": [
+      "./client/build/jest/mocks/requestAnimationFrame.js",
+      "./client/build/jest/setup/enzyme.js"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(svg)$": "<rootDir>/build/jest/mocks/file.js",
+      "^.+\\.(css)$": "<rootDir>/build/jest/mocks/file.js",
+      "^.+\\.(jpg|jpeg|png|gif|bmp)$": "<rootDir>/build/jest/mocks/file.js"
+    },
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "/__mocks__/"
+      "/__mocks__/",
+      "/__setup__/"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
     ]
   }
 }

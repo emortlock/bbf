@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonLink renders matching snapshot 1`] = `
+<Link
+  href="/"
+>
+  <a
+    className="bg-white hover:bg-grey-light text-black hover:text-white py-2 px-4 rounded hover:no-underline"
+  >
+    Content
+  </a>
+</Link>
+`;
