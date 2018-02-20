@@ -34,7 +34,7 @@ const Service = () => (
       </GridItem>
 
       <GridItem className="w-full lg:w-1/3">
-        <a href="tel:print@bbf.co.uk" className="text-black hover:text-green">
+        <a href="mailto:print@bbf.co.uk" className="text-black hover:text-green">
           <Email className="fill-current h-10 w-10 mb-2" />
           <p>print@bbf.co.uk</p>
         </a>
