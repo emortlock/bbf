@@ -15,7 +15,7 @@ const Hero = ({ title, image, children, fullHeight }) => (
     <div className="c-hero__overlay" />
     {
       (!!title || !!children) && (
-        <div className="c-hero__body">
+        <div className="c-hero__body container">
           { title && <H1 className="c-hero__title">{ title }</H1> }
           { children && <div className="c-hero__tagline">{ children }</div> }
         </div>
