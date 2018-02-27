@@ -48,7 +48,7 @@ const Footer = () => (
       </GridItem>
 
       <GridItem className="md:w-1/3">
-        <Testimonials />
+        <Testimonials max={3} />
       </GridItem>
     </GridWrapper>
     <hr className="border-solid border-0 border-t my-4 border-white opacity-50" />

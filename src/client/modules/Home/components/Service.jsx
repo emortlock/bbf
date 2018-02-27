@@ -3,6 +3,7 @@ import React from 'react'
 import { GridWrapper, GridItem } from '../../../components/Grid'
 import { H2, H3 } from '../../../components/Heading'
 import Section from '../../../components/Section'
+import Testimonials from '../../../components/Testimonials'
 
 const Service = () => (
   <Section>
@@ -65,6 +66,9 @@ const Service = () => (
         </div>
       </GridItem>
     </GridWrapper>
+
+    <H3>Testimonials</H3>
+    <Testimonials className="text-left" slidesToShow={2} max={6} />
   </Section>
 )
 
