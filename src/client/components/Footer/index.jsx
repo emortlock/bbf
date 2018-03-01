@@ -5,12 +5,13 @@ import Phone from '../../assets/icons/phone.svg'
 import Email from '../../assets/icons/email.svg'
 
 import { GridWrapper, GridItem } from '../Grid'
+import ArrowButton from '../Testimonials/ArrowButton'
 import Testimonials from '../Testimonials'
 
 const Footer = () => (
   <footer className="bg-grey text-white p-4 clearfix">
     <GridWrapper>
-      <GridItem className="md:w-1/3 text-center self-center">
+      <GridItem className="w-full sm:w-1/2 lg:w-1/3 text-center self-center mb-4">
         <img
           className="h-48"
           src="/static/images/guarantee.png"
@@ -18,7 +19,7 @@ const Footer = () => (
         />
       </GridItem>
 
-      <GridItem className="md:w-1/3">
+      <GridItem className="w-full sm:w-1/2 lg:w-1/3 mb-4">
         <ul className="list-reset flex flex-col justify-around h-full">
           <li className="mb-4 flex items-center">
             <Phone height="32px" width="32px" className="fill-current text-green flex-no-shrink w-8 h-8 mr-4" />
@@ -47,8 +48,12 @@ const Footer = () => (
         </ul>
       </GridItem>
 
-      <GridItem className="md:w-1/3">
-        <Testimonials max={3} />
+      <GridItem className="w-full lg:w-1/3 mb-4">
+        <Testimonials
+          max={3}
+          ArrowNext={props => <ArrowButton {...props} className="text-white" />}
+          ArrowPrev={props => <ArrowButton {...props} className="text-white" />}
+        />
       </GridItem>
     </GridWrapper>
     <hr className="border-solid border-0 border-t my-4 border-white opacity-50" />

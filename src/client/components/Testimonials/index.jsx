@@ -1,27 +1,10 @@
 import React, { Component } from 'react'
-import Slider from 'react-slick'
 import PropTypes from 'prop-types'
-
-import { GridWrapper, GridItem } from '../Grid'
 
 import testimonialList from '../../../config/testimonials'
 
-import ArrowRight from '../../assets/icons/arrow-right.svg'
-import ArrowLeft from '../../assets/icons/arrow-left.svg'
+import ArrowButton from './ArrowButton'
 import getSample from './getSample'
-
-const NextArrow = props => (
-  <button {...props}>
-    <span className="visually-hidden">Next</span>
-    <ArrowRight className="h-8 w-8" width="32px" height="32px" />
-  </button>
-)
-const PrevArrow = props => (
-  <button {...props}>
-    <span className="visually-hidden">Previous</span>
-    <ArrowLeft className="h-8 w-8" width="32px" height="32px" />
-  </button>
-)
 
 const getTestimonials = (max, callback) => {
   if (!max) return callback(testimonialList)
@@ -33,8 +16,12 @@ class Testimonials extends Component {
   constructor() {
     super()
     this.state = {
+      activeSlide: 0,
       testimonials: [],
     }
+
+    this.nextSlide = this.nextSlide.bind(this)
+    this.prevSlide = this.prevSlide.bind(this)
   }
 
   componentDidMount() {
@@ -46,31 +33,68 @@ class Testimonials extends Component {
     )
   }
 
+  nextSlide() {
+    this.setState({
+      activeSlide: this.state.activeSlide + 1,
+    })
+  }
+
+  prevSlide() {
+    this.setState({
+      activeSlide: this.state.activeSlide - 1,
+    })
+  }
+
   render() {
-    const { slidesToShow } = this.props
+    const { slidesToShow, useShort, ArrowNext, ArrowPrev } = this.props
+    const { activeSlide, testimonials } = this.state
 
     return (
-      <GridWrapper>
+      <div className="flex items-stretch">
         {
-          this.state.testimonials.map(testimonial => (
-            <GridItem
-              className={`p-4 text-left w-1/${slidesToShow}`}
-              key={testimonial.quote}
-            >
-              <blockquote className="c-quote">
-                <div
-                  className="c-quote__body"
-                  dangerouslySetInnerHTML={{ __html: testimonial.quote}}
-                />
-                <cite className="block roman">
-                  <span className="block text-xl">{ testimonial.contact }</span>
-                  <span className="block font-bold">{ testimonial.company }</span>
-                </cite>
-              </blockquote>
-            </GridItem>
-          ))
+          activeSlide > 0 && <ArrowPrev direction="left" text="Previous" onClick={this.prevSlide} />
         }
-      </GridWrapper>
+        <div className="flex overflow-hidden">
+          <ul
+            className="list-reset whitespace-no-wrap w-full"
+            style={{
+              transform: activeSlide !== 0
+                ? `translateX(${(activeSlide * -1) * 100}%)`
+                : undefined,
+            }}
+          >
+            {
+              testimonials.map(testimonial => (
+                <li
+                  key={testimonial.quote}
+                  className={`w-1/${slidesToShow} h-full inline-block whitespace-normal p-8 text-left align-text-bottom`}
+                >
+                  <blockquote className="c-quote h-full flex flex-col">
+                    <div className="flex-1">
+                      <div
+                        className="c-quote__body"
+                        dangerouslySetInnerHTML={{
+                          __html: useShort && testimonial.quoteShort
+                            ? testimonial.quoteShort
+                            : testimonial.quote,
+                        }}
+                      />
+                    </div>
+                    <cite className="block roman">
+                      <span className="block text-xl">{ testimonial.contact }</span>
+                      <span className="block font-bold">{ testimonial.company }</span>
+                    </cite>
+                  </blockquote>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        {
+          activeSlide < (Math.floor((testimonials.length - 1) / slidesToShow)) &&
+            <ArrowNext direction="right" text="Next" onClick={this.nextSlide} />
+        }
+      </div>
     )
   }
 }
@@ -78,11 +102,17 @@ class Testimonials extends Component {
 Testimonials.propTypes = {
   max: PropTypes.number,
   slidesToShow: PropTypes.number,
+  useShort: PropTypes.bool,
+  ArrowNext: PropTypes.func,
+  ArrowPrev: PropTypes.func,
 }
 
 Testimonials.defaultProps = {
   max: undefined,
   slidesToShow: 1,
+  useShort: true,
+  ArrowNext: ArrowButton,
+  ArrowPrev: ArrowButton,
 }
 
 export default Testimonials

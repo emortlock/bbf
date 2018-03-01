@@ -1,7 +1,6 @@
 const random = (min, max) => min + Math.floor(Math.random() * ((max - min) + 1))
 
 export default (array, n) => {
-  console.log(array)
   const shuffled = [...array]
   const max = Math.max(Math.min(n, array.length), 0)
 
