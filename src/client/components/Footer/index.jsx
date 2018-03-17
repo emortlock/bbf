@@ -5,7 +5,6 @@ import Phone from '../../assets/icons/phone.svg'
 import Email from '../../assets/icons/email.svg'
 
 import { GridWrapper, GridItem } from '../Grid'
-import ArrowButton from '../Testimonials/ArrowButton'
 import Testimonials from '../Testimonials'
 
 const Footer = () => (
@@ -49,11 +48,7 @@ const Footer = () => (
       </GridItem>
 
       <GridItem className="w-full lg:w-1/3 mb-4">
-        <Testimonials
-          max={3}
-          ArrowNext={props => <ArrowButton {...props} className="text-white" />}
-          ArrowPrev={props => <ArrowButton {...props} className="text-white" />}
-        />
+        <Testimonials max={3} arrowColour="white" />
       </GridItem>
     </GridWrapper>
     <hr className="border-solid border-0 border-t my-4 border-white opacity-50" />

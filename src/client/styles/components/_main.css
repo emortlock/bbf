@@ -9,5 +9,5 @@
 }
 
 .c-main--padded {
-  @apply .px-4 .py-8;
+  @apply .p-8;
 }

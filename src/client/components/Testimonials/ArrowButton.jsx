@@ -5,30 +5,40 @@ import classnames from 'classnames'
 import ArrowRight from '../../assets/icons/arrow-right.svg'
 import ArrowLeft from '../../assets/icons/arrow-left.svg'
 
-const ArrowButton = ({ className, direction, text, onClick }) => (
-  <button
-    className={classnames('cursor-pointer bg-transparent border-none', className)}
-    onClick={onClick}
-  >
-    <span className="visually-hidden">{ text }</span>
-    {
-      direction === 'right'
-        ? <ArrowRight className="fill-current h-8 w-8" width="32px" height="32px" />
-        : <ArrowLeft className="fill-current h-8 w-8" width="32px" height="32px" />
+const arrows = {
+  left: ArrowLeft,
+  right: ArrowRight,
+}
 
-    }
-  </button>
-)
+const ArrowButton = ({ className, direction, text, onClick, colour }) => {
+  const Arrow = arrows[direction]
+
+  return (
+    <button
+      className={classnames('cursor-pointer bg-transparent border-none', className)}
+      onClick={onClick}
+    >
+      <span className="visually-hidden">{ text }</span>
+      <Arrow
+        className={classnames('fill-current h-8 w-8', colour && `text-${colour}`)}
+        width="32px"
+        height="32px"
+      />
+    </button>
+  )
+}
 
 ArrowButton.propTypes = {
   className: PropTypes.string,
   direction: PropTypes.oneOf(['left', 'right']).isRequired,
   text: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  colour: PropTypes.string,
 }
 
 ArrowButton.defaultProps = {
   className: undefined,
+  colour: undefined,
 }
 
 export default ArrowButton

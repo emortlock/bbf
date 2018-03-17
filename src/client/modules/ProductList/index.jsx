@@ -23,7 +23,7 @@ const Products = () => (
         suit your exact requirements; without compromising on quality.
       </p>
 
-      <ProductGrid products={products} className="-mx-4 -mb-8" />
+      <ProductGrid products={products} className="-mx-8 -mb-8" />
     </PageWrap>
   </Layout>
 )
