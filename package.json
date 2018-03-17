@@ -12,7 +12,6 @@
     "lint": "eslint ./src --ext .js,.jsx",
     "test": "cross-env LOGGER_ENABLED=false BABEL_ENV=test jest",
     "test:coverage": "yarn test --coverage",
-    "test:ci": "yarn lint && yarn test",
     "precommit": "npm run lint",
     "prepush": "npm run test"
   },

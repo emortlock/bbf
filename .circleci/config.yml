@@ -33,5 +33,29 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # run tests!
+      # lint
+      - run: yarn lint
+
+      # test
       - run: yarn test
+
+      - run:
+        name: Run setup script
+        command: bash .circleci/setup-heroku.sh
+
+  deploy:
+      machine:
+          enabled: true
+      environment:
+        HEROKU_APP: "bbf-beta"
+      steps:
+        - checkout
+        - run:
+            name: Setup Heroku
+            command: bash .circleci/setup-heroku.sh
+
+        - run:
+            command: |
+              git push heroku bbf-beta:master
+              sleep 5 # sleep for 5 seconds to wait for dynos
+              heroku restart
