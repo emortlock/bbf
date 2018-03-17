@@ -33,27 +33,20 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # lint
       - run: yarn lint
 
-      # test
       - run: yarn test
+      - run: yarn build
 
-  deploy:
-      machine:
-          enabled: true
+      - run:
+          name: Run setup script
+          command: bash .circleci/setup-heroku.sh
 
-      environment:
-        HEROKU_APP: "bbf-beta"
-
-      steps:
-        - checkout
-        - run:
-            name: Setup Heroku
-            command: bash .circleci/setup-heroku.sh
-
-        - run:
-            command: |
-              git push heroku bbf-beta:master
-              sleep 5 # sleep for 5 seconds to wait for dynos
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              git push --force https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git HEAD:refs/heads/master
+              sleep 5
               heroku restart
+            fi
