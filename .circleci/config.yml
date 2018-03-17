@@ -39,15 +39,13 @@ jobs:
       # test
       - run: yarn test
 
-      - run:
-        name: Run setup script
-        command: bash .circleci/setup-heroku.sh
-
   deploy:
       machine:
           enabled: true
+
       environment:
         HEROKU_APP: "bbf-beta"
+
       steps:
         - checkout
         - run:
