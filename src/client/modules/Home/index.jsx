@@ -9,6 +9,7 @@ import Service from './components/Service'
 import Guarantee from './components/Guarantee'
 import Products from './components/Products'
 import Contact from './components/Contact'
+import Testimonials from './components/Testimonials'
 
 const Home = () => (
   <Layout>
@@ -25,8 +26,9 @@ const Home = () => (
     <PageWrap padded={false}>
       <About />
       <Service />
-      <Guarantee />
+      <Testimonials />
       <Products />
+      <Guarantee />
       <Contact />
     </PageWrap>
   </Layout>

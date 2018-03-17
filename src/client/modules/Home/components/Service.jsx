@@ -3,7 +3,9 @@ import React from 'react'
 import { GridWrapper, GridItem } from '../../../components/Grid'
 import { H2, H3 } from '../../../components/Heading'
 import Section from '../../../components/Section'
-import Testimonials from '../../../components/Testimonials'
+
+import SavingMoreImage from '../../../assets/images/service-saving.svg'
+import BetterStationeryImage from '../../../assets/images/service-better.svg'
 
 const Service = () => (
   <Section>
@@ -11,6 +13,7 @@ const Service = () => (
 
     <GridWrapper>
       <GridItem className="w-full md:w-1/2">
+        <SavingMoreImage width="10em" height="10em" viewBox="0 0 915.69 679.28" />
         <H3 noDivider className="md:w-64 mx-auto">Saving Your More on Your Stationery Printing</H3>
 
         <div className="text-left">
@@ -42,6 +45,7 @@ const Service = () => (
       </GridItem>
 
       <GridItem className="w-full md:w-1/2">
+        <BetterStationeryImage width="10em" height="10em" viewBox="0 0 930 796" />
         <H3 noDivider className="md:w-64 mx-auto">Better Stationery for a Better Business</H3>
 
         <div className="text-left">
@@ -66,9 +70,6 @@ const Service = () => (
         </div>
       </GridItem>
     </GridWrapper>
-
-    <H3>Testimonials</H3>
-    <Testimonials className="text-left" slidesToShow={2} max={6} />
   </Section>
 )
 

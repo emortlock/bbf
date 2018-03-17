@@ -46,13 +46,13 @@ class Testimonials extends Component {
   }
 
   render() {
-    const { slidesToShow, useShort, ArrowNext, ArrowPrev } = this.props
+    const { slidesToShow, useShort, arrowColour } = this.props
     const { activeSlide, testimonials } = this.state
 
     return (
       <div className="flex items-stretch">
         {
-          activeSlide > 0 && <ArrowPrev direction="left" text="Previous" onClick={this.prevSlide} />
+          activeSlide > 0 && <ArrowButton colour={arrowColour} direction="left" text="Previous" onClick={this.prevSlide} />
         }
         <div className="flex overflow-hidden">
           <ul
@@ -92,7 +92,7 @@ class Testimonials extends Component {
         </div>
         {
           activeSlide < (Math.floor((testimonials.length - 1) / slidesToShow)) &&
-            <ArrowNext direction="right" text="Next" onClick={this.nextSlide} />
+            <ArrowButton colour={arrowColour} direction="right" text="Next" onClick={this.nextSlide} />
         }
       </div>
     )
@@ -103,16 +103,14 @@ Testimonials.propTypes = {
   max: PropTypes.number,
   slidesToShow: PropTypes.number,
   useShort: PropTypes.bool,
-  ArrowNext: PropTypes.func,
-  ArrowPrev: PropTypes.func,
+  arrowColour: PropTypes.string,
 }
 
 Testimonials.defaultProps = {
   max: undefined,
   slidesToShow: 1,
   useShort: true,
-  ArrowNext: ArrowButton,
-  ArrowPrev: ArrowButton,
+  arrowColour: undefined,
 }
 
 export default Testimonials
