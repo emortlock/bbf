@@ -1,0 +1,21 @@
+.c-quote__body {
+  @apply .relative .mb-4;
+
+  &::before,
+  &::after {
+    @apply .absolute;
+    font-size: 5rem;
+  }
+
+  &::before {
+    content: "\201C";
+    top: -3rem;
+    left: -1.5rem;
+  }
+
+  &::after {
+    content: "\201E";
+    bottom: -2.5rem;
+    right: -1.5rem;
+  }
+}

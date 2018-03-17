@@ -1,0 +1,21 @@
+.c-header {
+  background-color: color(config('colors.green') a(75%));
+}
+
+.c-header__logo {
+  @apply .inline-block;
+}
+
+.c-header__logo--lg {
+  @apply .hidden;
+}
+
+@screen md {
+  .c-header__logo {
+    @apply .hidden;
+  }
+
+  .c-header__logo--lg {
+    @apply .inline-block
+  }
+}

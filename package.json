@@ -4,18 +4,23 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "cross-env NODE_ENV=production next build client",
+    "build": "cross-env NODE_ENV=production next build",
+    "build:analyze": "cross-env BUNDLE_ANALYZE=both npm run build",
     "serve": "cross-env NODE_ENV=production node ./index.js",
     "start": "npm run build && npm run serve",
-    "dev": "cross-env NODE_ENV=development LOGGER_LEVEL=debug nodemon ./index.js",
-    "lint": "eslint \"client/**/*.js\"",
-    "test": "cross-env LOGGER_ENABLED=false jest --coverage",
-    "precommit": "yarn lint",
-    "prepush": "yarn test"
+    "dev": "cross-env NODE_ENV=development LOGGER_LEVEL=debug nodemon --watch ./src/server ./index.js",
+    "lint": "eslint ./src --ext .js,.jsx",
+    "test": "cross-env LOGGER_ENABLED=false BABEL_ENV=test jest",
+    "precommit": "npm run lint",
+    "prepush": "npm run test"
   },
   "dependencies": {
     "@sendgrid/mail": "^6.2.0",
+    "@zeit/next-bundle-analyzer": "0.0.4",
+    "@zeit/next-css": "^0.1.2",
+    "@zeit/next-mdxc": "0.0.3",
     "autoprefixer": "^7.2.5",
+    "babel-plugin-inline-react-svg": "^0.5.2",
     "body-parser": "~1.17.1",
     "classnames": "^2.2.5",
     "compression": "^1.7.1",
@@ -26,31 +31,40 @@
     "express-rate-limit": "^2.11.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "extracted-loader": "^1.0.4",
+    "file-loader": "^1.1.6",
     "glob-all": "^3.1.0",
     "img-loader": "^2.0.0",
+    "install": "^0.10.4",
     "joi": "^10.5.0",
-    "next": "^4.4.0-canary.3",
+    "next": "^5.0.0",
     "next-redux-wrapper": "^1.3.4",
+    "npm": "^5.6.0",
+    "postcss-color-function": "^4.0.1",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.10",
+    "postcss-nested": "^3.0.0",
+    "postcss-scss": "^1.0.3",
     "prop-types": "^15.5.10",
     "purgecss-webpack-plugin": "^0.19.0",
     "raw-loader": "^0.5.1",
-    "react": "^16.1.0",
-    "react-dom": "^16.1.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-redux": "^5.0.5",
+    "react-slick": "^0.18.1",
     "recompose": "^0.26.0",
     "redux": "^3.7.1",
     "redux-form": "^7.0.0",
     "redux-promise-middleware": "^4.3.0",
     "redux-thunk": "^2.2.0",
-    "style-loader": "^0.19.1",
     "tailwindcss": "^0.4.1",
+    "url-loader": "^0.6.2",
     "winston": "^2.3.1"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.2",
     "eslint-plugin-import": "^2.6.1",
@@ -59,28 +73,44 @@
     "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-react": "^7.1.0",
     "husky": "^0.13.3",
-    "jest": "^20.0.4",
-    "nodemon": "^1.11.0"
+    "jest": "^22.3.0",
+    "nodemon": "^1.11.0",
+    "stylelint": "^8.4.0",
+    "stylelint-config-recommended": "^2.0.1"
   },
   "engines": {
     "node": ">=8.0.0"
   },
   "jest": {
     "collectCoverageFrom": [
-      "**/*.{js}",
+      "**/*.js",
+      "**/*.jsx",
       "!**/node_modules/**"
     ],
     "moduleDirectories": [
       "node_modules",
-      "app"
+      "src"
     ],
     "roots": [
-      "./app"
+      "./src"
     ],
     "resetModules": true,
+    "setupFiles": [
+      "./src/build/jest/mocks/requestAnimationFrame.js",
+      "./src/build/jest/setup/enzyme.js"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(svg)$": "<rootDir>/build/jest/mocks/file.js",
+      "^.+\\.(css)$": "<rootDir>/build/jest/mocks/file.js",
+      "^.+\\.(jpg|jpeg|png|gif|bmp)$": "<rootDir>/build/jest/mocks/file.js"
+    },
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "/__mocks__/"
+      "/__mocks__/",
+      "/__setup__/"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
     ]
   }
 }

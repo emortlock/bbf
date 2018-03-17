@@ -1,0 +1,49 @@
+.c-hero {
+  @apply .relative .bg-cover .bg-center .flex .flex-col .justify-center .w-full;
+
+  min-height: 50vh;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.c-hero--full-height {
+  @apply .min-h-screen;
+}
+
+.c-hero__overlay {
+  @apply .absolute .pin;
+
+  background-image: linear-gradient(to bottom right, #283048, #859398);
+  opacity: .8;
+}
+
+.c-hero__body {
+  @apply .mx-auto .text-white .text-center .p-4;
+}
+
+.c-hero__title {
+  @apply .block .uppercase .text-5xl;
+
+  &::after {
+    @apply .h-8 .w-full .border-b-0;
+
+    background-image: repeating-linear-gradient(
+      -45deg,
+      config('colors.green'),
+      config('colors.green') 1px,
+      transparent 1px,
+      transparent 10px
+    );
+    bottom: -0.5rem;
+  }
+}
+
+.c-hero__tagline {
+  @apply .opacity-75 .text-lg .max-w-lg .mx-auto;
+}
+
+@responsive {
+  .c-hero__break {
+    display: block;
+  }
+}
