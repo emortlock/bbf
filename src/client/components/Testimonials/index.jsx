@@ -65,7 +65,7 @@ class Testimonials extends Component {
   render() {
     const { slidesToShow, useShort, arrowColour } = this.props
     const { activeSlide, testimonials, multiCol } = this.state
-    console.log('multiCol', multiCol)
+
     return (
       <div className="c-slider">
         {
