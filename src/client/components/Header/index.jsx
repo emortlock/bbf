@@ -52,8 +52,8 @@ const Header = ({ open, setOpen, router }) => (
           <Link key={link.path} href={link.path}>
             <a
               className={classnames(
-                'block mt-4 lg:inline-block lg:mt-0 text-white hover:text-green-light mr-4',
-                router.pathname === link.path && 'text-green-light font-bold hover:no-underline cursor-default',
+                'block mt-4 lg:inline-block lg:mt-0 text-white hover:text-green-light mr-2 py-1 px-2 rounded',
+                router.pathname === link.path && 'bg-white text-green-light font-bold hover:no-underline cursor-default',
               )}
             >
               { link.name }
