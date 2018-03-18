@@ -7,7 +7,7 @@ import ContactContent from '../../components/Contact'
 
 const Contact = () => (
   <Layout>
-    <Hero title="Our Guarantee" />
+    <Hero title="Contact Us" />
     <PageWrap>
       <ContactContent />
     </PageWrap>
