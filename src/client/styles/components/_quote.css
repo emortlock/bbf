@@ -1,3 +1,11 @@
+.c-quote {
+  @apply .h-full .flex .flex-col;
+}
+
+.c-quote__body-wrap {
+  @apply .flex-1;
+}
+
 .c-quote__body {
   @apply .relative .mb-4;
 
@@ -17,5 +25,21 @@
     content: "\201E";
     bottom: -2.5rem;
     right: -1.5rem;
+  }
+}
+
+.c-quote__citation {
+  @apply .block .roman;
+
+  &.c-quote__citation--wrap {
+    @apply .roman;
+  }
+
+  &.c-quote__citation--contact {
+    @apply .text-xl;
+  }
+
+  &.c-quote__citation--company {
+    @apply .font-bold;
   }
 }

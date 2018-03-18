@@ -69,8 +69,8 @@ class Testimonials extends Component {
                   key={testimonial.quote}
                   className={`c-slider__item w-1/${slidesToShow}`}
                 >
-                  <blockquote className="c-quote h-full flex flex-col">
-                    <div className="flex-1">
+                  <blockquote className="c-quote">
+                    <div className="c-quote__body-wrap">
                       <div
                         className="c-quote__body"
                         dangerouslySetInnerHTML={{
@@ -80,9 +80,13 @@ class Testimonials extends Component {
                         }}
                       />
                     </div>
-                    <cite className="block roman">
-                      <span className="block text-xl">{ testimonial.contact }</span>
-                      <span className="block font-bold">{ testimonial.company }</span>
+                    <cite className="c-quote__citation c-quote__citation--wrap">
+                      <span className="c-quote__citation c-quote__citation--contact">
+                        { testimonial.contact }
+                      </span>
+                      <span className="c-quote__citation c-quote__citation--company">
+                        { testimonial.company }
+                      </span>
                     </cite>
                   </blockquote>
                 </li>
