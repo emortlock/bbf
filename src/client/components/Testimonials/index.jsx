@@ -4,7 +4,10 @@ import PropTypes from 'prop-types'
 import testimonialList from '../../../config/testimonials'
 
 import ArrowButton from './ArrowButton'
-import getSample from './getSample'
+import getSample from './utils/getSample'
+import matchMedia from './utils/matchMedia'
+
+const MULTI_COL_BREAKPOINT = '(min-width: 576px)'
 
 const getTestimonials = (max, callback) => {
   if (!max) return callback(testimonialList)
@@ -18,10 +21,12 @@ class Testimonials extends Component {
     this.state = {
       activeSlide: 0,
       testimonials: [],
+      multiCol: false,
     }
 
     this.nextSlide = this.nextSlide.bind(this)
     this.prevSlide = this.prevSlide.bind(this)
+    this.handleColChange = this.handleColChange.bind(this)
   }
 
   componentDidMount() {
@@ -31,6 +36,18 @@ class Testimonials extends Component {
         testimonials,
       }),
     )
+    if (this.props.slidesToShow > 1) {
+      this.mediaQuery = matchMedia(MULTI_COL_BREAKPOINT)
+      if (this.mediaQuery.matches) this.handleColChange(this.mediaQuery)
+      this.mediaQuery.addListener(this.handleColChange.bind(this))
+    }
+  }
+
+  handleColChange({ matches }) {
+    return this.setState({
+      multiCol: matches,
+      activeSlide: matches !== this.state.multiCol ? 0 : this.state.activeSlide,
+    })
   }
 
   nextSlide() {
@@ -47,8 +64,8 @@ class Testimonials extends Component {
 
   render() {
     const { slidesToShow, useShort, arrowColour } = this.props
-    const { activeSlide, testimonials } = this.state
-
+    const { activeSlide, testimonials, multiCol } = this.state
+    console.log('multiCol', multiCol)
     return (
       <div className="c-slider">
         {
@@ -67,7 +84,7 @@ class Testimonials extends Component {
               testimonials.map(testimonial => (
                 <li
                   key={testimonial.quote}
-                  className={`c-slider__item w-1/${slidesToShow}`}
+                  className={`c-slider__item sm:w-1/${slidesToShow}`}
                 >
                   <blockquote className="c-quote">
                     <div className="c-quote__body-wrap">
@@ -95,7 +112,10 @@ class Testimonials extends Component {
           </ul>
         </div>
         {
-          activeSlide < (Math.floor((testimonials.length - 1) / slidesToShow)) &&
+          activeSlide < (multiCol
+            ? Math.floor((testimonials.length - 1) / slidesToShow)
+            : testimonials.length - 1
+          ) &&
             <ArrowButton colour={arrowColour} direction="right" text="Next" onClick={this.nextSlide} />
         }
       </div>
