@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 import MapPin from '../../assets/icons/map-pin.svg'
 import Phone from '../../assets/icons/phone.svg'
@@ -11,11 +12,15 @@ const Footer = () => (
   <footer className="bg-grey text-white p-4 clearfix">
     <GridWrapper>
       <GridItem className="w-full sm:w-1/2 lg:w-1/3 text-center self-center mb-4">
-        <img
-          className="h-48"
-          src="/static/images/guarantee.png"
-          alt="BBF guarantee of quality and service"
-        />
+        <Link href="/guarantee">
+          <a>
+            <img
+              className="h-48"
+              src="/static/images/guarantee.png"
+              alt="BBF guarantee of quality and service"
+            />
+          </a>
+        </Link>
       </GridItem>
 
       <GridItem className="w-full sm:w-1/2 lg:w-1/3 mb-4">

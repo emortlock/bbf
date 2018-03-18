@@ -9,14 +9,11 @@ import Layout from '../../components/Layout'
 import PageWrap from '../../components/PageWrap'
 import { GridWrapper, GridItem } from '../../components/Grid'
 
-import products, { getById } from '../../../config/products'
+import { getById } from '../../../config/products'
 import { setDescription } from '../../../config/meta'
 
 const Product = ({ id }) => {
   const product = getById(id)
-  const productIndex = product.order - 1
-  const prev = productIndex - 1 >= 0 ? products[productIndex - 1] : products[products.length - 1]
-  const next = productIndex + 1 < products.length ? products[productIndex + 1] : products[0]
   const { Content } = product
 
   return (
@@ -50,11 +47,11 @@ const Product = ({ id }) => {
         </GridWrapper>
 
         <div className="clearfix">
-          <ButtonLink to={`/products${prev.path}`} className="float-left">
-            &lt; { prev.name }
+          <ButtonLink to="/products" className="float-left">
+            Back to Product List
           </ButtonLink>
-          <ButtonLink to={`/products${next.path}`} className="float-right">
-            { next.name } &gt;
+          <ButtonLink to="/contact" className="float-right">
+            Contact Us for a Quote
           </ButtonLink>
         </div>
       </PageWrap>

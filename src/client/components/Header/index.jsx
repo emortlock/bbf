@@ -3,18 +3,20 @@ import PropTypes from 'prop-types'
 import { compose, withState } from 'recompose'
 import classnames from 'classnames'
 import Link from 'next/link'
+import { withRouter } from 'next/router'
 
 import Logo from '../../assets/images/logo-sm.svg'
 
 const links = [
-  { name: 'About Us', path: '/about' },
-  { name: 'Our Guarantee', path: '/guarantee' },
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
   { name: 'Products', path: '/products' },
+  { name: 'Contact', path: '/contact' },
 ]
 
 const handleClick = (setOpen, value) => () => setOpen(value)
 
-const Header = ({ open, setOpen }) => (
+const Header = ({ open, setOpen, router }) => (
   <header
     className={classnames(
       'flex items-center justify-between flex-wrap p-4 absolute pin-x z-10',
@@ -48,7 +50,12 @@ const Header = ({ open, setOpen }) => (
       {
         links.map(link => (
           <Link key={link.path} href={link.path}>
-            <a className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-green-light mr-4">
+            <a
+              className={classnames(
+                'block mt-4 lg:inline-block lg:mt-0 text-white hover:text-green-light mr-4',
+                router.pathname === link.path && 'text-green-light font-bold hover:no-underline cursor-default',
+              )}
+            >
               { link.name }
             </a>
           </Link>
@@ -61,8 +68,12 @@ const Header = ({ open, setOpen }) => (
 Header.propTypes = {
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
+  router: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
 }
 
 export default compose(
+  withRouter,
   withState('open', 'setOpen', false),
 )(Header)

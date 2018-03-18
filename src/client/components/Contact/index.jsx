@@ -1,13 +1,13 @@
 import React from 'react'
 
-import Post from '../../../assets/images/contacts-post.svg'
-import Phone from '../../../assets/images/contacts-phone.svg'
-import Email from '../../../assets/images/contacts-email.svg'
+import Post from '../../assets/images/contacts-post.svg'
+import Phone from '../../assets/images/contacts-phone.svg'
+import Email from '../../assets/images/contacts-email.svg'
 
 
-import { GridWrapper, GridItem } from '../../../components/Grid'
-import { H2 } from '../../../components/Heading'
-import Section from '../../../components/Section'
+import { GridWrapper, GridItem } from '../Grid'
+import { H2 } from '../Heading'
+import Section from '../Section'
 
 const Service = () => (
   <Section>
