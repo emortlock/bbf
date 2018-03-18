@@ -35,7 +35,7 @@ const Header = ({ open, setOpen, router }) => (
     </div>
     <div className="block lg:hidden">
       <button
-        className="flex items-center px-3 py-2 border rounded text-green border-white hover:text-green hover:border-green"
+        className="flex items-center px-3 py-2 border rounded-sm text-green border-white hover:text-green hover:border-green"
         onClick={handleClick(setOpen, !open)}
       >
         <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -52,8 +52,8 @@ const Header = ({ open, setOpen, router }) => (
           <Link key={link.path} href={link.path}>
             <a
               className={classnames(
-                'block mt-4 lg:inline-block lg:mt-0 text-white hover:text-green-light mr-2 py-1 px-2 rounded',
-                router.pathname === link.path && 'bg-white text-green-light font-bold hover:no-underline cursor-default',
+                'block mt-4 lg:inline-block lg:mt-0 text-white hover:text-green-light mr-2 py-1 px-2 rounded-sm',
+                router.pathname === link.path && 'bg-grey-light text-green-light hover:no-underline cursor-default',
               )}
             >
               { link.name }
