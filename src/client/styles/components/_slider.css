@@ -1,0 +1,34 @@
+.c-slider {
+  @apply .flex .items-stretch;
+}
+
+.c-slider__arrow {
+  @apply .cursor-pointer .bg-transparent .border-none .p-0;
+}
+
+.c-slider__arrow-text {
+  @apply .visually-hidden;
+}
+
+.c-slider__arrow-icon {
+  @apply .fill-current .h-8 .w-8;
+  width: 32px;
+  height: 32px;
+}
+
+.c-slider__wrap {
+  @apply .flex .overflow-hidden;
+
+  &:first-child {
+    padding-left: 32px;
+  }
+}
+
+.c-slider__list {
+  @apply .list-reset .whitespace-no-wrap .w-full;
+  transition: transform .2s,
+}
+
+.c-slider__item {
+  @apply .h-full .inline-block .whitespace-normal .p-8 .text-left;
+}

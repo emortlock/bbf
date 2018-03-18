@@ -15,12 +15,12 @@ const ArrowButton = ({ className, direction, text, onClick, colour }) => {
 
   return (
     <button
-      className={classnames('cursor-pointer bg-transparent border-none', className)}
+      className={classnames('c-slider__arrow', className)}
       onClick={onClick}
     >
-      <span className="visually-hidden">{ text }</span>
+      <span className="c-slider__arrow-text">{ text }</span>
       <Arrow
-        className={classnames('fill-current h-8 w-8', colour && `text-${colour}`)}
+        className={classnames('c-slider__arrow-icon', colour && `text-${colour}`)}
         width="32px"
         height="32px"
       />

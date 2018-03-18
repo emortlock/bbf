@@ -50,13 +50,13 @@ class Testimonials extends Component {
     const { activeSlide, testimonials } = this.state
 
     return (
-      <div className="flex items-stretch">
+      <div className="c-slider">
         {
           activeSlide > 0 && <ArrowButton colour={arrowColour} direction="left" text="Previous" onClick={this.prevSlide} />
         }
-        <div className="flex overflow-hidden">
+        <div className="c-slider__wrap">
           <ul
-            className="list-reset whitespace-no-wrap w-full"
+            className="c-slider__list"
             style={{
               transform: activeSlide !== 0
                 ? `translateX(${(activeSlide * -1) * 100}%)`
@@ -67,7 +67,7 @@ class Testimonials extends Component {
               testimonials.map(testimonial => (
                 <li
                   key={testimonial.quote}
-                  className={`w-1/${slidesToShow} h-full inline-block whitespace-normal p-8 text-left align-text-bottom`}
+                  className={`c-slider__item w-1/${slidesToShow}`}
                 >
                   <blockquote className="c-quote h-full flex flex-col">
                     <div className="flex-1">
