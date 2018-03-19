@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 
 import Hero from '../../components/Hero'
 import Layout from '../../components/Layout'
@@ -7,8 +8,20 @@ import ProductGrid from '../../components/ProductGrid'
 
 import products from '../../../config/products'
 
+import { setDescription } from '../../../config/meta'
+
 const Products = () => (
   <Layout>
+    <Head>
+      <title key="title">Our Product Range - BBF</title>
+      <meta
+        key="description"
+        name="description"
+        content={
+          setDescription('Whether you need cost-effective compliment slips or lower priced payslips; you can find great value products and services here at BBF.')
+        }
+      />
+    </Head>
     <Hero title="Our Products" />
     <PageWrap>
       <p>

@@ -1,11 +1,24 @@
 import React from 'react'
+import Head from 'next/head'
 
 import Hero from '../../components/Hero'
 import Layout from '../../components/Layout'
 import PageWrap from '../../components/PageWrap'
 
+import { setDescription } from '../../../config/meta'
+
 const About = () => (
   <Layout>
+    <Head>
+      <title key="title">About Us - BBF</title>
+      <meta
+        key="description"
+        name="description"
+        content={
+          setDescription('Established in 1990 BBF is a family run business that has an enviable reputation for good service, quality and price. We are proud to offer an unequalled service to companies large and small throughout the U.K.')
+        }
+      />
+    </Head>
     <Hero title="About Us" />
     <PageWrap>
       <p>

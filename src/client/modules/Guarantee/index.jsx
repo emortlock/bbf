@@ -1,11 +1,24 @@
 import React from 'react'
+import Head from 'next/head'
 
 import Hero from '../../components/Hero'
 import Layout from '../../components/Layout'
 import PageWrap from '../../components/PageWrap'
 
+import { setDescription } from '../../../config/meta'
+
 const About = () => (
   <Layout>
+    <Head>
+      <title key="title">Our Guarantee of Quality Service - BBF</title>
+      <meta
+        key="description"
+        name="description"
+        content={
+          setDescription('From business cards to promotional gifts, you will not find a supplier more interested in getting things right than us.')
+        }
+      />
+    </Head>
     <Hero title="Our Guarantee" />
     <PageWrap>
       <div
