@@ -41,4 +41,28 @@ module.exports = withBundleAnalyzer(withCSS(withMdxc({
 
     return newConfig
   },
+  exportPathMap() {
+    return {
+      '/': { page: '/' },
+      '/about': { page: '/about' },
+      '/contact': { page: '/contact' },
+      '/guarantee': { page: '/guarantee' },
+      '/products': { page: '/products' },
+      '/products/business-stationery': { page: '/products/business-stationery' },
+      '/products/continuous-stationery': { page: '/products/continuous-stationery' },
+      '/products/digital-printing': { page: '/products/digital-printing' },
+      '/products/envelopes': { page: '/products/envelopes' },
+      '/products/laser-sheets': { page: '/products/laser-sheets' },
+      '/products/miscellaneous': { page: '/products/miscellaneous' },
+      '/products/one-piece-mailers': { page: '/products/one-piece-mailers' },
+      '/products/pads-sets-books': { page: '/products/pads-sets-books' },
+      '/products/personalisation': { page: '/products/personalisation' },
+      '/products/plastic-products': { page: '/products/plastic-products' },
+      '/products/promotional-gifts': { page: '/products/promotional-gifts' },
+      '/products/promotional-print': { page: '/products/promotional-print' },
+      '/products/security-products': { page: '/products/security-products' },
+      '/products/self-adhesive-products': { page: '/products/self-adhesive-products' },
+      '/products/special-products': { page: '/products/special-products' },
+    }
+  },
 })))

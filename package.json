@@ -6,6 +6,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production next build",
     "build:analyze": "cross-env BUNDLE_ANALYZE=both npm run build",
+    "build:export": "npm run build && next export -o ./dist && cp -R ./.next/static ./dist/_next/static/",
     "serve": "cross-env NODE_ENV=production node ./index.js",
     "start": "npm run build && npm run serve",
     "dev": "cross-env NODE_ENV=development LOGGER_LEVEL=debug nodemon --watch ./src/server ./index.js",
