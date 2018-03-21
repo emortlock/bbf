@@ -19,6 +19,17 @@ module.exports = withBundleAnalyzer(withCSS(withMdxc({
   analyzeClient: ['client', 'both'].includes(process.env.BUNDLE_ANALYZE),
   webpack: (config, { dev, isServer }) => {
     const newConfig = Object.assign({}, config)
+    const originalEntry = config.entry
+
+    newConfig.entry = async () => {
+      const entries = await originalEntry()
+
+      if (entries['main.js']) {
+        entries['main.js'].unshift('babel-polyfill')
+      }
+
+      return entries
+    }
 
     newConfig.resolve.extensions = ['.js', '.jsx']
 
