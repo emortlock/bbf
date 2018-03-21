@@ -9,6 +9,8 @@ import '../../styles/main.css'
 
 import { description, title } from '../../../config/meta'
 
+import WithAnalytics from '../WithAnalytics'
+
 const Layout = ({ children }) => (
   <div>
     <Head>
@@ -33,4 +35,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default WithAnalytics(Layout)
