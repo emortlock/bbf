@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 import testimonialList from '../../../config/testimonials'
 
@@ -81,10 +82,17 @@ class Testimonials extends Component {
             }}
           >
             {
-              testimonials.map(testimonial => (
+              testimonials.map((testimonial, index) => (
                 <li
                   key={testimonial.quote}
-                  className={`c-slider__item sm:w-1/${slidesToShow}`}
+                  className={classnames(
+                    `c-slider__item sm:w-1/${slidesToShow}`,
+                    !(index >= (multiCol ? activeSlide * slidesToShow : activeSlide)
+                      && index <= (multiCol
+                        ? (activeSlide * slidesToShow) + (slidesToShow - 1)
+                        : activeSlide)
+                    ) && 'c-slider__item--hidden',
+                  )}
                 >
                   <blockquote className="c-quote">
                     <div className="c-quote__body-wrap">

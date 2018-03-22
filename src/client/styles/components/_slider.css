@@ -35,4 +35,8 @@
 
 .c-slider__item {
   @apply .h-full .inline-block .whitespace-normal .p-8 .text-left;
+
+  &.c-slider__item--hidden {
+    height: 0;
+  }
 }
