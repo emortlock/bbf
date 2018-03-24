@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 930 796">
   <defs>
-    <linearGradient id="a" x1="476.5" y1="796" x2="476.5" y2="356" gradientUnits="userSpaceOnUse">
+    <linearGradient id="service-better-a" x1="476.5" y1="796" x2="476.5" y2="356" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="gray" stop-opacity=".3"/>
       <stop offset=".5" stop-color="gray" stop-opacity=".1"/>
       <stop offset="1" stop-color="gray" stop-opacity=".1"/>
     </linearGradient>
-    <linearGradient id="b" x1="233" y1="468" x2="233" y2="390" gradientUnits="userSpaceOnUse">
+    <linearGradient id="service-better-b" x1="233" y1="468" x2="233" y2="390" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#b3b3b3" stop-opacity=".3"/>
       <stop offset=".5" stop-color="#b3b3b3" stop-opacity=".1"/>
       <stop offset="1" stop-color="#b3b3b3" stop-opacity=".1"/>
@@ -15,9 +15,9 @@
   <path fill="none" stroke="#e0e0e0" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" d="M300.6 350.5"/>
   <path d="M308.1 328.1c9.9-40.3 12.8-124.5-117.7-160.2" fill="none" stroke="#e0e0e0" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" stroke-dasharray="0 23.61"/>
   <path fill="none" stroke="#e0e0e0" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" d="M179 165"/>
-  <path fill="url(#a)" d="M71 356h811v440H71z"/>
+  <path fill="url(#service-better-a)" d="M71 356h811v440H71z"/>
   <path fill="#fff" d="M78 362h798v422.5H78z"/>
-  <circle cx="233" cy="429" r="39" fill="url(#b)"/>
+  <circle cx="233" cy="429" r="39" fill="url(#service-better-b)"/>
   <circle cx="233" cy="429" r="35" fill="#007049"/>
   <path fill="#bdbdbd" d="M313 416h197v20H313z"/>
   <path fill="#e0e0e0" d="M232.5 545.5h492v20h-492zM232.5 501.5h492v20h-492zM232.5 589.5h492v20h-492zM232.5 633.5h492v20h-492zM232.5 677.5h492v20h-492zM232.5 721.5h492v20h-492z"/>

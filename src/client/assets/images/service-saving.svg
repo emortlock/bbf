@@ -1,37 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 915.69 679.28">
   <defs>
-    <linearGradient id="a" x1="549.2" y1="734.8" x2="549.2" y2="126.6" gradientTransform="matrix(.97 .31 -.3 .99 144.2 -171.3)" gradientUnits="userSpaceOnUse">
+    <linearGradient id="service-saving-a" x1="549.2" y1="734.8" x2="549.2" y2="126.6" gradientTransform="matrix(.97 .31 -.3 .99 144.2 -171.3)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="gray" stop-opacity=".3"/>
       <stop offset=".5" stop-color="gray" stop-opacity=".1"/>
       <stop offset="1" stop-color="gray" stop-opacity=".1"/>
     </linearGradient>
-    <linearGradient id="c" x1="549.3" y1="679.3" x2="549.3" y2="233.8" xlink:href="#a"/>
-    <linearGradient id="b" x1="888.8" y1="569.3" x2="888.8" y2="526.2" gradientUnits="userSpaceOnUse">
+    <linearGradient id="service-saving-c" x1="549.3" y1="679.3" x2="549.3" y2="233.8" xlink:href="#a"/>
+    <linearGradient id="service-saving-b" x1="888.8" y1="569.3" x2="888.8" y2="526.2" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-opacity=".1"/>
       <stop offset=".6" stop-opacity=".1"/>
       <stop offset="1" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="d" x1="888.8" y1="646.1" x2="888.8" y2="603" xlink:href="#b"/>
-    <linearGradient id="e" x1="741.4" y1="487.1" x2="741.4" y2="464.6" xlink:href="#b"/>
-    <linearGradient id="f" x1="949.9" y1="646.1" x2="949.9" y2="603" xlink:href="#b"/>
-    <linearGradient id="g" x1="949.9" y1="569.3" x2="949.9" y2="526.2" xlink:href="#b"/>
-    <linearGradient id="h" x1="813" y1="487.1" x2="813" y2="464.6" xlink:href="#b"/>
+    <linearGradient id="service-saving-d" x1="888.8" y1="646.1" x2="888.8" y2="603" xlink:href="#b"/>
+    <linearGradient id="service-saving-e" x1="741.4" y1="487.1" x2="741.4" y2="464.6" xlink:href="#b"/>
+    <linearGradient id="service-saving-f" x1="949.9" y1="646.1" x2="949.9" y2="603" xlink:href="#b"/>
+    <linearGradient id="service-saving-g" x1="949.9" y1="569.3" x2="949.9" y2="526.2" xlink:href="#b"/>
+    <linearGradient id="service-saving-h" x1="813" y1="487.1" x2="813" y2="464.6" xlink:href="#b"/>
   </defs>
-  <rect x="184.9" y="201.5" width="728.6" height="445" rx="27.5" ry="27.5" transform="rotate(-17.3 114.6 837.2)" fill="url(#a)"/>
+  <rect x="184.9" y="201.5" width="728.6" height="445" rx="27.5" ry="27.5" transform="rotate(-17.3 114.6 837.2)" fill="url(#service-saving-a)"/>
   <rect x="193.7" y="205.6" width="713.8" height="429.3" rx="27.5" ry="27.5" transform="rotate(-17.3 116 833.4)" fill="#fff"/>
   <path fill="#007049" d="M20.7 264.8L702.3 53l18.3 58.9L39 323.7z"/>
   <path fill="#bdbdbd" d="M161.7 527.6L334.8 474l7.9 25.4L169.6 553z"/>
   <path fill="#e0e0e0" d="M148.2 484.7l300.3-93.3 7.9 25.4L156 510.1z"/>
-  <rect x="183" y="233.8" width="732.7" height="445.4" rx="27.5" ry="27.5" fill="url(#c)"/>
+  <rect x="183" y="233.8" width="732.7" height="445.4" rx="27.5" ry="27.5" fill="url(#service-saving-c)"/>
   <rect x="191.3" y="238.4" width="713.8" height="429.3" rx="27.5" ry="27.5" fill="#fff"/>
   <path fill="#e0e0e0" d="M247 305.8h20.8v59.1H247zM273.6 305.8h20.8v59.1h-20.8zM300.3 305.8h20.8v59.1h-20.8zM346.8 305.8h20.8v59.1h-20.8zM373.5 305.8h20.8v59.1h-20.8zM400.1 305.8h20.8v59.1h-20.8zM446.7 305.8h20.8v59.1h-20.8zM473.3 305.8h20.8v59.1h-20.8zM499.9 305.8h20.8v59.1h-20.8zM546.5 305.8h20.8v59.1h-20.8zM573.1 305.8h20.8v59.1h-20.8zM599.7 305.8h20.8v59.1h-20.8z"/>
   <path fill="#bdbdbd" d="M247 603.6h181.3v26.6H247z"/>
   <path fill="#e0e0e0" d="M247 558.6h314.4v26.6H247z"/>
-  <path d="M906.3 568.2a4.4 4.4 0 0 1 4.2-4.5h6.2v-37.5h-55.9v43.1h45.4z" transform="translate(-142.2 -110.4)" fill="url(#b)"/>
-  <path d="M910.5 608.7a4.4 4.4 0 0 1-4.2-4.6V603h-45.4v43.1h55.8v-37.4z" transform="translate(-142.2 -110.4)" fill="url(#d)"/>
-  <path fill="url(#e)" d="M718.7 464.6h45.4v22.5h-45.4z"/>
-  <path d="M932.4 604.1a4.4 4.4 0 0 1-4.2 4.6H922V646h55.9V603h-45.4z" transform="translate(-142.2 -110.4)" fill="url(#f)"/>
-  <path d="M922 526.2v37.5h6.3a4.4 4.4 0 0 1 4.2 4.5v1.1h45.4v-43.1z" transform="translate(-142.2 -110.4)" fill="url(#g)"/>
-  <path fill="url(#h)" d="M790.3 464.6h45.4v22.5h-45.4z"/>
+  <path d="M906.3 568.2a4.4 4.4 0 0 1 4.2-4.5h6.2v-37.5h-55.9v43.1h45.4z" transform="translate(-142.2 -110.4)" fill="url(#service-saving-b)"/>
+  <path d="M910.5 608.7a4.4 4.4 0 0 1-4.2-4.6V603h-45.4v43.1h55.8v-37.4z" transform="translate(-142.2 -110.4)" fill="url(#service-saving-d)"/>
+  <path fill="url(#service-saving-e)" d="M718.7 464.6h45.4v22.5h-45.4z"/>
+  <path d="M932.4 604.1a4.4 4.4 0 0 1-4.2 4.6H922V646h55.9V603h-45.4z" transform="translate(-142.2 -110.4)" fill="url(#service-saving-f)"/>
+  <path d="M922 526.2v37.5h6.3a4.4 4.4 0 0 1 4.2 4.5v1.1h45.4v-43.1z" transform="translate(-142.2 -110.4)" fill="url(#service-saving-g)"/>
+  <path fill="url(#service-saving-h)" d="M790.3 464.6h45.4v22.5h-45.4z"/>
   <path d="M764.3 458.3a4 4 0 0 1 4-4h6V421H721v38.2h43.3zM768.3 494.2a4 4 0 0 1-4-4v-1H721v38.2h53.3v-33.2zM721 464.2h43.3v20H721zM789.3 490.2a4 4 0 0 1-4 4h-6v33.2h53.3v-38.2h-43.3zM779.3 421v33.3h6a4 4 0 0 1 4 4v1h43.3V421zM789.3 464.2h43.3v20h-43.3z" fill="#007049"/>
 </svg>
