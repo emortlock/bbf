@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 
@@ -11,25 +11,41 @@ import { description, title } from '../../../config/meta'
 
 import WithAnalytics from '../WithAnalytics'
 
-const Layout = ({ children }) => (
-  <div>
-    <Head>
-      <title key="title">{ title }</title>
-      <meta key="description" name="description" content={description} />
+class Layout extends Component {
+  componentDidMount() {
+    if (!document.documentElement.classList.contains('wf-active')) {
+      import('webfontloader').then((WebFont) => {
+        WebFont.load({
+          google: {
+            families: ['Raleway:400,700'],
+          },
+        })
+      })
+    }
+  }
 
-      <meta key="geo.region" name="geo.region" content="GB-FLN" />
-      <meta key="geo.placename" name="geo.placename" content="Shotton" />
-      <meta key="geo.position" name="geo.position" content="53.211568;-3.0323" />
+  render() {
+    const { children } = this.props
+    return (
+      <div>
+        <Head>
+          <title key="title">{ title }</title>
+          <meta key="description" name="description" content={description} />
 
-      <link rel="shortcut icon" href="/static/favicon.ico" />
-      <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" />
-      <link rel="stylesheet" href="/_next/static/style.css" />
-    </Head>
-    <Header />
-    { children }
-    <Footer />
-  </div>
-)
+          <meta key="geo.region" name="geo.region" content="GB-FLN" />
+          <meta key="geo.placename" name="geo.placename" content="Shotton" />
+          <meta key="geo.position" name="geo.position" content="53.211568;-3.0323" />
+
+          <link rel="shortcut icon" href="/static/favicon.ico" />
+          <link rel="stylesheet" href="/_next/static/style.css" />
+        </Head>
+        <Header />
+        { children }
+        <Footer />
+      </div>
+    )
+  }
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
