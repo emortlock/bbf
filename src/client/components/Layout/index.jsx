@@ -31,6 +31,7 @@ class Layout extends Component {
         <Head>
           <title key="title">{ title }</title>
 
+          <meta key="charSet" charSet="utf8" />
           <meta key="description" name="description" content={description} />
           <meta key="geo.region" name="geo.region" content="GB-FLN" />
           <meta key="geo.placename" name="geo.placename" content="Shotton" />
