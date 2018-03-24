@@ -4,10 +4,8 @@ const path = require('path')
 const router = express.Router()
 
 const rootStaticFiles = [
-  'favicon.ico',
   'google6428c59c20f150ae.html',
   'robots.txt',
-  'sitemap.xml',
 ]
 
 const options = {
