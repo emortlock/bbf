@@ -22,7 +22,7 @@
 }
 
 .c-hero__title {
-  @apply .block .uppercase .text-5xl;
+  @apply .block .uppercase .text-4xl;
 
   &::after {
     @apply .h-8 .w-full .border-b-0;
@@ -35,6 +35,10 @@
       transparent 10px
     );
     bottom: -0.5rem;
+  }
+
+  @screen sm {
+    @apply .text-5xl;
   }
 }
 
