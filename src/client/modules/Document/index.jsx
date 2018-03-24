@@ -1,5 +1,5 @@
 import React from 'react'
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, { Main, NextScript } from 'next/document'
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -10,9 +10,6 @@ export default class MyDocument extends Document {
   render() {
     return (
       <html lang="en">
-        <Head>
-          <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        </Head>
         <body>
           <Main />
           <NextScript />
