@@ -30,7 +30,7 @@ const Product = ({ id }) => {
       </Head>
       <Hero title={product.name} />
       <PageWrap>
-        <GridWrapper className="mb-4">
+        <GridWrapper className="mb-8">
           <GridItem className="md:w-3/4">
             <Content />
           </GridItem>
@@ -46,14 +46,18 @@ const Product = ({ id }) => {
           </GridItem>
         </GridWrapper>
 
-        <div className="clearfix">
-          <ButtonLink to="/products" className="float-left" secondary>
-            Back to Product List
-          </ButtonLink>
-          <ButtonLink to="/contact" className="float-right" primary>
-            Contact Us for a Quote
-          </ButtonLink>
-        </div>
+        <GridWrapper spaceBetween>
+          <GridItem className="mb-8">
+            <ButtonLink to="/products" secondary>
+              Back to Product List
+            </ButtonLink>
+          </GridItem>
+          <GridItem className="mb-8">
+            <ButtonLink to="/contact" primary>
+              Contact Us for a Quote
+            </ButtonLink>
+          </GridItem>
+        </GridWrapper>
       </PageWrap>
     </Layout>
   )
