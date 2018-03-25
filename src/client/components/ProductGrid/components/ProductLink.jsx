@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import LazyLoad from 'react-lazyload'
+
+import Image from '../../Image'
 
 const ProductLink = ({ href, rel, target, image, name, tags }) => {
   const uses = tags.slice(0, 5)
@@ -11,9 +12,7 @@ const ProductLink = ({ href, rel, target, image, name, tags }) => {
       rel={rel}
       target={target}
     >
-      <LazyLoad height="215" offset="100" once>
-        <img className="max-w-full" src={image.src} alt={image.alt} />
-      </LazyLoad>
+      <Image className="max-w-full" src={image.src} alt={image.alt} placeholderHeight={215} />
       <div className="c-product__body">
         <h3 className="c-product_title">{ name }</h3>
         <p className="c-product__description">

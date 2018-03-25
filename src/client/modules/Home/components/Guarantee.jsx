@@ -3,15 +3,17 @@ import React from 'react'
 import { H2 } from '../../../components/Heading'
 import Section from '../../../components/Section'
 import { ButtonLink } from '../../../components/Button'
+import Image from '../../../components/Image'
 
 const Guarantee = () => (
   <Section bgColour="green">
     <H2 dividerColour="white" className="mb-8">Our Guarantee</H2>
     <div className="mb-4">
-      <img
+      <Image
         className="h-48"
         src="/static/images/guarantee-white.png"
         alt="BBF guarantee of quality and service"
+        placeholderHeight={192}
       />
     </div>
     <p>

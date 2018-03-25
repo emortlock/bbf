@@ -7,6 +7,7 @@ import Email from '../../assets/icons/email.svg'
 
 import { GridWrapper, GridItem } from '../Grid'
 import Testimonials from '../Testimonials'
+import Image from '../Image'
 
 const Footer = () => (
   <footer className="bg-grey text-white p-4 clearfix">
@@ -14,10 +15,11 @@ const Footer = () => (
       <GridItem className="w-full sm:w-1/2 text-center self-center mb-4">
         <Link href="/guarantee">
           <a>
-            <img
+            <Image
               className="h-48"
               src="/static/images/guarantee.png"
               alt="BBF guarantee of quality and service"
+              placeholderHeight={192}
             />
           </a>
         </Link>
