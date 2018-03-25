@@ -5,7 +5,7 @@ import classnames from 'classnames'
 import Link from 'next/link'
 import { withRouter } from 'next/router'
 
-import Logo from '../../assets/images/logo-sm.svg'
+import Logo from '../../assets/images/site-logo.svg'
 
 const links = [
   { name: 'Home', path: '/' },
@@ -28,7 +28,7 @@ const Header = ({ open, setOpen, router }) => (
       <Link href="/">
         <a className="text-green hover:text-green hover:no-underline">
           <h1 className="mb-0">
-            <Logo width="82px" height="30px" />
+            <Logo width="106px" height="55px" />
           </h1>
         </a>
       </Link>
