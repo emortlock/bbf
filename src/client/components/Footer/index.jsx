@@ -14,7 +14,7 @@ const Footer = () => (
     <GridWrapper>
       <GridItem className="w-full sm:w-1/2 text-center self-center mb-4">
         <Link href="/guarantee">
-          <a>
+          <a title="Learn more about our guarantee of quality and service">
             <Image
               className="h-48"
               src="/static/images/guarantee.png"
