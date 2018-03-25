@@ -19,7 +19,7 @@ const handleClick = (setOpen, value) => () => setOpen(value)
 const Header = ({ open, setOpen, router }) => (
   <header
     className={classnames(
-      'flex items-center justify-between flex-wrap p-4 absolute pin-x z-10',
+      'flex items-center justify-between flex-wrap p-4 absolute pin-x z-50',
       open && 'bg-green shadow-lg',
       'lg:bg-transparent lg:shadow-none',
     )}
@@ -52,8 +52,9 @@ const Header = ({ open, setOpen, router }) => (
           <Link key={link.path} href={link.path}>
             <a
               className={classnames(
-                'block mt-4 lg:inline-block lg:mt-0 text-white hover:text-green-light mr-2 py-1 px-2 rounded-sm',
-                router.pathname === link.path && 'bg-grey-light text-green-light hover:no-underline cursor-default',
+                'block mt-4 lg:inline-block lg:mt-0 text-white mr-2 py-1 px-2 rounded-sm',
+                'hover:bg-grey-lighter hover:text-green-light hover:no-underline',
+                router.pathname === link.path && 'bg-grey-light hover:bg-grey-light text-green-light cursor-default',
               )}
             >
               { link.name }
