@@ -5,6 +5,8 @@ import MapPin from '../../assets/icons/map-pin.svg'
 import Phone from '../../assets/icons/phone.svg'
 import Email from '../../assets/icons/email.svg'
 
+import LinkedIn from '../../assets/icons/social-linkedin.svg'
+
 import { GridWrapper, GridItem } from '../Grid'
 import Testimonials from '../Testimonials'
 import Image from '../Image'
@@ -59,9 +61,26 @@ const Footer = () => (
       </GridItem>
     </GridWrapper>
     <hr className="border-solid border-0 border-t my-4 border-white opacity-50" />
-    <div className="float-right pr-4">
-      &copy; Berkeley Business Forms Ltd.
-    </div>
+
+    <GridWrapper spaceBetween>
+      <GridItem className="sm:1/2 c-social">
+        <p className="c-social__text">Join us on social media for our latest updates</p>
+        <a
+          href="https://www.linkedin.com/company/berkeley-business-forms-limited/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="c-social__link"
+        >
+          <span className="visually-hidden">Linked In</span>
+          <LinkedIn className="c-social__icon" />
+        </a>
+      </GridItem>
+      <GridItem className="sm:1/2 text-right">
+        <p>
+          &copy; Berkeley Business Forms Ltd.
+        </p>
+      </GridItem>
+    </GridWrapper>
   </footer>
 )
 
