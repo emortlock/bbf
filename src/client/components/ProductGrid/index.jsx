@@ -13,21 +13,9 @@ const ProductGrid = ({ className, products }) => (
     {
       products.sort((a, b) => a.order < b.order ? -1 : 1).map(product => (
         <GridItem key={product.key} className="sm:w-1/2 lg:w-1/3" gutterSize="zero">
-          {
-            product.path.startsWith('/')
-              ? (
-                <Link href={`${baseUrl}${product.path}`} passHref>
-                  <ProductLink {...product} />
-                </Link>
-              ) : (
-                <ProductLink
-                  href={product.path}
-                  target="_blank"
-                  rel="noopener norefferer"
-                  {...product}
-                />
-              )
-          }
+          <Link href={`${baseUrl}${product.path}`} passHref>
+            <ProductLink {...product} />
+          </Link>
         </GridItem>
       ))
     }
