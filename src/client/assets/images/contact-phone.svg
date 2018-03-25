@@ -1,16 +1,16 @@
 <svg viewBox="0 0 747 761" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient x1="31024%" y1="81328%" x2="31024%" y2="5335%" id="contacts-phone-a">
+    <linearGradient x1="31024%" y1="81328%" x2="31024%" y2="5335%" id="contact-phone-a">
       <stop stop-color="gray" stop-opacity=".3" offset="0%"/>
       <stop stop-color="gray" stop-opacity=".1" offset="54%"/>
       <stop stop-color="gray" stop-opacity=".1" offset="100%"/>
     </linearGradient>
-    <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="contacts-phone-b">
+    <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="contact-phone-b">
       <stop stop-color="gray" stop-opacity=".3" offset="1%"/>
       <stop stop-color="gray" stop-opacity=".1" offset="54%"/>
       <stop stop-color="gray" stop-opacity=".1" offset="100%"/>
     </linearGradient>
-    <linearGradient x1="43609%" y1="60857%" x2="43609%" y2="13263%" id="contacts-phone-c">
+    <linearGradient x1="43609%" y1="60857%" x2="43609%" y2="13263%" id="contact-phone-c">
       <stop stop-color="gray" stop-opacity=".3" offset="1%"/>
       <stop stop-color="gray" stop-opacity=".1" offset="54%"/>
       <stop stop-color="gray" stop-opacity=".1" offset="100%"/>
@@ -19,7 +19,7 @@
   <g fill="none" fill-rule="evenodd">
     <path d="M0 0h750v766H0z"/>
     <g transform="translate(160)" fill-rule="nonzero">
-      <rect fill="url(#contacts-phone-a)" x=".3" y=".3" width="428" height="759.9" rx="10"/>
+      <rect fill="url(#contact-phone-a)" x=".3" y=".3" width="428" height="759.9" rx="10"/>
       <rect fill="#FFF" x="11.3" y="12.7" width="404" height="723.1" rx="10"/>
       <path fill="#007049" d="M56.9 63.9h312.8v588.5H56.9z"/>
       <circle fill="#DBDBDB" cx="213.2" cy="694.8" r="24.9"/>
@@ -27,12 +27,12 @@
       <rect fill="#DBDBDB" x="188.3" y="32.7" width="77.3" height="7.5" rx="1.5"/>
     </g>
     <g fill-rule="nonzero">
-      <path d="M355.7 0h-302C24.1 0 0 25.8 0 57.7v199.8a28 28 0 0 0 7.3 19.1c4.8 5.1 11.2 8 18 8H217c6.3 23.6 22.4 56 62.7 70.4l-11.4-70.4h87.3c6.8 0 13.2-2.9 18-8a28 28 0 0 0 7.3-19.1V27.1A28 28 0 0 0 373.7 8c-4.8-5-11.2-8-18-8z" fill="url(#contacts-phone-b)" transform="translate(366 346)"/>
+      <path d="M355.7 0h-302C24.1 0 0 25.8 0 57.7v199.8a28 28 0 0 0 7.3 19.1c4.8 5.1 11.2 8 18 8H217c6.3 23.6 22.4 56 62.7 70.4l-11.4-70.4h87.3c6.8 0 13.2-2.9 18-8a28 28 0 0 0 7.3-19.1V27.1A28 28 0 0 0 373.7 8c-4.8-5-11.2-8-18-8z" fill="url(#contact-phone-b)" transform="translate(366 346)"/>
       <path d="M717.8 354H423.9a50.8 50.8 0 0 0-37 16.2 57.2 57.2 0 0 0-15.2 39.2v192c0 14.3 11 26 24.5 26h186.6a95.5 95.5 0 0 0 61 67.6l-11-67.6h85c13.5 0 24.5-11.6 24.5-26V380c0-14.4-11-26-24.5-26.1z" fill="#FAFAFA"/>
       <path fill="#E0E0E0" d="M488.9 403h151.3v19H488.9zM583.4 441H642v19h-58.6zM527.7 476h111.6v19H527.7zM502.1 515h138v19h-138zM565.5 551h71.9v19h-71.9z"/>
     </g>
     <g fill-rule="nonzero">
-      <path d="M25.2 0h330.5c14 0 25.3 11.5 25.3 25.6V243a25.4 25.4 0 0 1-25.3 25.6H164a95.2 95.2 0 0 1-62.7 66.4l11.4-66.4H25.3C11.3 268.6 0 257.1 0 243V25.6A25.4 25.4 0 0 1 25.2 0z" fill="url(#contacts-phone-c)" transform="translate(0 81)"/>
+      <path d="M25.2 0h330.5c14 0 25.3 11.5 25.3 25.6V243a25.4 25.4 0 0 1-25.3 25.6H164a95.2 95.2 0 0 1-62.7 66.4l11.4-66.4H25.3C11.3 268.6 0 257.1 0 243V25.6A25.4 25.4 0 0 1 25.2 0z" fill="url(#contact-phone-c)" transform="translate(0 81)"/>
       <path d="M28.7 89h323.6c13.6 0 24.7 11 24.7 24.7v209.6c0 13.6-11 24.7-24.7 24.7H164.5a92.3 92.3 0 0 1-61.4 64l11.1-64H28.7C15.1 348 4 337 4 323.3V113.7A24.7 24.7 0 0 1 28.7 89z" fill="#FFF"/>
       <path fill="#007049" d="M114 127h152v18H114zM114 163h58v18h-58zM116 197h112v18H116zM116 233h138v18H116zM116 268h72v18h-72z"/>
     </g>

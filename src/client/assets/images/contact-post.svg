@@ -1,33 +1,33 @@
 <svg viewBox="0 0 750 761" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="contacts-post-a">
+    <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="contact-post-a">
       <stop stop-color="gray" stop-opacity=".3" offset="0%"/>
       <stop stop-color="gray" stop-opacity=".1" offset="54%"/>
       <stop stop-color="gray" stop-opacity=".1" offset="100%"/>
     </linearGradient>
-    <linearGradient x1="31024%" y1="81328%" x2="31024%" y2="5335%" id="contacts-post-b">
+    <linearGradient x1="31024%" y1="81328%" x2="31024%" y2="5335%" id="contact-post-b">
       <stop stop-color="gray" stop-opacity=".3" offset="0%"/>
       <stop stop-color="gray" stop-opacity=".1" offset="54%"/>
       <stop stop-color="gray" stop-opacity=".1" offset="100%"/>
     </linearGradient>
-    <linearGradient x1="50%" y1="100%" x2="50%" y2="1%" id="contacts-post-c">
+    <linearGradient x1="50%" y1="100%" x2="50%" y2="1%" id="contact-post-c">
       <stop stop-color="#FFF" stop-opacity=".1" offset="0%"/>
       <stop stop-color="#FFF" stop-opacity=".1" offset="55%"/>
       <stop stop-color="#FFF" stop-opacity="0" offset="100%"/>
     </linearGradient>
-    <linearGradient x1="30936%" y1="37683%" x2="30936%" y2="33513%" id="contacts-post-d">
+    <linearGradient x1="30936%" y1="37683%" x2="30936%" y2="33513%" id="contact-post-d">
       <stop stop-color="#FFF" stop-opacity=".1" offset="0%"/>
       <stop stop-color="#FFF" stop-opacity=".1" offset="55%"/>
       <stop stop-color="#FFF" stop-opacity="0" offset="100%"/>
     </linearGradient>
   </defs>
   <g fill-rule="nonzero" fill="none">
-    <path fill="url(#contacts-post-a)" d="M.4.2h483.9v303.9H.4z" transform="translate(265 430)"/>
+    <path fill="url(#contact-post-a)" d="M.4.2h483.9v303.9H.4z" transform="translate(265 430)"/>
     <path fill="#FFF" d="M265.4 437.7h477.8v283.7H265.4z"/>
     <g opacity=".6" fill="#007049">
       <path d="M661.7 459.3h60.8v45h-60.8zM439.2 577.3h233.4v14.6H439.2zM439.2 613.8h170.2v9.7H439.2z"/>
     </g>
-    <rect fill="url(#contacts-post-b)" x=".3" y=".3" width="428" height="759.9" rx="10"/>
+    <rect fill="url(#contact-post-b)" x=".3" y=".3" width="428" height="759.9" rx="10"/>
     <rect fill="#FFF" x="11.3" y="12.7" width="404" height="723.1" rx="10"/>
     <path fill="#007049" d="M56.9 63.9h312.8v588.5H56.9z"/>
     <g fill="#2196F3" stroke="#FFF" stroke-width="7">
@@ -36,8 +36,8 @@
     <circle fill="#DBDBDB" cx="213.2" cy="694.8" r="24.9"/>
     <circle fill="#DBDBDB" cx="165.9" cy="36.4" r="5"/>
     <rect fill="#DBDBDB" x="188.3" y="32.7" width="77.3" height="7.5" rx="1.5"/>
-    <path d="M282.3 307.8c0 38-69 146-69 146s-69-107.9-69-146a69 69 0 1 1 138 0z" fill="url(#contacts-post-c)"/>
-    <circle fill="url(#contacts-post-d)" cx="213.4" cy="303" r="20.9"/>
+    <path d="M282.3 307.8c0 38-69 146-69 146s-69-107.9-69-146a69 69 0 1 1 138 0z" fill="url(#contact-post-c)"/>
+    <circle fill="url(#contact-post-d)" cx="213.4" cy="303" r="20.9"/>
     <path d="M267.1 316.3c0 29.7-53.7 113.8-53.7 113.8s-53.8-84.1-53.8-113.8a53.8 53.8 0 1 1 107.5 0z" fill="#FF5252"/>
     <circle fill="#FFF" cx="213.4" cy="312.5" r="16.3"/>
   </g>
