@@ -36,7 +36,7 @@ module.exports = withBundleAnalyzer(withCSS(withMdxc({
     if (!dev && !isServer) {
       newConfig.plugins.push(
         new PurgecssPlugin({
-          whitelist: ['html', 'body', 'c-heading--divider-white', 'c-slider__item'],
+          whitelist: ['html', 'body', 'c-heading--divider-white'],
           whitelistPatterns: [/-[0-9]\/[0-9]$/],
           paths: glob.sync([
             path.join(__dirname, '/src/client/**/*.js'),

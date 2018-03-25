@@ -86,7 +86,8 @@ class Testimonials extends Component {
                 <li
                   key={testimonial.quote}
                   className={classnames(
-                    `c-slider__item sm:w-1/${slidesToShow}`,
+                    'c-slider__item',
+                    slidesToShow > 1 && `sm:w-1/${slidesToShow}`,
                     !(index >= (multiCol ? activeSlide * slidesToShow : activeSlide)
                       && index <= (multiCol
                         ? (activeSlide * slidesToShow) + (slidesToShow - 1)
