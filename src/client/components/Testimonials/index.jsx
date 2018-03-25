@@ -44,6 +44,12 @@ class Testimonials extends Component {
     }
   }
 
+  componentWillUnmount() {
+    if (this.mediaQuery) {
+      this.mediaQuery.removeListener(this.handleColChange)
+    }
+  }
+
   handleColChange({ matches }) {
     return this.setState({
       multiCol: matches,
@@ -68,7 +74,7 @@ class Testimonials extends Component {
     const { activeSlide, testimonials, multiCol } = this.state
 
     return (
-      <div className="c-slider">
+      <div className="c-slider -mx-8 sm:mx-0">
         {
           activeSlide > 0 && <ArrowButton colour={arrowColour} direction="left" text="Previous" onClick={this.prevSlide} />
         }
