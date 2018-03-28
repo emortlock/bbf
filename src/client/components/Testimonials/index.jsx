@@ -105,6 +105,7 @@ class Testimonials extends Component {
                     <div className="c-quote__body-wrap">
                       <div
                         className="c-quote__body"
+                        // eslint-disable-next-line react/no-danger
                         dangerouslySetInnerHTML={{
                           __html: useShort && testimonial.quoteShort
                             ? testimonial.quoteShort

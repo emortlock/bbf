@@ -25,7 +25,7 @@ class Layout extends Component {
   }
 
   render() {
-    const { children } = this.props
+    const { children, homePage } = this.props
     return (
       <div>
         <Head>
@@ -45,7 +45,7 @@ class Layout extends Component {
         </Head>
         <Header />
         { children }
-        <Footer />
+        <Footer showTestimonials={!homePage} />
       </div>
     )
   }
@@ -53,6 +53,11 @@ class Layout extends Component {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  homePage: PropTypes.bool,
+}
+
+Layout.defaultProps = {
+  homePage: false,
 }
 
 export default WithAnalytics(Layout)

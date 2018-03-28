@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'next/link'
 
 import MapPin from '../../assets/icons/map-pin.svg'
@@ -11,7 +12,7 @@ import { GridWrapper, GridItem } from '../Grid'
 import Testimonials from '../Testimonials'
 import Image from '../Image'
 
-const Footer = () => (
+const Footer = ({ showTestimonials }) => (
   <footer className="bg-grey text-white p-4 clearfix">
     <GridWrapper>
       <GridItem className="w-full sm:w-1/2 text-center self-center mb-4">
@@ -55,10 +56,13 @@ const Footer = () => (
           </li>
         </ul>
       </GridItem>
-
-      <GridItem className="w-full mb-4">
-        <Testimonials max={3} arrowColour="white" useShort={false} />
-      </GridItem>
+      {
+        showTestimonials && (
+          <GridItem className="w-full mb-4">
+            <Testimonials max={3} arrowColour="white" useShort={false} />
+          </GridItem>
+        )
+      }
     </GridWrapper>
     <hr className="border-solid border-0 border-t my-4 border-white opacity-50" />
 
@@ -83,5 +87,13 @@ const Footer = () => (
     </GridWrapper>
   </footer>
 )
+
+Footer.propTypes = {
+  showTestimonials: PropTypes.bool,
+}
+
+Footer.defaultProps = {
+  showTestimonials: true,
+}
 
 export default Footer

@@ -11,7 +11,7 @@ import Products from './components/Products'
 import Testimonials from './components/Testimonials'
 
 const Home = () => (
-  <Layout>
+  <Layout homePage>
     <Hero
       title={<span>Your Guarantee of <br className="hidden sm:c-hero__break" />Print Satisfaction</span>}
     >
