@@ -7,6 +7,8 @@ import PageWrap from '../../components/PageWrap'
 
 import { setDescription } from '../../../config/meta'
 
+import LocalBusiness from './LocalBusiness'
+
 const About = () => (
   <Layout>
     <Head>
@@ -20,7 +22,7 @@ const About = () => (
       />
     </Head>
     <Hero title="About Us" />
-    <PageWrap>
+    <PageWrap >
       <p>
         Berkeley Business Forms Ltd was established in 1990 and has become one of the leading print
         suppliers to companies large and small throughout the U.K. Everyone benefits from our tried
@@ -65,6 +67,8 @@ const About = () => (
         David Mortlock<br />
         Founder
       </p>
+
+      <LocalBusiness />
     </PageWrap>
   </Layout>
 )
