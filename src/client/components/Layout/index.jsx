@@ -41,7 +41,6 @@ class Layout extends Component {
 
           <link key="manifest" rel="manifest" href="/static/manifest.json" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
-          <link rel="stylesheet" href="/_next/static/style.css" />
         </Head>
         <Header />
         { children }
