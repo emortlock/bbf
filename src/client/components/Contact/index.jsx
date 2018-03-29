@@ -15,18 +15,11 @@ import Section from '../Section'
 const Service = () => (
   <Section>
     <H2>Contact Us</H2>
-    <GridWrapper
-      horizontallyCenter
-      itemScope
-      itemType="http://schema.org/ContactPoint"
-      itemProp="contactPoint"
-    >
-      <meta itemProp="contactType" content="sales" />
+    <GridWrapper horizontallyCenter>
       <GridItem className="w-full md:w-1/2 lg:w-1/3">
         <a href="https://goo.gl/maps/oHpt1ur9B962" className="text-black hover:text-green">
           <Post className="hidden md:inline-block mb-2" height="8rem" width="8rem" />
           <PostIcon className="md:hidden fill-current h-10 w-10 mb-2" />
-
           <p>
             Berkeley Business Forms Ltd.<br />
             Freepost RLYH-RUJU-BBSJ<br />
@@ -39,7 +32,6 @@ const Service = () => (
       </GridItem>
 
       <GridItem className="w-full md:w-1/2 lg:w-1/3">
-        <meta itemProp="telephone" content="+441244831462" />
         <a href="tel:+441244831462" className="text-black hover:text-green">
           <Phone className="hidden md:inline-block mb-2" height="8rem" width="8rem" />
           <PhoneIcon className="md:hidden fill-current h-10 w-10 mb-2" />
@@ -52,7 +44,7 @@ const Service = () => (
           <Email className="hidden md:inline-block mb-2" height="8rem" width="8rem" />
           <EmailIcon className="md:hidden fill-current h-10 w-10 mb-2" />
 
-          <p itemProp="email">print@bbf.co.uk</p>
+          <p>print@bbf.co.uk</p>
         </a>
       </GridItem>
     </GridWrapper>

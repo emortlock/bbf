@@ -28,11 +28,18 @@ const Footer = ({ showTestimonials }) => (
         </Link>
       </GridItem>
 
-      <GridItem className="w-full sm:w-1/2 mb-4">
+      <GridItem
+        className="w-full sm:w-1/2 mb-4"
+        itemScope
+        itemType="http://schema.org/ContactPoint"
+        itemProp="contactPoint"
+      >
+        <meta itemProp="contactType" content="sales" />
         <ul className="list-reset flex flex-col justify-around h-full">
           <li className="mb-4 flex items-center">
             <Phone height="32px" width="32px" className="fill-current text-green flex-no-shrink w-8 h-8 mr-4" />
             <span>
+              <meta itemProp="telephone" content="+441244831462" />
               <a href="tel:01244831462" className="text-white hover:text-green">
                 01244 831462
               </a>
@@ -41,7 +48,7 @@ const Footer = ({ showTestimonials }) => (
           <li className="mb-4 flex items-center">
             <Email height="32px" width="32px" className="fill-current text-green flex-no-shrink w-8 h-8 mr-4" />
             <span>
-              <a href="mailto:print@bbf.co.uk" className="text-white hover:text-green">
+              <a href="mailto:print@bbf.co.uk" className="text-white hover:text-green" itemProp="email">
                 print@bbf.co.uk
               </a>
             </span>
