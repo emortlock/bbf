@@ -26,6 +26,10 @@ class Layout extends Component {
 
   render() {
     const { children, homePage } = this.props
+    const seoProps = homePage
+      ? { itemScope: true, itemType: 'http://schema.org/Organization' }
+      : {}
+
     return (
       <div>
         <Head>
@@ -42,9 +46,11 @@ class Layout extends Component {
           <link key="manifest" rel="manifest" href="/static/manifest.json" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
         </Head>
-        <Header />
-        { children }
-        <Footer showTestimonials={!homePage} />
+        <div {...seoProps}>
+          <Header />
+          { children }
+          <Footer showTestimonials={!homePage} />
+        </div>
       </div>
     )
   }

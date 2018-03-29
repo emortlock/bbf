@@ -25,10 +25,15 @@ const Header = ({ open, setOpen, router }) => (
     )}
   >
     <div className="flex items-center flex-no-shrink mr-6">
+      <meta itemProp="alternateName" content="BBF" />
       <Link href="/">
-        <a className="text-green hover:text-green hover:no-underline">
+        <a className="text-green hover:text-green hover:no-underline" itemProp="url">
           <h1 className="mb-0">
+            <span className="visually-hidden" itemProp="name">
+              Berkeley Business Forms
+            </span>
             <Logo width="106px" height="55px" />
+            <link itemProp="logo" href="/static/images/logo@3x.png" />
           </h1>
         </a>
       </Link>

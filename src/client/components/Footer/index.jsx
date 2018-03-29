@@ -70,6 +70,7 @@ const Footer = ({ showTestimonials }) => (
       <GridItem className="sm:1/2 c-social">
         <p className="c-social__text">Join us on social media for our latest updates</p>
         <a
+          itemProp="sameAs"
           href="https://www.linkedin.com/company/berkeley-business-forms-limited/"
           target="_blank"
           rel="noopener noreferrer"
@@ -81,7 +82,7 @@ const Footer = ({ showTestimonials }) => (
       </GridItem>
       <GridItem className="sm:1/2 text-right">
         <p>
-          &copy; Berkeley Business Forms Ltd.
+          &copy; <span itemProp="legalName">Berkeley Business Forms Ltd.</span>
         </p>
       </GridItem>
     </GridWrapper>

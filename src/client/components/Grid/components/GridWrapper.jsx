@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-const GridWrapper = ({ children, className, horizontallyCenter, spaceBetween }) => (
-  <div className={classnames('px-4', className)}>
+const GridWrapper = ({ children, className, horizontallyCenter, spaceBetween, ...rest }) => (
+  <div {...rest} className={classnames('px-4', className)}>
     <div
       className={classnames(
         'flex flex-wrap -mx-4',
