@@ -171,6 +171,9 @@ module.exports = {
     'sm': '576px',
     'md': '768px',
     'lg': '992px',
+    'max-lg': {
+      'max': '991px'
+    },
     'xl': '1200px',
   },
 
