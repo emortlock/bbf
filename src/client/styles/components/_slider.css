@@ -30,7 +30,7 @@
 
 .c-slider__list {
   @apply .list-reset .whitespace-no-wrap .w-full;
-  transition: transform .2s,
+  transition: transform .5s,
 }
 
 .c-slider__item {

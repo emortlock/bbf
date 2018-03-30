@@ -19,55 +19,53 @@ const handleClick = (setOpen, value) => () => setOpen(value)
 const Header = ({ open, setOpen, router }) => (
   <header
     className={classnames(
-      'flex items-center justify-between flex-wrap p-4 absolute pin-x z-50',
-      open && 'bg-green shadow-lg',
-      'lg:bg-transparent lg:shadow-none',
+      'c-header',
+      open && 'is-open',
     )}
   >
-    <div className="flex items-center flex-no-shrink mr-6">
-      <meta itemProp="alternateName" content="BBF" />
-      <Link href="/">
-        <a className="text-green hover:text-green hover:no-underline" itemProp="url">
-          <h1 className="mb-0">
-            <span className="visually-hidden" itemProp="name">
-              Berkeley Business Forms
-            </span>
-            <Logo width="106px" height="55px" />
-            <link itemProp="logo" href="/static/images/logo@3x.png" />
-          </h1>
-        </a>
-      </Link>
+    <div className="c-header__inner">
+      <div className="c-header__brand">
+        <meta itemProp="alternateName" content="BBF" />
+        <Link href="/">
+          <a className="c-header__brand-logo" itemProp="url">
+            <h1 className="mb-0">
+              <span className="visually-hidden" itemProp="name">
+                Berkeley Business Forms
+              </span>
+              <Logo width="106px" height="55px" />
+              <link itemProp="logo" href="/static/images/logo@3x.png" />
+            </h1>
+          </a>
+        </Link>
+      </div>
+      <div className="c-header__toggle">
+        <button
+          className="c-header__toggle-button"
+          onClick={handleClick(setOpen, !open)}
+        >
+          <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+          </svg>
+        </button>
+      </div>
+      <nav className="c-header__nav">
+        {
+          links.map(link => (
+            <Link key={link.path} href={link.path}>
+              <a
+                className={classnames(
+                  'c-header__nav-link',
+                  router.pathname === link.path && 'is-active',
+                )}
+              >
+                { link.name }
+              </a>
+            </Link>
+          ))
+        }
+      </nav>
     </div>
-    <div className="block lg:hidden">
-      <button
-        className="flex items-center px-3 py-2 border rounded-sm text-green border-white hover:text-green hover:border-green"
-        onClick={handleClick(setOpen, !open)}
-      >
-        <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <title>Menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-        </svg>
-      </button>
-    </div>
-    <nav
-      className={classnames(!open && 'hidden', 'w-full block lg:flex lg:items-center lg:w-auto')}
-    >
-      {
-        links.map(link => (
-          <Link key={link.path} href={link.path}>
-            <a
-              className={classnames(
-                'block mt-4 lg:inline-block lg:mt-0 text-white mr-2 py-1 px-2 rounded-sm',
-                'hover:bg-grey-lighter hover:text-green-light hover:no-underline',
-                router.pathname === link.path && 'bg-grey-light hover:bg-grey-light text-green-light cursor-default',
-              )}
-            >
-              { link.name }
-            </a>
-          </Link>
-        ))
-      }
-    </nav>
   </header>
 )
 

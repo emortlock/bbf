@@ -36,8 +36,10 @@
     );
     bottom: -0.5rem;
   }
+}
 
-  @screen sm {
+@screen sm {
+  .c-hero__title {
     @apply .text-5xl;
   }
 }
