@@ -1,4 +1,5 @@
 const joi = require('joi')
+require('dotenv').config()
 
 const envVarsSchema = joi.object({
   NODE_ENV: joi.string()
@@ -10,7 +11,8 @@ const envVarsSchema = joi.object({
     .default(true),
   LOGGER_LEVEL: joi.string()
     .allow(['trace', 'debug', 'info', 'warn', 'crit', 'fatal'])
-    .default('info')
+    .default('info'),
+  SENDGRID_API_KEY: joi.string().required()
 }).unknown()
   .required()
 
@@ -29,6 +31,9 @@ const config = {
   },
   server: {
     port: envVars.PORT
+  },
+  sendgrid: {
+    apiKey: envVars.SENDGRID_API_KEY
   }
 }
 

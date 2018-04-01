@@ -6,7 +6,7 @@ const MAX_REQUESTS = 5
 const SLOW_DOWN_DELAY = 0
 
 const onLimitReached = (req) => {
-  logger.info(`Rate limit reached for IP ${req.connection.remoteAddress}`)
+  logger.warn(`Rate limit reached for IP ${req.connection.remoteAddress}`)
 }
 
 var limiter = new RateLimiter({
