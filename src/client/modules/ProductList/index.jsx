@@ -6,9 +6,9 @@ import Layout from '../../components/Layout'
 import PageWrap from '../../components/PageWrap'
 import ProductGrid from '../../components/ProductGrid'
 
-import products from '../../../config/products'
+import products from '../../config/products'
 
-import { setDescription } from '../../../config/meta'
+import { setDescription } from '../../config/meta'
 
 const Products = () => (
   <Layout>

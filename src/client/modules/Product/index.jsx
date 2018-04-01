@@ -9,8 +9,8 @@ import Layout from '../../components/Layout'
 import PageWrap from '../../components/PageWrap'
 import { GridWrapper, GridItem } from '../../components/Grid'
 
-import { getById } from '../../../config/products'
-import { setDescription } from '../../../config/meta'
+import { getById } from '../../config/products'
+import { setDescription } from '../../config/meta'
 
 const Product = ({ id }) => {
   const product = getById(id)

@@ -3,7 +3,7 @@ import React from 'react'
 import { H2 } from '../../../components/Heading'
 import ProductGrid from '../../../components/ProductGrid'
 
-import products from '../../../../config/products'
+import products from '../../../config/products'
 
 const Products = () => [
   <div key="title" className="text-center pt-8">

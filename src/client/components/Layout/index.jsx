@@ -7,7 +7,7 @@ import Footer from '../Footer'
 
 import '../../styles/main.css'
 
-import { description, title } from '../../../config/meta'
+import { description, title } from '../../config/meta'
 
 import WithAnalytics from '../WithAnalytics'
 

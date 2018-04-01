@@ -5,7 +5,7 @@ import Hero from '../../components/Hero'
 import Layout from '../../components/Layout'
 import PageWrap from '../../components/PageWrap'
 
-import { setDescription } from '../../../config/meta'
+import { setDescription } from '../../config/meta'
 
 const About = () => (
   <Layout>

@@ -4,9 +4,9 @@ import Head from 'next/head'
 import Hero from '../../components/Hero'
 import Layout from '../../components/Layout'
 import PageWrap from '../../components/PageWrap'
-import ContactContent from '../../components/Contact'
+import { ContactDetails, ContactForm } from '../../components/Contact'
 
-import { setDescription } from '../../../config/meta'
+import { setDescription } from '../../config/meta'
 
 const Contact = () => (
   <Layout>
@@ -22,7 +22,8 @@ const Contact = () => (
     </Head>
     <Hero title="Contact Us" />
     <PageWrap>
-      <ContactContent />
+      <ContactDetails />
+      <ContactForm />
     </PageWrap>
   </Layout>
 )

@@ -3,7 +3,7 @@ import React from 'react'
 import Hero from '../../components/Hero'
 import Layout from '../../components/Layout'
 import PageWrap from '../../components/PageWrap'
-import Contact from '../../components/Contact'
+import { ContactDetails } from '../../components/Contact'
 
 import Service from './components/Service'
 import Guarantee from './components/Guarantee'
@@ -24,7 +24,7 @@ const Home = () => (
     <PageWrap padded={false}>
       <Products />
       <Testimonials />
-      <Contact />
+      <ContactDetails />
       <Guarantee />
       <Service />
     </PageWrap>
