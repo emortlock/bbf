@@ -61,3 +61,6 @@ typings/
 
 # next.js dist dir
 dist
+
+#dotenv
+.env
