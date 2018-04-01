@@ -1,4 +1,4 @@
-// stylelint-disable at-rule-no-vendor-prefix, declaration-no-important, selector-no-qualifying-type, property-no-vendor-prefix
+// stylelint-disable at-rule-no-vendor-prefix, declaration-no-important, selector-no-qualifying-type, property-no-vendor-prefix, no-descending-specificity
 
 // Reboot
 //
@@ -21,7 +21,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box; // 1
+  box-sizing: border-box;
 }
 
 html {
@@ -34,6 +34,7 @@ html {
 }
 
 // IE10+ doesn't honor `<meta name="viewport">` in some cases.
+// stylelint-disable-next-line at-rule-no-unknown
 @at-root {
   @-ms-viewport {
     width: device-width;

@@ -9,7 +9,7 @@
     "build:export": "yarn build && next export -o ./dist",
     "start": "yarn build && cross-env NODE_ENV=production node ./index.js",
     "start:dev": "cross-env NODE_ENV=development LOGGER_LEVEL=debug nodemon --watch ./src/server ./index.js",
-    "lint": "eslint ./src --ext .js,.jsx",
+    "lint": "eslint ./src --ext .js,.jsx && stylelint \"src/**/*.css\" --syntax scss",
     "test": "cross-env LOGGER_ENABLED=false BABEL_ENV=test jest",
     "test:coverage": "yarn test --coverage",
     "precommit": "yarn lint-staged",
@@ -82,7 +82,8 @@
     "yarn": "^1.5.1"
   },
   "lint-staged": {
-    "*.{js,jsx}": ["eslint --fix", "git add"]
+    "*.{js,jsx}": ["eslint --fix", "git add"],
+    "*.css": ["stylelint --syntax scss"]
   },
   "jest": {
     "collectCoverageFrom": [
