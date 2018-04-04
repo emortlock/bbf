@@ -88,6 +88,17 @@ const Footer = ({ showTestimonials }) => (
         </a>
       </GridItem>
       <GridItem className="sm:1/2 text-right">
+        <ul className="list-reset">
+          <li className="inline-block">
+            <a
+              href="/static/documents/privacy-notice.pdf"
+              download
+              className="text-white underline hover:text-green"
+            >
+              Privacy Noticy
+            </a>
+          </li>
+        </ul>
         <p>
           &copy; <span itemProp="legalName">Berkeley Business Forms Ltd.</span>
         </p>
