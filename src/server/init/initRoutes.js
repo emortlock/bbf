@@ -3,9 +3,9 @@ const quote = require('../modules/quote').api
 const staticRedirect = require('../modules/staticRedirect').api
 
 const initRoutes = (app) => {
-  app.use(health)
-  app.use(quote)
   app.use(staticRedirect)
+  app.use('/api', health)
+  app.use('/api', quote)
 }
 
 module.exports = initRoutes

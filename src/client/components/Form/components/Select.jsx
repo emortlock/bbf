@@ -1,10 +1,12 @@
 import React from 'react'
+import classnames from 'classnames'
 
 import { getInputPropTypes, getInputDefaultProps } from '../utils/inputProps'
 
 const Select = ({
   id,
   name,
+  className,
   required,
   invalid,
   disabled,
@@ -16,10 +18,9 @@ const Select = ({
     {...rest}
     id={id || name}
     name={name}
-
+    className={classnames(className, 'c-input c-input--select')}
     required={required}
     disabled={disabled}
-
     aria-disabled={disabled || undefined}
     aria-required={required === false ? required : undefined}
     aria-invalid={invalid || undefined}

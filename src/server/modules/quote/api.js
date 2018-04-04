@@ -5,11 +5,11 @@ const logger = require('../../logger')
 const router = express.Router()
 
 router.post('/quote', (req, res) => {
-
-  if (req.body.to) {
+  const contact = req.body.email
+  if (contact) {
     return service.generateQuoteEmail(req.body)
       .then((email) => {
-        logger.info(`Sending email to ${req.body.to.match(/.+?(?=@)/)[0]}@***.***`)
+        logger.info(`Sending quote request from ${contact.match(/.+?(?=@)/)[0]}@***.***`)
         return service.send(email)
       })
       .then(() => {
@@ -24,10 +24,11 @@ router.post('/quote', (req, res) => {
         else throw(error)
       })
       .catch((error) => {
-        logger.crit(JSON.stringify(error, null, 1))
+        logger.crit(error.message)
         res.sendStatus(500)
       })
   }
+  logger.warn('Invalid request received')
   return res.sendStatus(400)
 })
 

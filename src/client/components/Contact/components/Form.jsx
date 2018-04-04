@@ -19,7 +19,7 @@ const ContactForm = ({
 }) => (
   <Form onSubmit={handleSubmit} noValidate>
     <fieldset>
-      <legend>Contact Us</legend>
+      <legend>Get a No Obligation Quote Now</legend>
 
       <TextInputField
         name="name"
@@ -43,6 +43,28 @@ const ContactForm = ({
         error={touched.email && errors.email}
       />
 
+      <TextAreaField
+        name="message"
+        label="Your message"
+        value={values.message}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        required
+        error={touched.message && errors.message}
+        rows={8}
+      />
+
+      <TextInputField
+        name="company"
+        label="Your company"
+        type="text"
+        value={values.company}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        required={false}
+        error={touched.company && errors.company}
+      />
+
       <TextInputField
         name="tel"
         label="Your telephone number"
@@ -52,16 +74,6 @@ const ContactForm = ({
         onBlur={handleBlur}
         required={false}
         error={touched.tel && errors.tel}
-      />
-
-      <TextAreaField
-        name="message"
-        label="Your message"
-        value={values.message}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        required
-        error={touched.message && errors.message}
       />
 
       <SelectField
@@ -74,6 +86,11 @@ const ContactForm = ({
         error={touched.hearAboutUs && errors.hearAboutUs}
         options={[
           { label: 'Existing customer', value: 'existing' },
+          { label: 'Recommendation', value: 'recommended' },
+          { label: 'Online search (e.g. Google)', value: 'search' },
+          { label: 'Social network (e.g. LinkedIn)', value: 'social' },
+          { label: 'Advertisement', value: 'advert' },
+          { label: 'Other', value: 'other' },
         ]}
       />
     </fieldset>
@@ -81,18 +98,6 @@ const ContactForm = ({
     <button type="submit" disabled={isSubmitting}>
       Submit
     </button>
-
-    <div>
-      {JSON.stringify({
-        values,
-        touched,
-        errors,
-        isSubmitting,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-      }, null, 2)}
-    </div>
   </Form>
 )
 

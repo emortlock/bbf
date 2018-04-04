@@ -6,6 +6,7 @@ import Layout from '../../components/Layout'
 import PageWrap from '../../components/PageWrap'
 import { ContactDetails, ContactForm } from '../../components/Contact'
 
+import features from '../../config/features'
 import { setDescription } from '../../config/meta'
 
 const Contact = () => (
@@ -23,7 +24,7 @@ const Contact = () => (
     <Hero title="Contact Us" />
     <PageWrap>
       <ContactDetails />
-      <ContactForm />
+      { features.contactForm && <ContactForm /> }
     </PageWrap>
   </Layout>
 )

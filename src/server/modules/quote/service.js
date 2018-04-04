@@ -15,10 +15,13 @@ const send = (email) =>
 
 const generateHtml = details => (
   `
-    <div>
-      <h1>Request for Quote Received.</h1>
-      <h3>Company: ${details.name}</h3>
-      <h3>Email: ${details.to}</h3>
+    <p><b>Company:</b> ${details.company}</p>
+    <p><b>Contact:</b> ${details.name}</p>
+    <p><b>Telephone:</b> ${details.tel}</p>
+    <p><b>Email:</b> ${details.email}</p>
+    <p><b>Source:</b> ${details.hearAboutUs}</p>
+    <p><b>Message:</b></p>
+    <p>${details.message}</p>
     </div>
   `
 )
@@ -27,7 +30,6 @@ const generateQuoteEmail = details => (
   new Promise(resolve =>
     resolve({
       subject: `Request for Quote - ${details.name}`,
-      to: details.to,
       html: generateHtml(details),
     })
   )

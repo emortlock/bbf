@@ -19,7 +19,6 @@ const WithField = (Input) => {
     >
       <Input
         {...rest}
-        className="mb-2"
         name={name}
         required={required}
         invalid={!!error}
