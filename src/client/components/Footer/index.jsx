@@ -95,7 +95,7 @@ const Footer = ({ showTestimonials }) => (
               download
               className="text-white underline hover:text-green"
             >
-              Privacy Noticy
+              Privacy Notice
             </a>
           </li>
         </ul>
