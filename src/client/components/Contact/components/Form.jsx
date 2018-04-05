@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import {
@@ -20,125 +20,93 @@ const ContactForm = ({
   handleChange,
   handleBlur,
   handleSubmit,
-}) => {
-  let submit
+}) => (
+  <Form onSubmit={handleSubmit} noValidate>
+    <fieldset>
+      <legend>Get a No Obligation Quote Now</legend>
 
-  const handleSkipToSubmit = (e) => {
-    submit.click()
+      <TextInputField
+        name="name"
+        label="Your name"
+        type="text"
+        value={values.name}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        required
+        error={touched.name && errors.name}
+      />
 
-    if (e.preventDefault) {
-      return e.preventDefault()
-    }
-    return false
-  }
+      <TextInputField
+        name="company"
+        label="Your company"
+        type="text"
+        value={values.company}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        required={false}
+        error={touched.company && errors.company}
+      />
 
-  return (
-    <Form onSubmit={handleSubmit} noValidate>
-      <fieldset>
-        <legend>Get a No Obligation Quote Now</legend>
+      <TextInputField
+        name="email"
+        label="Your email address"
+        type="text"
+        value={values.email}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        required
+        error={touched.email && errors.email}
+      />
 
-        <TextInputField
-          name="name"
-          label="Your name"
-          type="text"
-          value={values.name}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          required
-          error={touched.name && errors.name}
-        />
+      <TextInputField
+        name="tel"
+        label="Your telephone number"
+        type="tel"
+        value={values.tel}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        required={false}
+        error={touched.tel && errors.tel}
+      />
 
-        <TextInputField
-          name="email"
-          label="Your email address"
-          type="text"
-          value={values.email}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          required
-          error={touched.email && errors.email}
-        />
+      <TextAreaField
+        name="message"
+        label="Your message"
+        value={values.message}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        required
+        error={touched.message && errors.message}
+        rows={8}
+      />
 
-        <TextAreaField
-          name="message"
-          label="Your message"
-          value={values.message}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          required
-          error={touched.message && errors.message}
-          rows={8}
-        />
+      <SelectField
+        name="hearAboutUs"
+        label="How did you hear about us?"
+        value={values.hearAboutUs}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        required={false}
+        error={touched.hearAboutUs && errors.hearAboutUs}
+        options={[
+          { label: 'Existing customer', value: 'existing' },
+          { label: 'Recommendation', value: 'recommended' },
+          { label: 'Online search (e.g. Google)', value: 'search' },
+          { label: 'Social network (e.g. LinkedIn)', value: 'social' },
+          { label: 'Advertisement', value: 'advert' },
+          { label: 'Other', value: 'other' },
+        ]}
+      />
+    </fieldset>
 
-        {
-          readyToSubmit(values, errors) && (
-            <Fragment>
-              <p>
-                If you&#8217;ve got time could you please answer
-                the next few questions so we&#8217;re best able to deal with your query. If
-                you&#8217;re in a hurry though feel free to { ' ' }
-                <a
-                  href="#contact-form-submit"
-                  onClick={handleSkipToSubmit}
-                >
-                  send the message now
-                </a>.
-              </p>
-              <TextInputField
-                name="company"
-                label="Your company"
-                type="text"
-                value={values.company}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                required={false}
-                error={touched.company && errors.company}
-              />
-
-              <TextInputField
-                name="tel"
-                label="Your telephone number"
-                type="tel"
-                value={values.tel}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                required={false}
-                error={touched.tel && errors.tel}
-              />
-
-              <SelectField
-                name="hearAboutUs"
-                label="How did you hear about us?"
-                value={values.hearAboutUs}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                required={false}
-                error={touched.hearAboutUs && errors.hearAboutUs}
-                options={[
-                  { label: 'Existing customer', value: 'existing' },
-                  { label: 'Recommendation', value: 'recommended' },
-                  { label: 'Online search (e.g. Google)', value: 'search' },
-                  { label: 'Social network (e.g. LinkedIn)', value: 'social' },
-                  { label: 'Advertisement', value: 'advert' },
-                  { label: 'Other', value: 'other' },
-                ]}
-              />
-            </Fragment>
-          )
-        }
-      </fieldset>
-
-      <button
-        ref={(el) => { submit = el }}
-        id="contact-form-submit"
-        type="submit"
-        disabled={isSubmitting || !readyToSubmit(values, errors)}
-      >
-        Submit
-      </button>
-    </Form>
-  )
-}
+    <button
+      type="submit"
+      disabled={isSubmitting || !readyToSubmit(values, errors)}
+    >
+      Submit
+    </button>
+  </Form>
+)
 
 ContactForm.propTypes = {
   values: PropTypes.shape({}).isRequired,
