@@ -23,7 +23,7 @@ const Contact = () => (
     </Head>
     <Hero title="Contact Us" />
     <PageWrap>
-      <ContactDetails />
+      <ContactDetails hideTitle />
       { features.contactForm && <ContactForm /> }
     </PageWrap>
   </Layout>

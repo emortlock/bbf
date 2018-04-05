@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Post from '../../../assets/images/contact-post.svg'
 import Phone from '../../../assets/images/contact-phone.svg'
@@ -12,9 +13,9 @@ import { GridWrapper, GridItem } from '../../Grid'
 import { H2 } from '../../Heading'
 import Section from '../../Section'
 
-const ContactDetails = () => (
+const ContactDetails = ({ hideTitle }) => (
   <Section>
-    <H2>Contact Us</H2>
+    { !hideTitle && <H2>Contact Us</H2> }
     <GridWrapper horizontallyCenter>
       <GridItem className="w-full md:w-1/2 lg:w-1/3">
         <a href="https://goo.gl/maps/oHpt1ur9B962" className="text-black hover:text-green">
@@ -50,5 +51,13 @@ const ContactDetails = () => (
     </GridWrapper>
   </Section>
 )
+
+ContactDetails.propTypes = {
+  hideTitle: PropTypes.bool,
+}
+
+ContactDetails.defaultProps = {
+  hideTitle: false,
+}
 
 export default ContactDetails
