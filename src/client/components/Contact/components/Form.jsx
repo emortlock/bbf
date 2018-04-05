@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { Button } from '../../Button'
 import {
   Form,
   SelectField,
@@ -99,12 +100,14 @@ const ContactForm = ({
       />
     </fieldset>
 
-    <button
+    <Button
       type="submit"
       disabled={isSubmitting || !readyToSubmit(values, errors)}
+      primary
+      fullWidth
     >
-      Submit
-    </button>
+      Send
+    </Button>
   </Form>
 )
 
