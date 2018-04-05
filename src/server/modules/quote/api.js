@@ -6,6 +6,7 @@ const router = express.Router()
 
 router.post('/quote', (req, res) => {
   const contact = req.body.email
+
   if (contact) {
     return service.generateQuoteEmail(req.body)
       .then((email) => {

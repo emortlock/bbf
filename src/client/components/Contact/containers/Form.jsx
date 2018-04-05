@@ -29,7 +29,13 @@ const EnhancedForm = withFormik({
       .required('Please enter the message you want to send'),
   }),
   handleSubmit: (values, { setSubmitting }) => {
-    fetch('/api/quote', { method: 'post', body: JSON.stringify(values) })
+    fetch('/api/quote', {
+      method: 'post',
+      body: JSON.stringify(values),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
       .then(() => {
         setSubmitting(false)
       })
