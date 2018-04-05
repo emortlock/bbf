@@ -19,6 +19,7 @@ const Button = ({
       primary && 'bg-green hover:bg-green-light text-white',
       secondary && 'border-solid border-2 border-green text-green hover:bg-green hover:text-white',
       fullWidth && 'w-full',
+      disabled && 'opacity-50 cursor-not-allowed',
       className,
     )}
     onClick={onClick}
