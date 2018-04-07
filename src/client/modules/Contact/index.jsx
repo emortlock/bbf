@@ -24,6 +24,14 @@ const Contact = () => (
     </Head>
     <Hero title="Contact Us" />
     <PageWrap>
+      <Section textAlign="left" padding="sm">
+        <p>
+          Get in touch with us using your preferred method below to benefit from a one to one
+          contact with a highly trained and knowledgeable member of the team. They
+          will follow your work through from start to finish and build an in depth knowledge
+          of your company and the requirements you have.
+        </p>
+      </Section>
       <ContactDetails hideTitle />
       {
         features.contactForm && (
