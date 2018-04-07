@@ -3,32 +3,34 @@ import Yup from 'yup'
 
 import Form from '../components/Form'
 
+import { FIELDS } from '../constants'
+
 const EnhancedForm = withFormik({
   mapPropsToValues: () => ({
-    name: '',
-    company: '',
-    email: '',
-    tel: '',
-    message: '',
-    hearAboutUs: '',
+    [FIELDS.NAME]: '',
+    [FIELDS.COMPANY]: '',
+    [FIELDS.EMAIL]: '',
+    [FIELDS.TELEPHONE]: '',
+    [FIELDS.MESSAGE]: '',
+    [FIELDS.HEAR_ABOUT_US]: '',
   }),
   validationSchema: Yup.object().shape({
-    name: Yup.string()
+    [FIELDS.NAME]: Yup.string()
       .required('Please enter your name'),
-    company: Yup.string()
+    [FIELDS.COMPANY]: Yup.string()
       .required('Please enter your company')
       .notRequired(),
-    email: Yup.string()
+    [FIELDS.EMAIL]: Yup.string()
       .email('Please enter a valid email address')
       .required('Please enter your email address'),
-    tel: Yup.string()
+    [FIELDS.TELEPHONE]: Yup.string()
       .min(11, 'Please enter a valid telephone number')
       .max(19, 'Please enter a valid telephone number')
       .notRequired(),
-    message: Yup.string()
+    [FIELDS.MESSAGE]: Yup.string()
       .required('Please enter the message you want to send'),
   }),
-  handleSubmit: (values, { setSubmitting }) => {
+  handleSubmit: (values, { setSubmitting, setStatus }) => {
     fetch('/api/quote', {
       method: 'post',
       body: JSON.stringify(values),
@@ -37,8 +39,12 @@ const EnhancedForm = withFormik({
       },
     })
       .then(() => {
+        setStatus('submitted')
         setSubmitting(false)
       })
+  },
+  onReset: (values, { setStatus }) => {
+    setStatus('init')
   },
   displayName: 'ContactForm',
 })(Form)
