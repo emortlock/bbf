@@ -36,7 +36,7 @@ const About = () => (
       </p>
 
       <p>
-        Print Buyers already converted to the Berkeley Business Forms way of doing things will be
+        Print buyers already converted to the Berkeley Business Forms way of doing things will be
         benefiting from a ‘one to one’ contact with a highly trained, knowledgeable and experienced
         member of the team who will follow your work through from start to finish and build an in
         depth knowledge of your company and the requirements you have.
