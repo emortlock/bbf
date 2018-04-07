@@ -4,11 +4,12 @@ import classnames from 'classnames'
 
 import Link from 'next/link'
 
-const ButtonLink = ({ children, to, className, primary, secondary }) => (
+const ButtonLink = ({ children, to, className, primary, secondary, large }) => (
   <Link href={to}>
     <a
       className={classnames(
-        'bg-white hover:bg-grey-light text-black hover:text-white py-2 px-4 rounded hover:no-underline',
+        'inline-block bg-white hover:bg-grey-light text-black hover:text-white rounded hover:no-underline',
+        large ? 'py-4 px-8' : 'py-2 px-4',
         primary && 'bg-green hover:bg-green-light text-white',
         secondary && 'border-solid border-2 border-green text-green hover:bg-green hover:text-white',
         className,
@@ -25,12 +26,14 @@ ButtonLink.propTypes = {
   className: PropTypes.string,
   primary: PropTypes.bool,
   secondary: PropTypes.bool,
+  large: PropTypes.bool,
 }
 
 ButtonLink.defaultProps = {
   className: undefined,
   primary: false,
   secondary: false,
+  large: false,
 }
 
 export default ButtonLink
