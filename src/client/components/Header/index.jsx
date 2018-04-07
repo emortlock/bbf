@@ -7,6 +7,8 @@ import { withRouter } from 'next/router'
 
 import Logo from '../../assets/images/site-logo.svg'
 
+import getStructuredDataProps from '../../utils/getStructuredDataProps'
+
 const links = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
@@ -16,7 +18,7 @@ const links = [
 
 const handleClick = (setOpen, value) => () => setOpen(value)
 
-const Header = ({ open, setOpen, router }) => (
+const Header = ({ open, setOpen, router, structuredData }) => (
   <header
     className={classnames(
       'c-header',
@@ -25,15 +27,21 @@ const Header = ({ open, setOpen, router }) => (
   >
     <div className="c-header__inner">
       <div className="c-header__brand">
-        <meta itemProp="alternateName" content="BBF" />
+        { structuredData && <meta itemProp="alternateName" content="BBF" /> }
         <Link href="/">
-          <a className="c-header__brand-logo" itemProp="url">
+          <a
+            {...getStructuredDataProps({ itemProp: 'url' }, structuredData)}
+            className="c-header__brand-logo"
+          >
             <h1 className="mb-0">
-              <span className="visually-hidden" itemProp="name">
+              <span
+                {...getStructuredDataProps({ itemProp: 'name' }, structuredData)}
+                className="visually-hidden"
+              >
                 Berkeley Business Forms
               </span>
               <Logo width="106px" height="55px" />
-              <link itemProp="logo" href="/static/images/logo@3x.png" />
+              { structuredData && <link itemProp="logo" href="/static/images/logo@3x.png" /> }
             </h1>
           </a>
         </Link>
@@ -75,6 +83,11 @@ Header.propTypes = {
   router: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
+  structuredData: PropTypes.bool,
+}
+
+Header.defaultProps = {
+  structuredData: false,
 }
 
 export default compose(

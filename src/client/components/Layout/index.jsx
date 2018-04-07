@@ -9,6 +9,8 @@ import '../../styles/main.css'
 
 import { description, title } from '../../config/meta'
 
+import getStructuredDataProps from '../../utils/getStructuredDataProps'
+
 import WithAnalytics from '../WithAnalytics'
 
 class Layout extends Component {
@@ -26,9 +28,6 @@ class Layout extends Component {
 
   render() {
     const { children, homePage } = this.props
-    const seoProps = homePage
-      ? { itemScope: true, itemType: 'http://schema.org/Organization' }
-      : {}
 
     return (
       <div>
@@ -46,10 +45,15 @@ class Layout extends Component {
           <link key="manifest" rel="manifest" href="/static/manifest.json" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
         </Head>
-        <div {...seoProps}>
-          <Header />
+        <div
+          {...getStructuredDataProps({
+            itemScope: true,
+            itemType: 'http://schema.org/Organization',
+          }, homePage)}
+        >
+          <Header structuredData={homePage} />
           { children }
-          <Footer showTestimonials={!homePage} />
+          <Footer showTestimonials={!homePage} structuredData={homePage} />
         </div>
       </div>
     )
