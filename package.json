@@ -51,6 +51,7 @@
     "react-dom": "^16.2.0",
     "react-ga": "^2.4.1",
     "react-lazyload": "^2.3.0",
+    "react-scroll-to-component": "^1.0.2",
     "recompose": "^0.26.0",
     "tailwindcss": "^0.4.1",
     "url-loader": "^0.6.2",
@@ -82,8 +83,13 @@
     "yarn": "^1.5.1"
   },
   "lint-staged": {
-    "*.{js,jsx}": ["eslint --fix", "git add"],
-    "*.css": ["stylelint --syntax scss"]
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.css": [
+      "stylelint --syntax scss"
+    ]
   },
   "jest": {
     "collectCoverageFrom": [

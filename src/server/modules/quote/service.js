@@ -1,35 +1,45 @@
 const sgMail = require('@sendgrid/mail')
 const { sendgrid } = require('../../config')
+const { isDev } = require('../../config')
 
-const TO = 'ed@bbf.co.uk'
-const FROM = 'test@example.co.uk'
+const ADMIN = 'web@bbf.co.uk'
+
+const TO = 'print@bbf.co.uk'
+const FROM = 'web@bbf.co.uk'
+const FROM_TEST = 'test@bbf.co.uk'
 
 sgMail.setApiKey(sendgrid.apiKey)
 
 const send = (email) =>
   sgMail.send({
-    from: FROM,
+    from: isDev ? FROM_TEST : FROM,
     ...email,
-    to: TO,
+    to: isDev ? ADMIN : TO,
   })
 
 const generateHtml = details => (
   `
-    ${details.company ? `<p><b>Company:</b> ${details.company}</p>` : ''}
+    ${isDev
+      ? '<p style="font-weight:bold;">This is a test of the site messaging system, please ignore.</p>'
+      : ''
+    }
     <p><b>Contact:</b> ${details.name}</p>
-    ${details.tel ? `<p><b>Telephone:</b> ${details.tel}</p>` : ''}
-    <p><b>Email:</b> ${details.email}</p>
+    ${details.company ? `<p><b>Company:</b> ${details.company}</p>` : ''}
+    ${details.tel ? `<p><b>Telephone:</b> <a href="tel:${details.tel}">${details.tel}</a></p>` : ''}
+    <p><b>Email:</b> <a href="mailto:${details.email}">${details.email}</a></p>
     ${details.hearAboutUs ? `<p><b>Referrer:</b> ${details.hearAboutUs}</p>` : ''}
     <p><b>Message:</b></p>
     <p>${details.message}</p>
-    </div>
+
+    <p><small>This is an automated message, please reply to the contact listed above.</small></p>
+    <p><small>Please report any issues to <a href="mailto:${ADMIN}">${ADMIN}</a>.</small></p>
   `
 )
 
 const generateQuoteEmail = details => (
   new Promise(resolve =>
     resolve({
-      subject: `Website Enquiry - ${details.name}${details.company ? ` @ ${details.company}` : ''}`,
+      subject: `Website Enquiry - ${details.name}${details.company ? ` @ ${details.company}` : ''}${isDev ? ' [TEST]' : ''}`,
       html: generateHtml(details),
     })
   )

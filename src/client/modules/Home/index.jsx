@@ -1,7 +1,5 @@
 import React from 'react'
 
-import features from '../../config/features'
-
 import Hero from '../../components/Hero'
 import Layout from '../../components/Layout'
 import PageWrap from '../../components/PageWrap'
@@ -23,13 +21,9 @@ const Home = () => (
         Whether you need cost-effective compliment slips or lower priced payslips; you can find
         great value products and services here at Berkeley Business Forms.
       </p>
-      {
-        features.contactForm && (
-          <ButtonLink primary large to="/contact#contactForm">
-            Request a Quote
-          </ButtonLink>
-        )
-      }
+      <ButtonLink primary large to="/contact">
+        Request a Quote
+      </ButtonLink>
     </Hero>
     <PageWrap padded={false}>
       <Products />
