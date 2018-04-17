@@ -25,6 +25,7 @@ if (error) {
 const config = {
   env: envVars.NODE_ENV,
   isDev: envVars.NODE_ENV === 'development',
+  isProd: envVars.ENVIRONMENT === 'production',
   logger: {
     enabled: envVars.LOGGER_ENABLED,
     level: envVars.LOGGER_LEVEL,

@@ -1,9 +1,8 @@
 const sgMail = require('@sendgrid/mail')
 const { sendgrid } = require('../../config')
-const { isDev } = require('../../config')
+const { isProd } = require('../../config')
 
 const ADMIN = 'web@bbf.co.uk'
-
 const TO = 'print@bbf.co.uk'
 const FROM = 'web@bbf.co.uk'
 const FROM_TEST = 'test@bbf.co.uk'
@@ -12,14 +11,14 @@ sgMail.setApiKey(sendgrid.apiKey)
 
 const send = (email) =>
   sgMail.send({
-    from: isDev ? FROM_TEST : FROM,
+    from: isProd ? FROM : FROM_TEST,
     ...email,
-    to: isDev ? ADMIN : TO,
+    to: isProd ? TO : ADMIN,
   })
 
 const generateHtml = details => (
   `
-    ${isDev
+    ${!isProd
       ? '<p style="font-weight:bold;">This is a test of the site messaging system, please ignore.</p>'
       : ''
     }
@@ -39,7 +38,7 @@ const generateHtml = details => (
 const generateQuoteEmail = details => (
   new Promise(resolve =>
     resolve({
-      subject: `Website Enquiry - ${details.name}${details.company ? ` @ ${details.company}` : ''}${isDev ? ' [TEST]' : ''}`,
+      subject: `Website Enquiry - ${details.name}${details.company ? ` @ ${details.company}` : ''}${!isProd ? ' [TEST]' : ''}`,
       html: generateHtml(details),
     })
   )
