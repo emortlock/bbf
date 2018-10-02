@@ -21,7 +21,7 @@
     <g transform="translate(160)" fill-rule="nonzero">
       <rect fill="url(#contact-phone-a)" x=".3" y=".3" width="428" height="759.9" rx="10"/>
       <rect fill="#FFF" x="11.3" y="12.7" width="404" height="723.1" rx="10"/>
-      <path fill="#007049" d="M56.9 63.9h312.8v588.5H56.9z"/>
+      <path fill="#00A397" d="M56.9 63.9h312.8v588.5H56.9z"/>
       <circle fill="#DBDBDB" cx="213.2" cy="694.8" r="24.9"/>
       <circle fill="#DBDBDB" cx="165.9" cy="36.4" r="5"/>
       <rect fill="#DBDBDB" x="188.3" y="32.7" width="77.3" height="7.5" rx="1.5"/>
@@ -34,7 +34,7 @@
     <g fill-rule="nonzero">
       <path d="M25.2 0h330.5c14 0 25.3 11.5 25.3 25.6V243a25.4 25.4 0 0 1-25.3 25.6H164a95.2 95.2 0 0 1-62.7 66.4l11.4-66.4H25.3C11.3 268.6 0 257.1 0 243V25.6A25.4 25.4 0 0 1 25.2 0z" fill="url(#contact-phone-c)" transform="translate(0 81)"/>
       <path d="M28.7 89h323.6c13.6 0 24.7 11 24.7 24.7v209.6c0 13.6-11 24.7-24.7 24.7H164.5a92.3 92.3 0 0 1-61.4 64l11.1-64H28.7C15.1 348 4 337 4 323.3V113.7A24.7 24.7 0 0 1 28.7 89z" fill="#FFF"/>
-      <path fill="#007049" d="M114 127h152v18H114zM114 163h58v18h-58zM116 197h112v18H116zM116 233h138v18H116zM116 268h72v18h-72z"/>
+      <path fill="#00A397" d="M114 127h152v18H114zM114 163h58v18h-58zM116 197h112v18H116zM116 233h138v18H116zM116 268h72v18h-72z"/>
     </g>
   </g>
 </svg>

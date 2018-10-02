@@ -13,19 +13,20 @@ import Testimonials from './components/Testimonials'
 
 const Home = () => (
   <Layout homePage>
-    <Hero
-      title={<span>Your Guarantee of <br className="hidden sm:c-hero__break" />Print Satisfaction</span>}
-    >
-      <p className="opacity-75 mb-2">
-        Here you will find a bespoke printing service that can be tailored to suit your needs.
-        Whether you need cost-effective compliment slips or lower priced payslips; you can find
-        great value products and services here at Berkeley Business Forms.
+    <Hero title="The Print Experts" fullHeight>
+      <p className="opacity-75 mb-4">
+        Here you will find a bespoke printing service that can be tailored to
+        suit your needs. Whether you need cost-effective compliment slips or
+        lower priced payslips; you can find great value products and services
+        here at BBF.
       </p>
-      <ButtonLink primary large to="/contact">
-        Request a Quote
-      </ButtonLink>
+      <div className="text-center mb-4">
+        <ButtonLink tertiary large to="/contact">
+          Request a Quote
+        </ButtonLink>
+      </div>
     </Hero>
-    <PageWrap padded={false}>
+    <PageWrap padding={false}>
       <Products />
       <Testimonials />
       <ContactDetails />

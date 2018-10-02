@@ -1,20 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
 
-const PageWrap = ({ children, padded }) => (
-  <main className={classnames('c-main container', padded && 'c-main--padded')}>
-    { children }
-  </main>
+import { Container, Main } from 'tailwind-react-ui'
+
+const PageWrap = ({ children, padding }) => (
+  <Container>
+    <Main className="c-main" p={padding ? 6 : undefined}>
+      {children}
+    </Main>
+  </Container>
 )
 
 PageWrap.propTypes = {
   children: PropTypes.node.isRequired,
-  padded: PropTypes.bool,
+  padding: PropTypes.bool,
 }
 
 PageWrap.defaultProps = {
-  padded: true,
+  padding: true,
 }
 
 export default PageWrap

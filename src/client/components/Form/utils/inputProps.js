@@ -3,15 +3,16 @@ import PropTypes from 'prop-types'
 const INPUT = 'input'
 const SELECT = 'select'
 
-const getInputPropTypes = (element) => {
+const getInputPropTypes = element => {
   let propTypes = {
     id: PropTypes.string,
     name: PropTypes.string.isRequired,
     type: element === INPUT ? PropTypes.string : undefined,
     disabled: PropTypes.bool,
-    placeholder: element === SELECT
-      ? PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
-      : PropTypes.string,
+    placeholder:
+      element === SELECT
+        ? PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+        : PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
@@ -28,22 +29,25 @@ const getInputPropTypes = (element) => {
     autoCapitalize: element === INPUT ? PropTypes.string : undefined,
     required: PropTypes.bool,
     inputMode: element === INPUT ? PropTypes.string : undefined,
-    pattern: element === INPUT
-      ? PropTypes.oneOfType([PropTypes.instanceOf(RegExp), PropTypes.string])
-      : undefined,
+    pattern:
+      element === INPUT
+        ? PropTypes.oneOfType([PropTypes.instanceOf(RegExp), PropTypes.string])
+        : undefined,
     readOnly: PropTypes.bool,
-    spellCheck: element === INPUT ? PropTypes.oneOf(['default', true, false]) : undefined,
+    spellCheck:
+      element === INPUT ? PropTypes.oneOf(['default', true, false]) : undefined,
     tabIndex: PropTypes.number,
     className: PropTypes.string,
     invalid: PropTypes.bool,
-    options: element === SELECT
-      ? (
-        PropTypes.arrayOf(PropTypes.shape({
-          label: PropTypes.string.isRequired,
-          value: PropTypes.string.isRequired,
-        })).isRequired
-      )
-      : undefined,
+    options:
+      element === SELECT
+        ? PropTypes.arrayOf(
+            PropTypes.shape({
+              label: PropTypes.string.isRequired,
+              value: PropTypes.string.isRequired,
+            }),
+          ).isRequired
+        : undefined,
   }
 
   propTypes = Object.keys((types, prop) => {
@@ -67,7 +71,4 @@ const getInputDefaultProps = element => ({
   readOnly: false,
 })
 
-export {
-  getInputPropTypes,
-  getInputDefaultProps,
-}
+export { getInputPropTypes, getInputDefaultProps }

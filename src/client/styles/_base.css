@@ -22,6 +22,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
 }
 
 html {
@@ -197,16 +199,22 @@ sup { top: -.5em; }
 //
 
 a {
+  background-color: transparent; // Remove the gray background on active links in IE 10.
+  -webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS 8+ and Safari 8+.
+  text-decoration: none;
+}
+
+/* a {
   color: config('colors.blue');
   text-decoration: none;
   background-color: transparent; // Remove the gray background on active links in IE 10.
   -webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS 8+ and Safari 8+.
 
-  &:hover {
+  &:not(.c-button):hover {
     color: config('colors.blue-dark');
     text-decoration: underline;
   }
-}
+} */
 
 // And undo these styles for placeholder links/named anchors (without href)
 // which have not been made explicitly keyboard-focusable (without tabindex).

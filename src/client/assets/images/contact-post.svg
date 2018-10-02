@@ -24,12 +24,12 @@
   <g fill-rule="nonzero" fill="none">
     <path fill="url(#contact-post-a)" d="M.4.2h483.9v303.9H.4z" transform="translate(265 430)"/>
     <path fill="#FFF" d="M265.4 437.7h477.8v283.7H265.4z"/>
-    <g opacity=".6" fill="#007049">
+    <g opacity=".6" fill="#00A397">
       <path d="M661.7 459.3h60.8v45h-60.8zM439.2 577.3h233.4v14.6H439.2zM439.2 613.8h170.2v9.7H439.2z"/>
     </g>
     <rect fill="url(#contact-post-b)" x=".3" y=".3" width="428" height="759.9" rx="10"/>
     <rect fill="#FFF" x="11.3" y="12.7" width="404" height="723.1" rx="10"/>
-    <path fill="#007049" d="M56.9 63.9h312.8v588.5H56.9z"/>
+    <path fill="#00A397" d="M56.9 63.9h312.8v588.5H56.9z"/>
     <g fill="#2196F3" stroke="#FFF" stroke-width="7">
       <path d="M35.5 377.5l363-178M185.5 57.5l134.9 180.7M33.5 154.5l113.8 167.2M46.5 299.5l280 387M37.5 635.5l166-119.4M381.5 454.5L259.1 591.1"/>
     </g>

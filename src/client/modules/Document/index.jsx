@@ -1,8 +1,6 @@
 import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 
-import getFileHash from './utils/getFileHash'
-
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
     const { html, head, errorHtml, chunks } = renderPage()
@@ -13,7 +11,7 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <link key="mainCss" rel="stylesheet" href={`/_next/static/style.css${getFileHash('static/style.css')}`} />
+          <link key="mainCss" rel="stylesheet" href="/_next/static/style.css" />
         </Head>
         <body>
           <Main />

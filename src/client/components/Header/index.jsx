@@ -1,85 +1,79 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { compose, withState } from 'recompose'
-import classnames from 'classnames'
-import Link from 'next/link'
 import { withRouter } from 'next/router'
+import {
+  Header as TRHeader,
+  NavBrand,
+  NavMenu,
+  NavItem,
+} from 'tailwind-react-ui'
 
 import Logo from '../../assets/images/site-logo.svg'
 
 import getStructuredDataProps from '../../utils/getStructuredDataProps'
 
+import Link from '../Link'
+
 const links = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Products', path: '/products' },
-  { name: 'Contact', path: '/contact' },
+  { name: 'About Us', path: '/about' },
+  { name: 'Our Products', path: '/products' },
+  { name: 'Get in Touch', path: '/contact' },
 ]
 
-const handleClick = (setOpen, value) => () => setOpen(value)
-
-const Header = ({ open, setOpen, router, structuredData }) => (
-  <header
-    className={classnames(
-      'c-header',
-      open && 'is-open',
-    )}
+const Header = ({ router, structuredData }) => (
+  <TRHeader
+    className="c-header"
+    bg="transparent"
+    id="header"
+    screen={false}
+    p={0}
   >
-    <div className="c-header__inner">
-      <div className="c-header__brand">
-        { structuredData && <meta itemProp="alternateName" content="BBF" /> }
-        <Link href="/">
-          <a
-            {...getStructuredDataProps({ itemProp: 'url' }, structuredData)}
-            className="c-header__brand-logo"
-          >
-            <h1 className="mb-0">
-              <span
-                {...getStructuredDataProps({ itemProp: 'name' }, structuredData)}
-                className="visually-hidden"
-              >
-                Berkeley Business Forms
-              </span>
-              <Logo width="106px" height="55px" />
-              { structuredData && <link itemProp="logo" href="/static/images/logo@3x.png" /> }
-            </h1>
-          </a>
-        </Link>
-      </div>
-      <div className="c-header__toggle">
-        <button
-          className="c-header__toggle-button"
-          onClick={handleClick(setOpen, !open)}
+    <NavBrand
+      className="c-logo"
+      is={Link}
+      href="/"
+      {...getStructuredDataProps({ itemProp: 'url' }, structuredData)}
+    >
+      <h1 className="mb-0 w-full">
+        <span className="visually-hidden">BBF - The Print Experts</span>
+        <Logo className="c-logo__image" />
+        {structuredData && (
+          <link itemProp="logo" href="/static/images/logo@3x.png" />
+        )}
+      </h1>
+    </NavBrand>
+    <NavMenu
+      shadow-md
+      absolute-md
+      pin-md={['t', 'r']}
+      w="full"
+      w-md="auto"
+      bg="white"
+      rounded-md="bl"
+      flex
+      list={{
+        fullWidth: true,
+        m: { b: 0 },
+      }}
+    >
+      {links.map(link => (
+        <NavItem
+          is={Link}
+          key={link.path}
+          href={link.path}
+          active={router.pathname === link.path}
+          text={['teal', 'center']}
+          text-hocus="teal-dark"
+          m={0}
         >
-          <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </button>
-      </div>
-      <nav className="c-header__nav">
-        {
-          links.map(link => (
-            <Link key={link.path} href={link.path}>
-              <a
-                className={classnames(
-                  'c-header__nav-link',
-                  router.pathname === link.path && 'is-active',
-                )}
-              >
-                { link.name }
-              </a>
-            </Link>
-          ))
-        }
-      </nav>
-    </div>
-  </header>
+          {link.name}
+        </NavItem>
+      ))}
+    </NavMenu>
+  </TRHeader>
 )
 
 Header.propTypes = {
-  open: PropTypes.bool.isRequired,
-  setOpen: PropTypes.func.isRequired,
   router: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
@@ -90,7 +84,4 @@ Header.defaultProps = {
   structuredData: false,
 }
 
-export default compose(
-  withRouter,
-  withState('open', 'setOpen', false),
-)(Header)
+export default withRouter(Header)

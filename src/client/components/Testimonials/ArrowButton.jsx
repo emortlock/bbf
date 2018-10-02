@@ -17,10 +17,14 @@ const ArrowButton = ({ className, direction, text, onClick, colour }) => {
     <button
       className={classnames('c-slider__arrow', className)}
       onClick={onClick}
+      type="button"
     >
-      <span className="c-slider__arrow-text">{ text }</span>
+      <span className="c-slider__arrow-text">{text}</span>
       <Arrow
-        className={classnames('c-slider__arrow-icon', colour && `text-${colour}`)}
+        className={classnames(
+          'c-slider__arrow-icon',
+          colour && `text-${colour}`,
+        )}
         width="32px"
         height="32px"
       />

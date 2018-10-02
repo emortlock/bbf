@@ -18,7 +18,7 @@
   <path fill="url(#service-better-a)" d="M71 356h811v440H71z"/>
   <path fill="#fff" d="M78 362h798v422.5H78z"/>
   <circle cx="233" cy="429" r="39" fill="url(#service-better-b)"/>
-  <circle cx="233" cy="429" r="35" fill="#007049"/>
+  <circle cx="233" cy="429" r="35" fill="#00A397"/>
   <path fill="#bdbdbd" d="M313 416h197v20H313z"/>
   <path fill="#e0e0e0" d="M232.5 545.5h492v20h-492zM232.5 501.5h492v20h-492zM232.5 589.5h492v20h-492zM232.5 633.5h492v20h-492zM232.5 677.5h492v20h-492zM232.5 721.5h492v20h-492z"/>
   <path fill="none" stroke="#bdbdbd" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" d="M153.3 355.5"/>
@@ -30,8 +30,8 @@
   <path fill="none" stroke="#bdbdbd" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" d="M797.7 355.5"/>
   <path d="M795.4 332.8c-.8-21.7 1.9-54 20.8-75.5" fill="none" stroke="#bdbdbd" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" stroke-dasharray="0 22.87"/>
   <path fill="none" stroke="#bdbdbd" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" d="M824.5 249.5"/>
-  <path fill="#007049" opacity=".7" d="M0 114.8h111v60.4H0zM608 73.8h111v60.4H608zM513 181.8h111v60.4H513z"/>
-  <path fill="#007049" d="M83 127.6h180.8V226H83zM749.2 132.6H930V231H749.2zM339.7 0h180.8v98.4H339.7z"/>
+  <path fill="#00A397" opacity=".7" d="M0 114.8h111v60.4H0zM608 73.8h111v60.4H608zM513 181.8h111v60.4H513z"/>
+  <path fill="#00A397" d="M83 127.6h180.8V226H83zM749.2 132.6H930V231H749.2zM339.7 0h180.8v98.4H339.7z"/>
   <path fill="none" stroke="#bdbdbd" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" d="M414 354.5"/>
   <path d="M422.8 332.2a118 118 0 0 0-9.3-90.7c-24-43.5-2.4-86 9.9-104.4" fill="none" stroke="#bdbdbd" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" stroke-dasharray="0 24.01"/>
   <path fill="none" stroke="#bdbdbd" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" d="M430.5 127.5"/>

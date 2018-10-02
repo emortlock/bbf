@@ -25,20 +25,12 @@ const Select = ({
     aria-required={required === false ? required : undefined}
     aria-invalid={invalid || undefined}
   >
-    {
-      placeholder && (
-        <option value="">
-          { placeholder }
-        </option>
-      )
-    }
-    {
-      options.map(option => (
-        <option key={`${name}-${option.value}`} value={option.value}>
-          { option.label }
-        </option>
-      ))
-    }
+    {placeholder && <option value="">{placeholder}</option>}
+    {options.map(option => (
+      <option key={`${name}-${option.value}`} value={option.value}>
+        {option.label}
+      </option>
+    ))}
   </select>
 )
 

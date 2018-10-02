@@ -3,8 +3,11 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 const GridItem = ({ children, className, gutterSize, ...rest }) => (
-  <div {...rest} className={classnames(gutterSize === 'md' && 'px-4', className)}>
-    { children }
+  <div
+    {...rest}
+    className={classnames(gutterSize === 'md' && 'px-4', className)}
+  >
+    {children}
   </div>
 )
 

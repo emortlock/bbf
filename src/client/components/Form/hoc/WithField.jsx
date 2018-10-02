@@ -3,20 +3,9 @@ import React from 'react'
 
 import Field from '../components/Field'
 
-const WithField = (Input) => {
-  const WrappedInput = ({
-    name,
-    label,
-    error,
-    required,
-    ...rest
-  }) => (
-    <Field
-      name={name}
-      label={label}
-      error={error}
-      required={required}
-    >
+const WithField = Input => {
+  const WrappedInput = ({ name, label, error, required, ...rest }) => (
+    <Field name={name} label={label} error={error} required={required}>
       <Input
         {...rest}
         name={name}

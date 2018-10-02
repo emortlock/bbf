@@ -5,7 +5,7 @@ const WINDOW_MS = 30 * 60 * 1000
 const MAX_REQUESTS = 5
 const SLOW_DOWN_DELAY = 0
 
-const onLimitReached = (req) => {
+const onLimitReached = req => {
   logger.warn(`Rate limit reached for IP ${req.connection.remoteAddress}`)
 }
 
@@ -15,6 +15,6 @@ var limiter = new RateLimiter({
   delayMs: SLOW_DOWN_DELAY,
   message: 'Request limit exceeded',
   onLimitReached,
-});
+})
 
 module.exports = limiter

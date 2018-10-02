@@ -5,7 +5,7 @@ const transports = []
 
 if (config.logger.enabled) {
   transports.push(
-    new (winston.transports.Console)({
+    new winston.transports.Console({
       colorize: config.isDev,
       timestamp: true,
       formatter(options) {
@@ -14,15 +14,15 @@ if (config.logger.enabled) {
           '@version': config.buildVersion,
           env: config.env,
           message: options.message,
-          severity: options.level
+          severity: options.level,
         })
 
-        return options.colorize 
+        return options.colorize
           ? winston.config.colorize(options.level, message)
           : message
       },
-      json: false
-    })
+      json: false,
+    }),
   )
 }
 
@@ -32,10 +32,10 @@ const colors = {
   info: 'blue',
   warn: 'yellow',
   crit: 'red',
-  fatal: 'red'
+  fatal: 'red',
 }
 
-const logger = new (winston.Logger)({
+const logger = new winston.Logger({
   colors,
   level: config.logger.level,
   levels: {
@@ -44,9 +44,9 @@ const logger = new (winston.Logger)({
     warn: 2,
     info: 3,
     debug: 4,
-    trace: 5
+    trace: 5,
   },
-  transports
+  transports,
 })
 
 winston.addColors(colors)

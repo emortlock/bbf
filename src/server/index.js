@@ -14,30 +14,29 @@ const app = require('./init/initApp')
 
 const handle = app.getRequestHandler()
 
-module.exports = app.prepare()
-  .then(() => {
-    const server = express()
+module.exports = app.prepare().then(() => {
+  const server = express()
 
-    if (!config.isDev) {
-      server.use(compressionMiddleware())
-    }
+  if (!config.isDev) {
+    server.use(compressionMiddleware())
+  }
 
-    server.use(loggerMiddleware.request)
+  server.use(loggerMiddleware.request)
 
-    initRateLimiter(server)
+  initRateLimiter(server)
 
-    server.use(validationMiddleware)
-    server.use(bodyParser.json())
-    server.use(bodyParser.urlencoded({ extended: false }))
-    server.use(loggerMiddleware.body)
+  server.use(validationMiddleware)
+  server.use(bodyParser.json())
+  server.use(bodyParser.urlencoded({ extended: false }))
+  server.use(loggerMiddleware.body)
 
-    initRoutes(server)
+  initRoutes(server)
 
-    server.get('*', (req, res) => {
-      return handle(req, res)
-    })
-
-    server.use(loggerMiddleware.response)
-
-    return server
+  server.get('*', (req, res) => {
+    return handle(req, res)
   })
+
+  server.use(loggerMiddleware.response)
+
+  return server
+})

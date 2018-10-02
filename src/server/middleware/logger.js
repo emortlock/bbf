@@ -24,5 +24,5 @@ const response = (req, res, next) => {
 module.exports = {
   request,
   body,
-  response
+  response,
 }

@@ -11,7 +11,7 @@
   .c-product:hover &,
   .c-product:active &,
   .c-product:focus & {
-    background-color: color(config('colors.green') a(60%));
+    background-color: color(config('colors.yellow') a(60%));
   }
 }
 
@@ -21,6 +21,7 @@
   .c-product:hover &,
   .c-product:active &,
   .c-product:focus & {
+    @apply .text-black;
     text-shadow: none;
   }
 }
@@ -28,7 +29,7 @@
 .c-product__description {
   @apply .visually-hidden .uppercase .font-bold .mx-auto .px-4;
 
-  color: color(config('colors.white') a(75%));
+  color: color(config('colors.black') a(75%));
 
   .c-product:hover &,
   .c-product:active &,

@@ -19,13 +19,15 @@ const Product = ({ id }) => {
   return (
     <Layout>
       <Head>
-        <title key="title">Get a quote from BBF for your { product.name }</title>
+        <title key="title">Get a quote from BBF for your {product.name}</title>
         <meta
           key="description"
           name="description"
-          content={
-            setDescription(`Get in touch with us for a quote on your ${product.name} needs. Our services include ${product.tags.join(', ')}`)
-          }
+          content={setDescription(
+            `Get in touch with us for a quote on your ${
+              product.name
+            } needs. Our services include ${product.tags.join(', ')}`,
+          )}
         />
       </Head>
       <Hero title={product.name} />
@@ -37,11 +39,9 @@ const Product = ({ id }) => {
           <GridItem className="md:w-1/4">
             <H2 noDivider>Uses</H2>
             <ul>
-              {
-                product.tags.map(tag => (
-                  <li key={tag}>{ tag }</li>
-                ))
-              }
+              {product.tags.map(tag => (
+                <li key={tag}>{tag}</li>
+              ))}
             </ul>
           </GridItem>
         </GridWrapper>

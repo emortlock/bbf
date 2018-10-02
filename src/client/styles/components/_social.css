@@ -7,11 +7,9 @@
 }
 
 .c-social__link {
-  filter: grayscale(100%);
-
   &:focus,
   &:hover {
-    filter: grayscale(0);
+    filter: contrast(200%);
   }
 }
 

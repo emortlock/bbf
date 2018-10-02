@@ -2,7 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-const Heading = ({ HeadingLevel, children, className, dividerColour, noDivider, center }) => (
+const Heading = ({
+  HeadingLevel,
+  children,
+  className,
+  dividerColour,
+  noDivider,
+  center,
+}) => (
   <HeadingLevel
     className={classnames(
       'c-heading',
@@ -13,7 +20,7 @@ const Heading = ({ HeadingLevel, children, className, dividerColour, noDivider, 
       className,
     )}
   >
-    { children }
+    {children}
   </HeadingLevel>
 )
 

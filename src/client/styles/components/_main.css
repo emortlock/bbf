@@ -1,13 +1,15 @@
 .c-main {
-  @apply .relative .bg-white .z-10 .mx-auto .mb-8;
+  @apply .shadow;
 
-  margin-top: -4rem;
-  box-shadow:
-    0 16px 24px 2px rgba(0, 0, 0, 0.14),
-    0 6px 30px 5px rgba(0, 0, 0, 0.12),
-    0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
 }
 
-.c-main--padded {
-  @apply .p-8;
+@media (min-width: 576px) {
+  .c-main {
+    margin-top: -1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+  }
 }

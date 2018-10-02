@@ -25,8 +25,7 @@ View the full documentation at https://tailwindcss.com.
 |
 */
 
-let defaultConfig = require('tailwindcss/defaultConfig')()
-
+const plugins = require('tailwind-react-ui/plugins')
 
 /*
 |-------------------------------------------------------------------------------
@@ -48,13 +47,13 @@ let colors = {
   'transparent': 'transparent',
 
   'black': '#22292f',
-  'grey-darkest': '#5b5c61',
-  'grey-darker': '#74757b',
-  'grey-dark': '#8e8f94',
-  'grey': '#a8a9ad',
-  'grey-light': '#c2c3c6',
-  'grey-lighter': '#dcddde',
-  'grey-lightest': '#eeeeef',
+  'grey-darkest': '#323032',
+  'grey-darker': '#3A393A',
+  'grey-dark': '#4C4A4C',
+  'grey': '#747374',
+  'grey-light': '#9D9B9D',
+  'grey-lighter': '#C5C4C5',
+  'grey-lightest': '#EDEDED',
   'white': '#ffffff',
 
   'red-darkest': '#3b0d0c',
@@ -73,13 +72,13 @@ let colors = {
   'orange-lighter': '#fcd9b6',
   'orange-lightest': '#fff5eb',
 
-  'yellow-darkest': '#453411',
-  'yellow-darker': '#684f1d',
-  'yellow-dark': '#f2d024',
-  'yellow': '#ffed4a',
-  'yellow-light': '#fff382',
-  'yellow-lighter': '#fff9c2',
-  'yellow-lightest': '#fcfbeb',
+  'yellow-darkest': '#D9B213',
+  'yellow-darker': '#E6C61A',
+  'yellow-dark': '#F2D922',
+  'yellow': '#FFEB2B',
+  'yellow-light': '#FFF45B',
+  'yellow-lighter': '#FFFB8E',
+  'yellow-lightest': '#FFFEC5',
 
   'green-darkest': '#002c1d',
   'green-darker': '#003d28',
@@ -89,13 +88,13 @@ let colors = {
   'green-lighter': '#00b475',
   'green-lightest': '#c5ffeb',
 
-  'teal-darkest': '#0d3331',
-  'teal-darker': '#20504f',
-  'teal-dark': '#38a89d',
-  'teal': '#4dc0b5',
-  'teal-light': '#64d5ca',
-  'teal-lighter': '#a0f0ed',
-  'teal-lightest': '#e8fffe',
+  'teal-darkest': '#002D29',
+  'teal-darker': '#005750',
+  'teal-dark': '#007E75',
+  'teal': '#00A397',
+  'teal-light': '#40BEB5',
+  'teal-lighter': '#80D6D0',
+  'teal-lightest': '#BFECE9',
 
   'blue-darkest': '#12283a',
   'blue-darker': '#1c3d5a',
@@ -716,10 +715,11 @@ module.exports = {
 
   shadows: {
     default: '0 2px 4px 0 rgba(0,0,0,0.10)',
-    'md': '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
-    'lg': '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
-    'inner': 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
-    'none': 'none',
+    md: '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
+    lg: '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
+    inner: 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
+    outline: '0 0 0 3px rgba(52,144,220,0.5)',
+    none: 'none',
   },
 
 
@@ -869,6 +869,10 @@ module.exports = {
     zIndex: ['responsive'],
   },
 
+  plugins: [
+    require('tailwindcss/plugins/container')({}),
+    ...Object.keys(plugins).map(name => plugins[name]()),
+  ],
 
   /*
   |-----------------------------------------------------------------------------
@@ -885,5 +889,4 @@ module.exports = {
     important: false,
     separator: ':',
   },
-
 }

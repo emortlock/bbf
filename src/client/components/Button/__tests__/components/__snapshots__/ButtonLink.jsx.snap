@@ -3,11 +3,16 @@
 exports[`ButtonLink renders matching snapshot 1`] = `
 <Link
   href="/"
+  passHref={true}
 >
-  <a
-    className="inline-block bg-white hover:bg-grey-light text-black hover:text-white rounded hover:no-underline py-2 px-4"
+  <FillButton
+    brand="primary"
+    className="c-button"
+    inlineBlock={true}
+    is="a"
+    large={false}
   >
     Content
-  </a>
+  </FillButton>
 </Link>
 `;

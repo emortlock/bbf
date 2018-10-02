@@ -1,6 +1,6 @@
 const rateLimiter = require('../middleware/rateLimiter')
 
-const initRateLimiter = (app) => {
+const initRateLimiter = app => {
   app.use('/quote', rateLimiter)
 }
 

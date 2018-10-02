@@ -6,21 +6,20 @@ const Section = ({ children, bgColour, textAlign, padding, className }) => (
   <section
     className={classnames(
       padding !== 'sm' ? 'p-8' : 'p-4',
-      bgColour === 'green' && 'bg-green-light text-white',
+      bgColour === 'teal' && 'bg-teal text-white',
+      bgColour === 'yellow' && 'bg-yellow-light text-black',
       bgColour === 'grey' && 'bg-grey-dark text-white',
       `text-${textAlign}`,
       className,
     )}
   >
-    <div className="max-w-lg mx-auto">
-      { children }
-    </div>
+    <div className="max-w-lg mx-auto">{children}</div>
   </section>
 )
 
 Section.propTypes = {
   children: PropTypes.node.isRequired,
-  bgColour: PropTypes.oneOf(['white', 'green', 'grey']),
+  bgColour: PropTypes.string,
   textAlign: PropTypes.oneOf(['center', 'left', 'right']),
   padding: PropTypes.oneOf(['sm']),
   className: PropTypes.string,

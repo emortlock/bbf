@@ -9,14 +9,13 @@ const About = () => (
     <H2 dividerColour="white">About Us</H2>
 
     <p>
-      Berkeley Business Forms Ltd was established in 1990 and has become one of the leading print
-      suppliers to companies large and small throughout the U.K. Everyone benefits from our tried
-      and trusted competitive pricing structure and service.
+      BBF was established in 1990 and has become one of the leading print
+      suppliers to companies large and small throughout the U.K. Everyone
+      benefits from our tried and trusted competitive pricing structure and
+      service.
     </p>
 
-    <ButtonLink to="/about">
-      Find out more
-    </ButtonLink>
+    <ButtonLink to="/about">Find out more</ButtonLink>
   </Section>
 )
 

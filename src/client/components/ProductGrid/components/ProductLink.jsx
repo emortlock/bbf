@@ -12,11 +12,16 @@ const ProductLink = ({ href, rel, target, image, name, tags }) => {
       rel={rel}
       target={target}
     >
-      <Image className="max-w-full" src={image.src} alt={image.alt} placeholderHeight={215} />
+      <Image
+        className="max-w-full"
+        src={image.src}
+        alt={image.alt}
+        placeholderHeight={215}
+      />
       <div className="c-product__body">
-        <h3 className="c-product_title">{ name }</h3>
+        <h3 className="c-product_title">{name}</h3>
         <p className="c-product__description">
-          { `${uses.slice(0, -1).join(', ')} & ${uses.slice(-1)}` }
+          {`${uses.slice(0, -1).join(', ')} & ${uses.slice(-1)}`}
         </p>
       </div>
     </a>

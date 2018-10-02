@@ -1,20 +1,39 @@
 {
-  "env": {
-    "test": {
-      "plugins": ["transform-es2015-modules-commonjs"]
-    }
-  },
-  "presets": ["next/babel"],
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "modules": false,
+          "targets": { "browsers": [">2%"] }
+        }
+      }
+    ]
+  ],
   "plugins": [
     [
       "inline-react-svg",
       {
         "svgo": {
-          "plugins": [
-            { "removeXMLNS": true }
-          ]
+          "plugins": [{ "removeXMLNS": true }]
         }
       }
-    ]
-  ]
+    ],
+    "add-react-displayname"
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "next/babel",
+          {
+            "preset-env": {
+              "modules": "commonjs",
+              "targets": { "node": "8.11.3" }
+            }
+          }
+        ]
+      ]
+    }
+  }
 }

@@ -15,34 +15,54 @@ import Section from '../../Section'
 
 const ContactDetails = ({ hideTitle }) => (
   <Section>
-    { !hideTitle && <H2>Contact Us</H2> }
+    {!hideTitle && <H2>Contact Us</H2>}
     <GridWrapper horizontallyCenter>
-      <GridItem className="w-full md:w-1/2 lg:w-1/3">
-        <a href="https://goo.gl/maps/oHpt1ur9B962" className="text-black hover:text-green">
-          <Post className="hidden md:inline-block mb-2" height="8rem" width="8rem" />
+      <GridItem className="w-full md:w-1/3">
+        <a
+          href="https://goo.gl/maps/oHpt1ur9B962"
+          className="text-black hover:text-teal"
+        >
+          <Post
+            className="hidden md:inline-block mb-2"
+            height="8rem"
+            width="8rem"
+          />
           <PostIcon className="md:hidden fill-current h-10 w-10 mb-2" />
           <p>
-            Berkeley Business Forms Ltd.<br />
-            Freepost RLYH-RUJU-BBSJ<br />
-            Pendle Court, Evans Way<br />
-            Rowleys Park, Shotton<br />
-            Flintshire<br />
+            Berkeley Business Forms Ltd.
+            <br />
+            Freepost RLYH-RUJU-BBSJ
+            <br />
+            Pendle Court, Evans Way
+            <br />
+            Rowleys Park, Shotton
+            <br />
+            Flintshire
+            <br />
             CH5 1QJ
           </p>
         </a>
       </GridItem>
 
-      <GridItem className="w-full md:w-1/2 lg:w-1/3">
-        <a href="tel:+441244831462" className="text-black hover:text-green">
-          <Phone className="hidden md:inline-block mb-2" height="8rem" width="8rem" />
+      <GridItem className="w-full md:w-1/3">
+        <a href="tel:+441244831462" className="text-black hover:text-teal">
+          <Phone
+            className="hidden md:inline-block mb-2"
+            height="8rem"
+            width="8rem"
+          />
           <PhoneIcon className="md:hidden fill-current h-10 w-10 mb-2" />
           <p>01244 831462</p>
         </a>
       </GridItem>
 
-      <GridItem className="w-full md:w-1/2 lg:w-1/3">
-        <a href="mailto:print@bbf.co.uk" className="text-black hover:text-green">
-          <Email className="hidden md:inline-block mb-2" height="8rem" width="8rem" />
+      <GridItem className="w-full md:w-1/3">
+        <a href="mailto:print@bbf.co.uk" className="text-black hover:text-teal">
+          <Email
+            className="hidden md:inline-block mb-2"
+            height="8rem"
+            width="8rem"
+          />
           <EmailIcon className="md:hidden fill-current h-10 w-10 mb-2" />
 
           <p>print@bbf.co.uk</p>

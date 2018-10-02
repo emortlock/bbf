@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link from 'next/link'
+
+import Link from '../Link'
 
 import MapPin from '../../assets/icons/map-pin.svg'
 import Phone from '../../assets/icons/phone.svg'
@@ -13,73 +14,111 @@ import Testimonials from '../Testimonials'
 import Image from '../Image'
 
 const Footer = ({ showTestimonials, structuredData }) => (
-  <footer className="bg-grey text-white p-4 clearfix">
+  <footer className="bg-grey-dark text-white p-4 clearfix">
     <GridWrapper>
       <GridItem className="w-full sm:w-1/2 text-center self-center mb-4">
-        <Link href="/guarantee">
-          <a title="Learn more about our guarantee of quality and service">
-            <Image
-              className="h-48"
-              src="/static/images/guarantee.png"
-              alt="BBF guarantee of quality and service"
-              placeholderHeight={192}
-            />
-          </a>
+        <Link
+          href="/guarantee"
+          title="Learn more about our guarantee of quality and service"
+        >
+          <Image
+            className="h-48"
+            src="/static/images/guarantee-white.png"
+            alt="BBF guarantee of quality and service"
+            placeholderHeight={192}
+          />
         </Link>
       </GridItem>
 
       <GridItem
         className="w-full sm:w-1/2 mb-4"
-        {...getStructuredDataProps({
-          itemScope: true,
-          itemType: 'http://schema.org/ContactPoint',
-          itemProp: 'contactPoint',
-        }, structuredData)}
+        {...getStructuredDataProps(
+          {
+            itemScope: true,
+            itemType: 'http://schema.org/ContactPoint',
+            itemProp: 'contactPoint',
+          },
+          structuredData,
+        )}
       >
-        <meta {...getStructuredDataProps({ itemProp: 'contactType', content: 'sales' }, structuredData)} />
+        <meta
+          {...getStructuredDataProps(
+            { itemProp: 'contactType', content: 'sales' },
+            structuredData,
+          )}
+        />
         <ul className="list-reset flex flex-col justify-around h-full">
           <li className="mb-4 flex items-center">
-            <Phone height="32px" width="32px" className="fill-current text-green flex-no-shrink w-8 h-8 mr-4" />
+            <Phone
+              height="32px"
+              width="32px"
+              className="fill-current text-yellow flex-no-shrink w-8 h-8 mr-4"
+            />
             <span>
-              { structuredData && <meta itemProp="telephone" content="+441244831462" /> }
-              <a href="tel:01244831462" className="text-white hover:text-green">
+              {structuredData && (
+                <meta itemProp="telephone" content="+441244831462" />
+              )}
+              <a
+                href="tel:01244831462"
+                className="text-white hover:text-yellow"
+              >
                 01244 831462
               </a>
             </span>
           </li>
           <li className="mb-4 flex items-center">
-            <Email height="32px" width="32px" className="fill-current text-green flex-no-shrink w-8 h-8 mr-4" />
+            <Email
+              height="32px"
+              width="32px"
+              className="fill-current text-yellow flex-no-shrink w-8 h-8 mr-4"
+            />
             <span>
-              <a href="mailto:print@bbf.co.uk" className="text-white hover:text-green">
-                <span {...getStructuredDataProps({ itemProp: 'email' }, structuredData)}>
+              <a
+                href="mailto:print@bbf.co.uk"
+                className="text-white hover:text-yellow"
+              >
+                <span
+                  {...getStructuredDataProps(
+                    { itemProp: 'email' },
+                    structuredData,
+                  )}
+                >
                   print@bbf.co.uk
                 </span>
               </a>
             </span>
           </li>
           <li className="mb-4 flex items-center">
-            <MapPin height="32px" width="32px" className="fill-current text-green flex-no-shrink w-8 h-8 mr-4" />
+            <MapPin
+              height="32px"
+              width="32px"
+              className="fill-current text-yellow flex-no-shrink w-8 h-8 mr-4"
+            />
             <span>
-              <a href="https://goo.gl/maps/oHpt1ur9B962" className="text-white hover:text-green">
-                Pendle Court, Evans Way, Rowleys Park, Shotton, Flintshire. CH5 1QJ
+              <a
+                href="https://goo.gl/maps/oHpt1ur9B962"
+                className="text-white hover:text-yellow"
+              >
+                Pendle Court, Evans Way, Rowleys Park, Shotton, Flintshire. CH5
+                1QJ
               </a>
             </span>
           </li>
         </ul>
       </GridItem>
-      {
-        showTestimonials && (
-          <GridItem className="w-full mb-4">
-            <Testimonials max={3} arrowColour="white" useShort={false} />
-          </GridItem>
-        )
-      }
+      {showTestimonials && (
+        <GridItem className="w-full mb-4">
+          <Testimonials max={3} arrowColour="white" useShort={false} />
+        </GridItem>
+      )}
     </GridWrapper>
     <hr className="border-solid border-0 border-t my-4 border-white opacity-50" />
 
     <GridWrapper spaceBetween>
       <GridItem className="sm:1/2 c-social">
-        <p className="c-social__text">Join us on social media for our latest updates</p>
+        <p className="c-social__text">
+          Join us on social media for our latest updates
+        </p>
         <a
           {...getStructuredDataProps({ itemProp: 'sameAs' }, structuredData)}
           href="https://www.linkedin.com/company/berkeley-business-forms-limited/"
@@ -97,7 +136,7 @@ const Footer = ({ showTestimonials, structuredData }) => (
             <a
               href="/static/documents/privacy-notice.pdf"
               download
-              className="text-white underline hover:text-green"
+              className="text-white underline hover:text-yellow"
             >
               Privacy Notice
             </a>
@@ -105,7 +144,12 @@ const Footer = ({ showTestimonials, structuredData }) => (
         </ul>
         <p>
           &copy;&nbsp;
-          <span {...getStructuredDataProps({ itemProp: 'legalName' }, structuredData)}>
+          <span
+            {...getStructuredDataProps(
+              { itemProp: 'legalName' },
+              structuredData,
+            )}
+          >
             Berkeley Business Forms Ltd.
           </span>
         </p>

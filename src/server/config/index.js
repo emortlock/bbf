@@ -1,19 +1,21 @@
 const joi = require('joi')
 require('dotenv').config()
 
-const envVarsSchema = joi.object({
-  NODE_ENV: joi.string()
-    .allow(['development', 'production'])
-    .default('production'),
-  PORT: joi.number()
-    .default(8080),
-  LOGGER_ENABLED: joi.boolean()
-    .default(true),
-  LOGGER_LEVEL: joi.string()
-    .allow(['trace', 'debug', 'info', 'warn', 'crit', 'fatal'])
-    .default('info'),
-  SENDGRID_API_KEY: joi.string().required()
-}).unknown()
+const envVarsSchema = joi
+  .object({
+    NODE_ENV: joi
+      .string()
+      .allow(['development', 'production'])
+      .default('production'),
+    PORT: joi.number().default(8080),
+    LOGGER_ENABLED: joi.boolean().default(true),
+    LOGGER_LEVEL: joi
+      .string()
+      .allow(['trace', 'debug', 'info', 'warn', 'crit', 'fatal'])
+      .default('info'),
+    SENDGRID_API_KEY: joi.string().required(),
+  })
+  .unknown()
   .required()
 
 const { error, value: envVars } = joi.validate(process.env, envVarsSchema)
@@ -31,11 +33,11 @@ const config = {
     level: envVars.LOGGER_LEVEL,
   },
   server: {
-    port: envVars.PORT
+    port: envVars.PORT,
   },
   sendgrid: {
-    apiKey: envVars.SENDGRID_API_KEY
-  }
+    apiKey: envVars.SENDGRID_API_KEY,
+  },
 }
 
 module.exports = config

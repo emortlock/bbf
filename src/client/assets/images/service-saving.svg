@@ -19,7 +19,7 @@
   </defs>
   <rect x="184.9" y="201.5" width="728.6" height="445" rx="27.5" ry="27.5" transform="rotate(-17.3 114.6 837.2)" fill="url(#service-saving-a)"/>
   <rect x="193.7" y="205.6" width="713.8" height="429.3" rx="27.5" ry="27.5" transform="rotate(-17.3 116 833.4)" fill="#fff"/>
-  <path fill="#007049" d="M20.7 264.8L702.3 53l18.3 58.9L39 323.7z"/>
+  <path fill="#00A397" d="M20.7 264.8L702.3 53l18.3 58.9L39 323.7z"/>
   <path fill="#bdbdbd" d="M161.7 527.6L334.8 474l7.9 25.4L169.6 553z"/>
   <path fill="#e0e0e0" d="M148.2 484.7l300.3-93.3 7.9 25.4L156 510.1z"/>
   <rect x="183" y="233.8" width="732.7" height="445.4" rx="27.5" ry="27.5" fill="url(#service-saving-c)"/>
@@ -33,5 +33,5 @@
   <path d="M932.4 604.1a4.4 4.4 0 0 1-4.2 4.6H922V646h55.9V603h-45.4z" transform="translate(-142.2 -110.4)" fill="url(#service-saving-f)"/>
   <path d="M922 526.2v37.5h6.3a4.4 4.4 0 0 1 4.2 4.5v1.1h45.4v-43.1z" transform="translate(-142.2 -110.4)" fill="url(#service-saving-g)"/>
   <path fill="url(#service-saving-h)" d="M790.3 464.6h45.4v22.5h-45.4z"/>
-  <path d="M764.3 458.3a4 4 0 0 1 4-4h6V421H721v38.2h43.3zM768.3 494.2a4 4 0 0 1-4-4v-1H721v38.2h53.3v-33.2zM721 464.2h43.3v20H721zM789.3 490.2a4 4 0 0 1-4 4h-6v33.2h53.3v-38.2h-43.3zM779.3 421v33.3h6a4 4 0 0 1 4 4v1h43.3V421zM789.3 464.2h43.3v20h-43.3z" fill="#007049"/>
+  <path d="M764.3 458.3a4 4 0 0 1 4-4h6V421H721v38.2h43.3zM768.3 494.2a4 4 0 0 1-4-4v-1H721v38.2h53.3v-33.2zM721 464.2h43.3v20H721zM789.3 490.2a4 4 0 0 1-4 4h-6v33.2h53.3v-38.2h-43.3zM779.3 421v33.3h6a4 4 0 0 1 4 4v1h43.3V421zM789.3 464.2h43.3v20h-43.3z" fill="#00A397"/>
 </svg>

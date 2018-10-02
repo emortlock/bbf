@@ -2,39 +2,54 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
+import { OutlineButton, FillButton } from 'tailwind-react-ui'
+
 const Button = ({
   children,
   onClick,
   className,
-  primary,
-  secondary,
   type,
+  secondary,
   disabled,
   fullWidth,
-}) => (
-  <button
-    type={type}
-    className={classnames(
-      'bg-white hover:bg-grey-light text-black hover:text-white py-2 px-4 rounded hover:no-underline',
-      primary && 'bg-green hover:bg-green-light text-white',
-      secondary && 'border-solid border-2 border-green text-green hover:bg-green hover:text-white',
-      fullWidth && 'w-full',
-      disabled && 'opacity-50 cursor-not-allowed',
-      className,
-    )}
-    onClick={onClick}
-    disabled={disabled}
-  >
-    { children }
-  </button>
-)
+  tertiary,
+  outline,
+  large,
+}) => {
+  const Component = outline ? OutlineButton : FillButton
+
+  let brand = 'primary'
+
+  if (secondary) {
+    brand = 'secondary'
+  } else if (tertiary) {
+    brand = 'info'
+  }
+
+  return (
+    <Component
+      inlineBlock
+      brand={brand}
+      onClick={onClick}
+      type={type}
+      disabled={disabled}
+      className={classnames('c-button', className)}
+      large={large}
+      fullWidth={fullWidth}
+    >
+      {children}
+    </Component>
+  )
+}
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func,
   className: PropTypes.string,
-  primary: PropTypes.bool,
+  tertiary: PropTypes.bool,
   secondary: PropTypes.bool,
+  outline: PropTypes.bool,
+  large: PropTypes.bool,
   type: PropTypes.string,
   disabled: PropTypes.bool,
   fullWidth: PropTypes.bool,
@@ -43,8 +58,10 @@ Button.propTypes = {
 Button.defaultProps = {
   className: undefined,
   onClick: undefined,
-  primary: false,
+  tertiary: false,
   secondary: false,
+  outline: false,
+  large: false,
   type: 'button',
   disabled: false,
   fullWidth: false,

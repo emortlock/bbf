@@ -3,37 +3,58 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 import Link from 'next/link'
+import { FillButton, OutlineButton } from 'tailwind-react-ui'
 
-const ButtonLink = ({ children, to, className, primary, secondary, large }) => (
-  <Link href={to}>
-    <a
-      className={classnames(
-        'inline-block bg-white hover:bg-grey-light text-black hover:text-white rounded hover:no-underline',
-        large ? 'py-4 px-8' : 'py-2 px-4',
-        primary && 'bg-green hover:bg-green-light text-white',
-        secondary && 'border-solid border-2 border-green text-green hover:bg-green hover:text-white',
-        className,
-      )}
-    >
-      { children }
-    </a>
-  </Link>
-)
+const ButtonLink = ({
+  children,
+  to,
+  className,
+  secondary,
+  tertiary,
+  outline,
+  large,
+}) => {
+  const Component = outline ? OutlineButton : FillButton
+
+  let brand = 'primary'
+
+  if (secondary) {
+    brand = 'secondary'
+  } else if (tertiary) {
+    brand = 'info'
+  }
+
+  return (
+    <Link href={to} passHref>
+      <Component
+        inlineBlock
+        brand={brand}
+        is="a"
+        className={classnames('c-button', className)}
+        large={large}
+      >
+        {children}
+      </Component>
+    </Link>
+  )
+}
 
 ButtonLink.propTypes = {
   children: PropTypes.node.isRequired,
   to: PropTypes.string.isRequired,
   className: PropTypes.string,
-  primary: PropTypes.bool,
   secondary: PropTypes.bool,
+  tertiary: PropTypes.bool,
   large: PropTypes.bool,
+  outline: PropTypes.bool,
 }
 
 ButtonLink.defaultProps = {
   className: undefined,
-  primary: false,
   secondary: false,
+  tertiary: false,
   large: false,
+  outline: false,
 }
 
 export default ButtonLink

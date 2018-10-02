@@ -4,7 +4,7 @@ import Router from 'next/router'
 
 import initGA from './utils/initGA'
 
-export default WrappedComponent => (
+export default WrappedComponent =>
   class GaWrapper extends Component {
     constructor(props) {
       super(props)
@@ -30,9 +30,6 @@ export default WrappedComponent => (
     }
 
     render() {
-      return (
-        <WrappedComponent {...this.props} />
-      )
+      return <WrappedComponent {...this.props} />
     }
   }
-)

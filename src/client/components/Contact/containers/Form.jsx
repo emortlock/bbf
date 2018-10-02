@@ -20,8 +20,7 @@ const EnhancedForm = compose(
       [FIELDS.HEAR_ABOUT_US]: '',
     }),
     validationSchema: Yup.object().shape({
-      [FIELDS.NAME]: Yup.string()
-        .required('Please enter your name'),
+      [FIELDS.NAME]: Yup.string().required('Please enter your name'),
       [FIELDS.COMPANY]: Yup.string()
         .required('Please enter your company')
         .notRequired(),
@@ -32,8 +31,9 @@ const EnhancedForm = compose(
         .min(11, 'Please enter a valid telephone number')
         .max(19, 'Please enter a valid telephone number')
         .notRequired(),
-      [FIELDS.MESSAGE]: Yup.string()
-        .required('Please enter the message you want to send'),
+      [FIELDS.MESSAGE]: Yup.string().required(
+        'Please enter the message you want to send',
+      ),
     }),
     handleSubmit: (values, { setSubmitting, setStatus }) => {
       fetch('/api/quote', {
@@ -42,11 +42,10 @@ const EnhancedForm = compose(
         headers: {
           'Content-Type': 'application/json',
         },
+      }).then(() => {
+        setStatus(STATUS.SUBMITTED)
+        setSubmitting(false)
       })
-        .then(() => {
-          setStatus(STATUS.SUBMITTED)
-          setSubmitting(false)
-        })
     },
     onReset: (values, { setStatus }) => {
       setStatus(STATUS.INIT)
@@ -54,12 +53,15 @@ const EnhancedForm = compose(
     displayName: 'ContactForm',
   }),
   withHandlers({
-    onRef: () => (el) => { containerEl = el },
+    onRef: () => el => {
+      containerEl = el
+    },
   }),
   lifecycle({
     componentDidMount() {
-      import('react-scroll-to-component')
-        .then((module) => { scrollToComponent = module })
+      import('react-scroll-to-component').then(module => {
+        scrollToComponent = module
+      })
     },
     componentDidUpdate() {
       if (this.props.status === STATUS.SUBMITTED) {

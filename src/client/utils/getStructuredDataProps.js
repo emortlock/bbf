@@ -1,1 +1,1 @@
-export default (props, show) => show ? props : {}
+export default (props, show) => (show ? props : {})

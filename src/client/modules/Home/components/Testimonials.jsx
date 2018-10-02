@@ -5,9 +5,14 @@ import Section from '../../../components/Section'
 import Testimonials from '../../../components/Testimonials'
 
 const Service = () => (
-  <Section bgColour="green">
+  <Section bgColour="teal">
     <H2 dividerColour="white">Testimonials</H2>
-    <Testimonials className="text-left" slidesToShow={2} max={6} arrowColour="white" />
+    <Testimonials
+      className="text-left"
+      slidesToShow={2}
+      max={6}
+      arrowColour="white"
+    />
   </Section>
 )
 

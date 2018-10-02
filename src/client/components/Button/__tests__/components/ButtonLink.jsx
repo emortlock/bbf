@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { ButtonLink } from '../../'
+import { ButtonLink } from '../..'
 
 const setup = (testProps = {}) => {
   const props = {

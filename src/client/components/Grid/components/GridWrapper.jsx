@@ -2,7 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-const GridWrapper = ({ children, className, horizontallyCenter, spaceBetween, ...rest }) => (
+const GridWrapper = ({
+  children,
+  className,
+  horizontallyCenter,
+  spaceBetween,
+  ...rest
+}) => (
   <div {...rest} className={classnames('px-4', className)}>
     <div
       className={classnames(
@@ -11,7 +17,7 @@ const GridWrapper = ({ children, className, horizontallyCenter, spaceBetween, ..
         spaceBetween && 'justify-between',
       )}
     >
-      { children }
+      {children}
     </div>
   </div>
 )

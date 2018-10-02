@@ -7,3 +7,5 @@
 @import "./components/_quote";
 @import "./components/_social";
 @import "./components/_slider";
+
+@tailwind components;

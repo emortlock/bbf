@@ -6,8 +6,10 @@ import { ButtonLink } from '../../../components/Button'
 import Image from '../../../components/Image'
 
 const Guarantee = () => (
-  <Section bgColour="green">
-    <H2 dividerColour="white" className="mb-8">Our Guarantee</H2>
+  <Section bgColour="teal">
+    <H2 dividerColour="white" className="mb-8">
+      Our Guarantee
+    </H2>
     <div className="mb-4">
       <Image
         className="h-48"
@@ -17,11 +19,12 @@ const Guarantee = () => (
       />
     </div>
     <p>
-      From business cards to promotional gifts, you will not find a supplier<br />
+      From business cards to promotional gifts, you will not find a supplier
+      <br />
       more interested in getting things right than us.
     </p>
 
-    <ButtonLink to="/guarantee">
+    <ButtonLink outline secondary to="/guarantee">
       Find out more
     </ButtonLink>
   </Section>

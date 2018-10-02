@@ -31,13 +31,14 @@ class Testimonials extends Component {
   }
 
   componentDidMount() {
-    getTestimonials(
-      this.props.max,
-      testimonials => this.setState({
+    const { max, slidesToShow } = this.props
+
+    getTestimonials(max, testimonials =>
+      this.setState({
         testimonials,
       }),
     )
-    if (this.props.slidesToShow > 1) {
+    if (slidesToShow > 1) {
       this.mediaQuery = matchMedia(MULTI_COL_BREAKPOINT)
       if (this.mediaQuery.matches) this.handleColChange(this.mediaQuery)
       this.mediaQuery.addListener(this.handleColChange.bind(this))
@@ -51,22 +52,24 @@ class Testimonials extends Component {
   }
 
   handleColChange({ matches }) {
+    const { multiCol, activeSlide } = this.state
+
     return this.setState({
       multiCol: matches,
-      activeSlide: matches !== this.state.multiCol ? 0 : this.state.activeSlide,
+      activeSlide: matches !== multiCol ? 0 : activeSlide,
     })
   }
 
   nextSlide() {
-    this.setState({
-      activeSlide: this.state.activeSlide + 1,
-    })
+    this.setState(prevState => ({
+      activeSlide: prevState.activeSlide + 1,
+    }))
   }
 
   prevSlide() {
-    this.setState({
-      activeSlide: this.state.activeSlide - 1,
-    })
+    this.setState(prevState => ({
+      activeSlide: prevState.activeSlide - 1,
+    }))
   }
 
   render() {
@@ -75,65 +78,77 @@ class Testimonials extends Component {
 
     return (
       <div className="c-slider -mx-8 sm:mx-0">
-        {
-          activeSlide > 0 && <ArrowButton colour={arrowColour} direction="left" text="Previous" onClick={this.prevSlide} />
-        }
+        {activeSlide > 0 && (
+          <ArrowButton
+            colour={arrowColour}
+            direction="left"
+            text="Previous"
+            onClick={this.prevSlide}
+          />
+        )}
         <div className="c-slider__wrap">
           <ul
             className="c-slider__list"
             style={{
-              transform: activeSlide !== 0
-                ? `translateX(${(activeSlide * -1) * 100}%)`
-                : undefined,
+              transform:
+                activeSlide !== 0
+                  ? `translateX(${activeSlide * -1 * 100}%)`
+                  : undefined,
             }}
           >
-            {
-              testimonials.map((testimonial, index) => (
-                <li
-                  key={testimonial.quote}
-                  className={classnames(
-                    'c-slider__item',
-                    slidesToShow > 1 && `sm:w-1/${slidesToShow}`,
-                    !(index >= (multiCol ? activeSlide * slidesToShow : activeSlide)
-                      && index <= (multiCol
-                        ? (activeSlide * slidesToShow) + (slidesToShow - 1)
+            {testimonials.map((testimonial, index) => (
+              <li
+                key={testimonial.quote}
+                className={classnames(
+                  'c-slider__item',
+                  slidesToShow > 1 && `sm:w-1/${slidesToShow}`,
+                  !(
+                    index >=
+                      (multiCol ? activeSlide * slidesToShow : activeSlide) &&
+                    index <=
+                      (multiCol
+                        ? activeSlide * slidesToShow + (slidesToShow - 1)
                         : activeSlide)
-                    ) && 'c-slider__item--hidden',
-                  )}
-                >
-                  <blockquote className="c-quote">
-                    <div className="c-quote__body-wrap">
-                      <div
-                        className="c-quote__body"
-                        // eslint-disable-next-line react/no-danger
-                        dangerouslySetInnerHTML={{
-                          __html: useShort && testimonial.quoteShort
+                  ) && 'c-slider__item--hidden',
+                )}
+              >
+                <blockquote className="c-quote">
+                  <div className="c-quote__body-wrap">
+                    <div
+                      className="c-quote__body"
+                      // eslint-disable-next-line react/no-danger
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          useShort && testimonial.quoteShort
                             ? testimonial.quoteShort
                             : testimonial.quote,
-                        }}
-                      />
-                    </div>
-                    <cite className="c-quote__citation c-quote__citation--wrap">
-                      <span className="c-quote__citation c-quote__citation--contact">
-                        { testimonial.contact }
-                      </span>
-                      <span className="c-quote__citation c-quote__citation--company">
-                        { testimonial.company }
-                      </span>
-                    </cite>
-                  </blockquote>
-                </li>
-              ))
-            }
+                      }}
+                    />
+                  </div>
+                  <cite className="c-quote__citation c-quote__citation--wrap">
+                    <span className="c-quote__citation c-quote__citation--contact">
+                      {testimonial.contact}
+                    </span>
+                    <span className="c-quote__citation c-quote__citation--company">
+                      {testimonial.company}
+                    </span>
+                  </cite>
+                </blockquote>
+              </li>
+            ))}
           </ul>
         </div>
-        {
-          activeSlide < (multiCol
+        {activeSlide <
+          (multiCol
             ? Math.floor((testimonials.length - 1) / slidesToShow)
-            : testimonials.length - 1
-          ) &&
-            <ArrowButton colour={arrowColour} direction="right" text="Next" onClick={this.nextSlide} />
-        }
+            : testimonials.length - 1) && (
+          <ArrowButton
+            colour={arrowColour}
+            direction="right"
+            text="Next"
+            onClick={this.nextSlide}
+          />
+        )}
       </div>
     )
   }
