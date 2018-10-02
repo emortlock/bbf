@@ -13,7 +13,7 @@ const Guarantee = () => (
     <div className="mb-4">
       <Image
         className="h-48"
-        src="/static/images/guarantee-white.png"
+        src="/static/images/guarantee.png"
         alt="BBF guarantee of quality and service"
         placeholderHeight={192}
       />

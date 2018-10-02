@@ -21,10 +21,7 @@ const About = () => (
     </Head>
     <Hero title="Our Guarantee" />
     <PageWrap>
-      <div
-        className="bg-contain bg-no-repeat bg-center"
-        style={{ backgroundImage: 'url(/static/images/guarantee-bg.png)' }}
-      >
+      <div>
         <p>
           A dedicated team member will help and guide you to buy efficiently and
           effectively at the best possible price and will build an in depth
