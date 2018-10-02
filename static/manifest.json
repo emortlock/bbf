@@ -2,8 +2,8 @@
   "short_name": "BBF",
   "name": "Berkeley Business Forms",
   "start_url": "/?utm_source=homescreen",
-  "background_color": "#eeeeef",
-  "theme_color": "#007049",
+  "background_color": "#ededed",
+  "theme_color": "#00A397",
   "display": "minimal-ui",
   "icons": [
     {

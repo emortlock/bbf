@@ -48,7 +48,7 @@ class Layout extends Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <meta key="themeColor" name="theme-color" content="#007049" />
+          <meta key="themeColor" name="theme-color" content="#00A397" />
 
           <link key="manifest" rel="manifest" href="/static/manifest.json" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
