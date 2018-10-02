@@ -1,6 +1,10 @@
 const withCSS = require('@zeit/next-css')
 const withMdxc = require('@zeit/next-mdxc')
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer')
+const {
+  getWhitelist,
+  TailwindReactExtractor,
+} = require('tailwind-react-ui/tools')
 
 const path = require('path')
 const glob = require('glob-all')
@@ -40,13 +44,42 @@ module.exports = (phase, { defaultConfig }) =>
           if (!dev && !isServer) {
             newConfig.plugins.push(
               new PurgecssPlugin({
-                whitelist: ['html', 'body', 'c-heading--divider-white'],
+                whitelist: getWhitelist(
+                  {
+                    brandColors: {
+                      primary: 'teal',
+                      secondary: 'white',
+                      info: 'yellow',
+                    },
+                    textColors: {
+                      on: {
+                        primary: 'white',
+                        secondary: 'black',
+                        info: 'black',
+                      },
+                    },
+                  },
+                  [
+                    'html',
+                    'body',
+                    'c-heading--divider-white',
+                    'md:w-auto',
+                    'md:pin-t',
+                    'md:pin-r',
+                    'px-8',
+                    'p-6',
+                  ],
+                ),
                 whitelistPatterns: [/-[0-9]\/[0-9]$/],
                 paths: glob.sync([
                   path.join(__dirname, '/src/client/**/*.js'),
                   path.join(__dirname, '/src/client/**/*.jsx'),
                 ]),
                 extractors: [
+                  {
+                    extractor: TailwindReactExtractor,
+                    extensions: ['jsx'],
+                  },
                   {
                     extractor: TailwindExtractor,
                     extensions: ['html', 'js', 'jsx'],
