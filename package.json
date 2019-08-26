@@ -129,7 +129,8 @@
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
-    ]
+    ],
+    "testURL": "http://localhost/"
   },
   "prettier": {
     "semi": false,
