@@ -36,16 +36,19 @@ const EnhancedForm = compose(
       ),
     }),
     handleSubmit: (values, { setSubmitting, setStatus }) => {
-      fetch('/api/quote', {
-        method: 'post',
-        body: JSON.stringify(values),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }).then(() => {
-        setStatus(STATUS.SUBMITTED)
-        setSubmitting(false)
-      })
+      // Disabled for demo purposes
+      // fetch('/api/quote', {
+      //   method: 'post',
+      //   body: JSON.stringify(values),
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      // }).then(() => {
+      //   setStatus(STATUS.SUBMITTED)
+      //   setSubmitting(false)
+      // })
+
+      return false
     },
     onReset: (values, { setStatus }) => {
       setStatus(STATUS.INIT)
