@@ -143,15 +143,9 @@ const Footer = ({ showTestimonials, structuredData }) => (
           </li>
         </ul>
         <p>
-          &copy;&nbsp;
-          <span
-            {...getStructuredDataProps(
-              { itemProp: 'legalName' },
-              structuredData,
-            )}
-          >
-            Berkeley Business Forms Ltd.
-          </span>
+          Created by Edward Mortlock, hosted purely for demo purposes. The
+          website no longer represents the BBF brand and so any views or
+          opinions should not be attributed to the company or its employees.
         </p>
       </GridItem>
     </GridWrapper>
